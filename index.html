@@ -22,7 +22,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="preload" href="assets/img/mark.png" as="image">
 
   <script type="application/ld+json">
   {
@@ -36,16 +35,6 @@
   </script>
 </head>
 <body>
-  <script>
-    (function () {
-      try {
-        if (matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('ivelro-intro')) return;
-        sessionStorage.setItem('ivelro-intro', '1');
-      } catch (e) { return; }
-      document.documentElement.classList.add('has-intro');
-      document.write('<div class="intro" aria-hidden="true"><div class="intro-mark"><img src="assets/img/mark.png" alt="" width="184" height="182"></div></div>');
-    })();
-  </script>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -75,14 +64,10 @@
       </div>
 
       <div class="container hero-inner">
-        <div class="hero-visual" aria-hidden="true">
-          <canvas class="hero-canvas"></canvas>
-        </div>
-        <div class="hero-copy">
-          <p class="eyebrow reveal">Intelligent Automation. Digital Innovation.</p>
-          <h1 class="hero-title" data-split>Transforming the way businesses operate through artificial intelligence, intelligent automation and modern digital solutions.</h1>
-          <p class="hero-text reveal">We create innovative, efficient and scalable technologies that help businesses simplify everyday operations, enhance customer experiences and unlock new opportunities for growth.</p>
-        </div>
+        <img class="hero-logo reveal" src="assets/img/logo.png" alt="IVELRO" width="354" height="155">
+        <p class="eyebrow reveal">Intelligent Automation. Digital Innovation.</p>
+        <h1 class="hero-title" data-split>Transforming the way businesses operate through artificial intelligence, intelligent automation and modern digital solutions.</h1>
+        <p class="hero-text reveal">We create innovative, efficient and scalable technologies that help businesses simplify everyday operations, enhance customer experiences and unlock new opportunities for growth.</p>
       </div>
 
       <a class="scroll-cue" href="#services" aria-label="Scroll to services">
@@ -90,25 +75,6 @@
         <i aria-hidden="true"></i>
       </a>
     </section>
-
-    <div class="marquee" aria-label="Web Development, Digital Experiences, Business Automation, AI Integration. Intelligence, Simplified.">
-      <div class="marquee-track" aria-hidden="true">
-        <div class="marquee-group">
-          <span>Web Development</span><i></i>
-          <span>Digital Experiences</span><i></i>
-          <span>Business Automation</span><i></i>
-          <span>AI Integration</span><i></i>
-          <span>Intelligence, Simplified</span><i></i>
-        </div>
-        <div class="marquee-group">
-          <span>Web Development</span><i></i>
-          <span>Digital Experiences</span><i></i>
-          <span>Business Automation</span><i></i>
-          <span>AI Integration</span><i></i>
-          <span>Intelligence, Simplified</span><i></i>
-        </div>
-      </div>
-    </div>
 
     <section class="section" id="services" aria-labelledby="services-title">
       <div class="container">
@@ -120,17 +86,6 @@
         <ol class="services">
           <li class="card reveal">
             <span class="card-num" aria-hidden="true">01</span>
-            <svg class="illo illo-web" viewBox="0 0 120 84" aria-hidden="true">
-              <rect class="frame" x="0.5" y="0.5" width="119" height="83" rx="3"/>
-              <line class="frame" x1="0.5" y1="14" x2="119.5" y2="14"/>
-              <circle class="dot" cx="9" cy="7.5" r="2"/><circle class="dot" cx="16" cy="7.5" r="2"/><circle class="dot" cx="23" cy="7.5" r="2"/>
-              <rect class="blk b1" x="10" y="24" width="56" height="7" rx="1"/>
-              <rect class="blk b2" x="10" y="36" width="36" height="4" rx="1"/>
-              <rect class="blk b3" x="10" y="52" width="30" height="22" rx="1"/>
-              <rect class="blk b4" x="45" y="52" width="30" height="22" rx="1"/>
-              <rect class="blk b5" x="80" y="52" width="30" height="22" rx="1"/>
-              <rect class="blk b6" x="80" y="24" width="30" height="16" rx="1"/>
-            </svg>
             <h3 class="card-title">Web Development &amp; Digital Experiences</h3>
             <p class="card-text">Modern, elegant and high-performance websites that strengthen digital presence and create seamless customer experiences.</p>
             <ul class="tags" aria-label="Includes">
@@ -142,20 +97,6 @@
           </li>
           <li class="card reveal">
             <span class="card-num" aria-hidden="true">02</span>
-            <svg class="illo illo-flow" viewBox="0 0 120 84" aria-hidden="true">
-              <path id="flow-path" class="wire" d="M14 42 C 38 42, 38 16, 60 16 S 82 68, 106 68"/>
-              <path class="wire faint" d="M14 42 C 40 42, 46 68, 60 68 S 84 16, 106 16"/>
-              <rect class="node" x="4" y="32" width="20" height="20" rx="3"/>
-              <rect class="node" x="50" y="6" width="20" height="20" rx="3"/>
-              <rect class="node" x="96" y="58" width="20" height="20" rx="3"/>
-              <rect class="node faint" x="50" y="58" width="20" height="20" rx="3"/>
-              <rect class="node faint" x="96" y="6" width="20" height="20" rx="3"/>
-              <circle class="pulse" r="2.4">
-                <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto">
-                  <mpath href="#flow-path"/>
-                </animateMotion>
-              </circle>
-            </svg>
             <h3 class="card-title">Business Automation &amp; AI Integration</h3>
             <p class="card-text">Automating repetitive tasks, connecting digital tools and integrating artificial intelligence into everyday workflows.</p>
             <ul class="tags" aria-label="Includes">
@@ -236,11 +177,11 @@
       <div class="container statements-grid">
         <div class="statement reveal" id="mission">
           <p class="label">Our Mission</p>
-          <p class="statement-text" data-words>To make intelligent technology accessible, practical and valuable for businesses of every size.</p>
+          <p class="statement-text">To make intelligent technology accessible, practical and valuable for businesses of every size.</p>
         </div>
         <div class="statement reveal" id="vision">
           <p class="label">Our Vision</p>
-          <p class="statement-text" data-words>To redefine how businesses interact, operate and grow through thoughtful innovation and intelligent digital experiences.</p>
+          <p class="statement-text">To redefine how businesses interact, operate and grow through thoughtful innovation and intelligent digital experiences.</p>
         </div>
       </div>
     </section>
