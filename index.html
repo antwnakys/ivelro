@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IVELRO — Intelligent Automation. Digital Innovation.</title>
+  <meta name="description" content="IVELRO is a technology company building AI receptionists, intelligent assistants, modern websites and business automation that help organisations operate more efficiently.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="IVELRO">
+  <meta property="og:title" content="IVELRO — Intelligence, Simplified.">
+  <meta property="og:description" content="AI receptionists, intelligent assistants, web development and business automation.">
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="IVELRO home">
+        <img class="brand-mark" src="assets/img/mark.png" alt="" width="22" height="22">
+        <img class="brand-word" src="assets/img/wordmark.png" alt="IVELRO" width="118" height="13">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#mission">Mission</a>
+        <a href="#vision">Vision</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <img class="hero-logo reveal" src="assets/img/logo.png" alt="IVELRO" width="354" height="155">
+        <p class="eyebrow reveal">Intelligent Automation. Digital Innovation.</p>
+        <h1 class="hero-title reveal">Transforming the way businesses operate through artificial intelligence, intelligent automation and modern digital solutions.</h1>
+        <p class="hero-text reveal">We create innovative, efficient and scalable technologies that help businesses simplify everyday operations, enhance customer experiences and unlock new opportunities for growth.</p>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">What We Do</p>
+          <h2 class="section-title" id="services-title">Practical technology, built around how your business works.</h2>
+        </div>
+
+        <ol class="services">
+          <li class="service reveal">
+            <span class="service-num">01</span>
+            <h3 class="service-title">AI Receptionist &amp; Intelligent Assistants</h3>
+            <p>Intelligent AI-powered assistants designed to handle customer inquiries, support appointment scheduling and streamline business communication.</p>
+          </li>
+          <li class="service reveal">
+            <span class="service-num">02</span>
+            <h3 class="service-title">Web Development &amp; Digital Experiences</h3>
+            <p>Modern, elegant and high-performance websites that strengthen digital presence and create seamless customer experiences.</p>
+          </li>
+          <li class="service reveal">
+            <span class="service-num">03</span>
+            <h3 class="service-title">Business Automation &amp; AI Integration</h3>
+            <p>Automating repetitive tasks, connecting digital tools and integrating artificial intelligence into everyday workflows.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section statements" aria-label="Mission and vision">
+      <div class="container statements-grid">
+        <div class="statement reveal" id="mission">
+          <p class="label">Our Mission</p>
+          <p class="statement-text">To make intelligent technology accessible, practical and valuable for businesses of every size.</p>
+        </div>
+        <div class="statement reveal" id="vision">
+          <p class="label">Our Vision</p>
+          <p class="statement-text">To redefine how businesses interact, operate and grow through thoughtful innovation and intelligent digital experiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <img class="closing-mark reveal" src="assets/img/mark.png" alt="" width="44" height="44">
+        <p class="closing-text reveal">Intelligence, Simplified.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year">2026</span> IVELRO</span>
+      <span>Intelligent Automation. Digital Innovation.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      document.documentElement.classList.add('js-reveal');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
