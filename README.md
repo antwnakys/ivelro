@@ -10,7 +10,7 @@ A static site (plain HTML and CSS, no build step), published to GitHub Pages by
 ```
 index.html            Single-page site
 404.html              Not-found page
-assets/js/main.js     Footer year and nav highlighting
+assets/js/main.js     Interactions (header, reveals, scroll-spy, card spotlight)
 assets/css/style.css  Styles (colour tokens at the top of the file)
 assets/img/           Logo, favicon and social-preview image
 ```
