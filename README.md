@@ -9,6 +9,8 @@ A static site (plain HTML and CSS, no build step), published to GitHub Pages by
 
 ```
 index.html            Single-page site
+404.html              Not-found page
+assets/js/main.js     Interactions (header, reveals, scroll-spy, card spotlight)
 assets/css/style.css  Styles (colour tokens at the top of the file)
 assets/img/           Logo, favicon and social-preview image
 ```
@@ -29,4 +31,5 @@ Then open http://localhost:8000.
    - `www`: a `CNAME` record to `antwnakys.github.io`
 3. In the repo go to **Settings → Pages**, enter the domain under *Custom domain* and enable **Enforce HTTPS**.
 
-All asset paths are relative, so nothing in the site needs to change.
+Paths in `index.html` are relative, so it needs no changes. In `404.html`, change
+`<base href="/ivelro/">` to `<base href="/">`.
