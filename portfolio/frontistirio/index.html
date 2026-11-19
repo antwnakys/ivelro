@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Φροντιστήριο Ευθεία — Δείγμα ιστοσελίδας από την IVELRO</title>
+  <meta name="description" content="Δείγμα ιστοσελίδας φροντιστηρίου, σχεδιασμένο από την IVELRO. Το φροντιστήριο είναι φανταστικό.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&display=swap">
+  <style>
+    /* Layout: friendly, trustworthy school site. Navy ink + pencil yellow, lots of white. */
+    :root {
+      --ink: #1f3a5f;
+      --ink-dark: #152a46;
+      --pencil: #f4b740;
+      --text: #1b2330;
+      --muted: #5b6675;
+      --line: #e3e8ef;
+      --soft: #f3f6fa;
+      --white: #ffffff;
+      --font: "Commissioner", "Segoe UI", Arial, sans-serif;
+      --wrap: 1120px;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { margin: 0; background: var(--white); color: var(--text); font-family: var(--font); font-size: 17px; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; text-wrap: balance; }
+    p { margin: 0; }
+    .wrap { max-width: calc(var(--wrap) + 48px); margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)); }
+    :focus-visible { outline: 3px solid var(--pencil); outline-offset: 3px; }
+
+    .demo-bar { background: var(--text); color: #e9edf3; font-size: 13.5px; text-align: center; padding: 8px 16px; }
+    .demo-bar a { color: var(--pencil); font-weight: 600; }
+
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 68px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; color: var(--ink); text-decoration: none; }
+    .logo-mark { width: 34px; height: 34px; border-radius: 8px; background: var(--ink); position: relative; flex-shrink: 0; }
+    .logo-mark::after { content: ""; position: absolute; left: 7px; right: 7px; top: 16px; height: 3px; border-radius: 2px; background: var(--pencil); }
+    .links { display: flex; gap: 26px; font-size: 15px; font-weight: 500; }
+    .links a { text-decoration: none; color: var(--muted); }
+    .links a:hover { color: var(--ink); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 15.5px; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-family: inherit; }
+    .btn-primary { background: var(--ink); color: var(--white); }
+    .btn-primary:hover { background: var(--ink-dark); }
+    .btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+    .btn-ghost:hover { background: var(--soft); }
+    .btn-yellow { background: var(--pencil); color: var(--ink-dark); }
+
+    .hero { padding: 72px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+    .tag { display: inline-block; background: #fdf1d6; color: #8a5a00; font-weight: 600; font-size: 13.5px; padding: 6px 12px; border-radius: 999px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(34px, 4.6vw, 52px); color: var(--ink); letter-spacing: -0.01em; }
+    .hero h1 span { box-shadow: inset 0 -0.32em 0 var(--pencil); }
+    .hero p.lead { margin-top: 20px; font-size: 19px; color: var(--muted); max-width: 52ch; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-card { background: var(--soft); border-radius: 18px; padding: 30px; border: 1px solid var(--line); }
+    .hero-card h3 { font-size: 18px; color: var(--ink); margin-bottom: 16px; }
+    .next { display: grid; gap: 12px; }
+    .next div { display: flex; justify-content: space-between; gap: 12px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 15px; }
+    .next b { color: var(--ink); }
+    .next span { color: var(--muted); white-space: nowrap; }
+    .hero-card .note { font-size: 13.5px; color: var(--muted); margin-top: 14px; }
+
+    .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 28px 12px; text-align: center; }
+    .stat + .stat { border-left: 1px solid var(--line); }
+    .stat strong { display: block; font-size: 32px; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .stat span { font-size: 14.5px; color: var(--muted); }
+
+    section { padding: 84px 0; }
+    .soft { background: var(--soft); }
+    .head { max-width: 640px; margin-bottom: 44px; }
+    .head h2 { font-size: clamp(28px, 3.4vw, 38px); color: var(--ink); }
+    .head p { margin-top: 12px; color: var(--muted); font-size: 18px; }
+
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+    .card .level { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; }
+    .card h3 { font-size: 21px; color: var(--ink); margin: 8px 0 10px; }
+    .card p { color: var(--muted); font-size: 15.5px; }
+    .card ul { margin: 14px 0 0; padding-left: 18px; color: var(--text); font-size: 15px; }
+    .icon { width: 42px; height: 42px; border-radius: 10px; background: #fdf1d6; color: var(--ink); display: grid; place-items: center; font-weight: 700; margin-bottom: 14px; }
+
+    table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 14px; overflow: hidden; font-size: 15.5px; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { background: var(--ink); color: var(--white); font-weight: 600; }
+    td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+
+    .quote { font-size: 17px; margin: 0; }
+    .quote p { color: var(--text); }
+    .quote footer { margin-top: 14px; font-size: 14.5px; color: var(--muted); }
+
+    .signup { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+    .signup ol { padding-left: 20px; color: var(--muted); }
+    .signup ol li { margin-bottom: 8px; }
+    form { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: grid; gap: 16px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: grid; gap: 6px; font-size: 14.5px; font-weight: 500; }
+    input, select { font: inherit; font-size: 16px; padding: 11px 12px; border: 1px solid #c9d2de; border-radius: 10px; background: var(--white); color: var(--text); }
+    input:focus, select:focus { outline: 2px solid var(--ink); border-color: var(--ink); }
+    .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 14px; color: var(--muted); }
+    .check input { margin-top: 3px; }
+    .success { display: none; background: #e7f6ec; border: 1px solid #b7e2c4; color: #1d5b33; border-radius: 12px; padding: 16px; font-size: 15px; }
+    .success.show { display: block; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .map { min-height: 260px; border-radius: 16px; background:
+      linear-gradient(90deg, transparent 49%, #d6dee8 49%, #d6dee8 51%, transparent 51%) 0 0 / 80px 80px,
+      linear-gradient(0deg, transparent 49%, #d6dee8 49%, #d6dee8 51%, transparent 51%) 0 0 / 80px 80px,
+      #eef2f7; position: relative; border: 1px solid var(--line); }
+    .pin { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -100%); background: var(--ink); color: var(--white); padding: 8px 12px; border-radius: 10px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+    .pin::after { content: ""; position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--ink); border-bottom: 0; }
+    .info { display: grid; gap: 18px; }
+    .info div b { display: block; color: var(--ink); }
+    .info div span { color: var(--muted); }
+
+    footer.site { background: var(--ink-dark); color: #c9d4e3; padding: 36px 0; font-size: 14.5px; }
+    footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer.site a { color: var(--pencil); }
+
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero-grid, .signup, .contact-grid { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .stats .wrap { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(3) { border-left: 0; }
+      .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 560px) {
+      .grid-4, .row { grid-template-columns: 1fr; }
+      .nav .btn { padding: 10px 14px; font-size: 14px; }
+      section { padding: 64px 0; }
+      .hero { padding: 48px 0 56px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Το φροντιστήριο, τα στοιχεία και τα αποτελέσματα είναι φανταστικά.</div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"></span>Φροντιστήριο Ευθεία</a>
+      <nav class="links" aria-label="Κύριο μενού">
+        <a href="#tmimata">Τμήματα</a>
+        <a href="#giati">Γιατί εμάς</a>
+        <a href="#programma">Πρόγραμμα</a>
+        <a href="#epikoinonia">Επικοινωνία</a>
+      </nav>
+      <a class="btn btn-primary" href="#eggrafi">Online εγγραφή</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="tag">Εγγραφές 2026–27 ανοιχτές</span>
+          <h1>Μικρά τμήματα, <span>καθαρός στόχος</span>, ήρεμη προετοιμασία.</h1>
+          <p class="lead">Φροντιστήριο για Δημοτικό, Γυμνάσιο και Λύκειο στο Παγκράτι. Έως 6 μαθητές ανά τμήμα και εβδομαδιαία ενημέρωση γονέων.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#eggrafi">Κάντε εγγραφή online</a>
+            <a class="btn btn-ghost" href="#epikoinonia">Κλείστε γνωριμία</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Επόμενα τμήματα">
+          <h3>Επόμενα τμήματα που ξεκινούν</h3>
+          <div class="next">
+            <div><b>Γ΄ Λυκείου, Θετικό</b><span>Δευ 7 Σεπ</span></div>
+            <div><b>Α΄ Γυμνασίου, Μαθηματικά</b><span>Τετ 9 Σεπ</span></div>
+            <div><b>Ε΄–ΣΤ΄ Δημοτικού, Μελέτη</b><span>Πεμ 10 Σεπ</span></div>
+          </div>
+          <p class="note">Λίγες θέσεις σε κάθε τμήμα. Η εγγραφή online παίρνει 1 λεπτό.</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="wrap">
+        <div class="stat"><strong>6</strong><span>μαθητές το πολύ ανά τμήμα</span></div>
+        <div class="stat"><strong>15+</strong><span>χρόνια στη γειτονιά</span></div>
+        <div class="stat"><strong>92%</strong><span>επιτυχία στην πρώτη επιλογή*</span></div>
+        <div class="stat"><strong>1</strong><span>μήνυμα στους γονείς κάθε εβδομάδα</span></div>
+      </div>
+    </div>
+
+    <section id="tmimata">
+      <div class="wrap">
+        <div class="head">
+          <h2>Τμήματα για κάθε τάξη</h2>
+          <p>Κάθε μαθητής ξεκινά με ένα δωρεάν διαγνωστικό, για να μπει στο τμήμα που του ταιριάζει.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card"><span class="level">Δημοτικό</span><h3>Μελέτη & βάσεις</h3><p>Καθημερινή μελέτη, γλώσσα και μαθηματικά με ήρεμο ρυθμό.</p></article>
+          <article class="card"><span class="level">Γυμνάσιο</span><h3>Σταθερή πρόοδος</h3><p>Μαθηματικά, φυσική, αρχαία και έκθεση, με τεστ κάθε δύο εβδομάδες.</p></article>
+          <article class="card"><span class="level">Λύκειο</span><h3>Πανελλήνιες</h3><p>Προετοιμασία ανά πεδίο, προσομοιώσεις και προσωπικό πλάνο επανάληψης.</p></article>
+          <article class="card"><span class="level">Όλες οι τάξεις</span><h3>Ξένες γλώσσες</h3><p>Αγγλικά από A1 έως C2 και προετοιμασία για πτυχία.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="giati" class="soft">
+      <div class="wrap">
+        <div class="head">
+          <h2>Γιατί μας επιλέγουν οι γονείς</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="icon">6</div><h3>Ολιγομελή τμήματα</h3><p>Ο καθηγητής ξέρει πού δυσκολεύεται κάθε παιδί και προσαρμόζει το μάθημα.</p></div>
+          <div class="card"><div class="icon">✉</div><h3>Ενημέρωση κάθε εβδομάδα</h3><p>Απουσίες, βαθμοί διαγωνισμάτων και σχόλια στο κινητό σας, χωρίς να χρειαστεί να ρωτήσετε.</p></div>
+          <div class="card"><div class="icon">✓</div><h3>Πλάνο για κάθε μαθητή</h3><p>Στόχοι ανά τρίμηνο και συνάντηση με τους γονείς δύο φορές τον χρόνο.</p></div>
+        </div>
+        <div class="grid-3" style="margin-top:20px">
+          <blockquote class="card quote"><p>«Ξέραμε πάντα πώς πάει ο γιος μας, χωρίς να κυνηγάμε κανέναν.»</p><footer>Μαρία, μητέρα μαθητή Β΄ Λυκείου*</footer></blockquote>
+          <blockquote class="card quote"><p>«Τα μικρά τμήματα έκαναν τη διαφορά στα μαθηματικά.»</p><footer>Νίκος, απόφοιτος 2025*</footer></blockquote>
+          <blockquote class="card quote"><p>«Η εγγραφή έγινε από το κινητό σε ένα λεπτό.»</p><footer>Ελένη, μητέρα μαθήτριας Α΄ Γυμνασίου*</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="programma">
+      <div class="wrap">
+        <div class="head">
+          <h2>Ενδεικτικό εβδομαδιαίο πρόγραμμα</h2>
+          <p>Το τελικό πρόγραμμα ορίζεται μετά το διαγνωστικό.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Τάξη</th><th>Δευτέρα</th><th>Τετάρτη</th><th>Παρασκευή</th></tr></thead>
+            <tbody>
+              <tr><td>Δημοτικό</td><td>16:00–17:30 Μελέτη</td><td>16:00–17:30 Μελέτη</td><td>16:00–17:00 Αγγλικά</td></tr>
+              <tr><td>Γυμνάσιο</td><td>17:30–19:00 Μαθηματικά</td><td>17:30–19:00 Φυσική</td><td>17:00–18:30 Έκθεση</td></tr>
+              <tr><td>Β΄ Λυκείου</td><td>19:00–21:00 Μαθηματικά</td><td>19:00–21:00 Φυσική</td><td>18:30–20:30 Χημεία</td></tr>
+              <tr><td>Γ΄ Λυκείου</td><td>19:00–22:00 Πεδίο</td><td>19:00–22:00 Πεδίο</td><td>18:30–21:30 Προσομοίωση</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="eggrafi" class="soft">
+      <div class="wrap signup">
+        <div class="head">
+          <h2>Online εγγραφή</h2>
+          <p>Συμπληρώστε τη φόρμα και θα λάβετε αμέσως email επιβεβαίωσης.</p>
+          <ol style="margin-top:20px">
+            <li>Συμπληρώνετε τα στοιχεία (1 λεπτό).</li>
+            <li>Λαμβάνετε email επιβεβαίωσης.</li>
+            <li>Σας καλούμε για το δωρεάν διαγνωστικό.</li>
+          </ol>
+        </div>
+        <form id="signup" novalidate>
+          <div class="row">
+            <label for="parent">Όνομα γονέα<input id="parent" name="parent" required autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου"></label>
+            <label for="student">Όνομα μαθητή<input id="student" name="student" required placeholder="π.χ. Γιώργος"></label>
+          </div>
+          <div class="row">
+            <label for="email">Email γονέα<input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com"></label>
+            <label for="phone">Τηλέφωνο<input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="69x xxx xxxx"></label>
+          </div>
+          <label for="grade">Τάξη
+            <select id="grade" name="grade" required>
+              <option value="">Επιλέξτε τάξη</option>
+              <option>Δ΄–ΣΤ΄ Δημοτικού</option><option>Α΄ Γυμνασίου</option><option>Β΄ Γυμνασίου</option><option>Γ΄ Γυμνασίου</option>
+              <option>Α΄ Λυκείου</option><option>Β΄ Λυκείου</option><option>Γ΄ Λυκείου</option>
+            </select>
+          </label>
+          <label class="check" for="consent"><input id="consent" type="checkbox" required> Συμφωνώ με την επεξεργασία των στοιχείων μου για την εγγραφή.</label>
+          <button class="btn btn-primary" type="submit">Ολοκλήρωση εγγραφής</button>
+          <div class="success" id="success" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="epikoinonia">
+      <div class="wrap">
+        <div class="head"><h2>Επικοινωνία</h2><p>Περάστε για έναν καφέ και μια γνωριμία με τους καθηγητές.</p></div>
+        <div class="contact-grid">
+          <div class="info">
+            <div><b>Διεύθυνση</b><span>Οδός Παραδείγματος 12, Παγκράτι</span></div>
+            <div><b>Τηλέφωνο</b><span>210 000 0000</span></div>
+            <div><b>Email</b><span>info@example.com</span></div>
+            <div><b>Ώρες γραμματείας</b><span>Δευτέρα–Παρασκευή, 15:00–21:00</span></div>
+            <div><a class="btn btn-yellow" href="#eggrafi">Online εγγραφή</a></div>
+          </div>
+          <div class="map" role="img" aria-label="Χάρτης (δείγμα)"><span class="pin">Φροντιστήριο Ευθεία</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© 2026 Φροντιστήριο Ευθεία · *Τα στοιχεία είναι ενδεικτικά για το δείγμα.</span>
+      <span>Σχεδιασμός &amp; ανάπτυξη: <a href="https://ivelro.com">IVELRO</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signup').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target, msg = document.getElementById('success');
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      var parent = f.parent.value.trim(), student = f.student.value.trim(), email = f.email.value.trim();
+      msg.textContent = 'Ευχαριστούμε, ' + parent + '! Η εγγραφή του/της ' + student + ' καταχωρήθηκε. ' +
+        'Σε πραγματική ιστοσελίδα, θα στέλναμε τώρα αυτόματα email επιβεβαίωσης στο ' + email +
+        ' και η εγγραφή θα έμπαινε στη λίστα του φροντιστηρίου (δείγμα IVELRO).';
+      msg.classList.add('show');
+      f.reset();
+    });
+  </script>
+</body>
+</html>
