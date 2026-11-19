@@ -392,6 +392,14 @@ a { color: inherit; text-decoration: none; }
 .br-phone { display: none; }
 
 /* ---------- Footer ---------- */
+.work-link { margin-top: 32px; }
+.work-link a {
+  font-size: 15px; color: var(--muted); text-decoration: none;
+  border-bottom: 1px solid var(--rule-strong); padding-bottom: 3px;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.work-link a:hover { color: var(--text); border-color: var(--text); }
+
 .site-footer { border-top: 1px solid var(--rule); }
 .footer-top {
   display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap;
