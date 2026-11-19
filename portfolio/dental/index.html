@@ -6,6 +6,7 @@
   <title>Οδοντιατρείο Ρίζα, Αμπελόκηποι | Δείγμα ιστοσελίδας IVELRO</title>
   <meta name="description" content="Δείγμα ιστοσελίδας οδοντιατρείου, σχεδιασμένο από την IVELRO. Το οδοντιατρείο είναι φανταστικό.">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1e4d43">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,19 +25,25 @@
       color-scheme: light;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-tap-highlight-color: rgba(30, 77, 67, .12); }
     body { margin: 0; background: var(--white); color: var(--text); font-family: var(--font); font-size: 16.5px; line-height: 1.65; }
     h1, h2, h3 { margin: 0; line-height: 1.2; color: var(--pine); font-weight: 600; text-wrap: balance; }
     p { margin: 0; }
     a { color: var(--pine-2); }
     .wrap { max-width: 1120px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)); }
     :focus-visible { outline: 3px solid #e0b25b; outline-offset: 2px; }
+    a, button, summary, label, select, input, textarea { touch-action: manipulation; }
+    a, .btn, .menu-btn, summary { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
+    .btn:active { transform: translateY(1px); }
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--pine); color: #fff; padding: 10px 16px; font-weight: 600; text-decoration: none; border-radius: 6px; }
+    .skip:focus { top: 12px; }
 
     .demo { background: #fff7e6; color: #6b4b10; font-size: 13px; text-align: center; padding: 6px 16px; border-bottom: 1px solid #f0dfb8; }
     .demo a { color: inherit; font-weight: 600; }
     .util { background: var(--pine); color: #d5e3df; font-size: 13.5px; }
     .util .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 7px; padding-bottom: 7px; }
     .util a { color: #fff; text-decoration: none; font-weight: 600; }
+    .util a:hover { text-decoration: underline; }
 
     header { position: sticky; top: 0; z-index: 20; background: var(--white); border-bottom: 1px solid var(--rule); }
     .bar { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
@@ -47,7 +54,14 @@
     nav { display: flex; gap: 24px; font-size: 15px; font-weight: 500; }
     nav a { color: var(--text); text-decoration: none; }
     nav a:hover { color: var(--pine-2); }
-    .btn { display: inline-block; background: var(--pine); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 20px; border-radius: 6px; border: 0; cursor: pointer; font-family: inherit; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; background: var(--pine); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 0 20px; border-radius: 6px; border: 0; cursor: pointer; font-family: inherit; white-space: nowrap; }
+    .btn:disabled { opacity: .75; cursor: progress; }
+    .short { display: none; }
+    .menu-btn { display: none; flex: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 6px; background: var(--white); color: var(--pine); cursor: pointer; }
+    .menu-btn:hover { border-color: var(--pine); }
+    .menu-btn svg { width: 20px; height: 20px; }
+    .menu-btn .x, .menu-btn[aria-expanded="true"] .bars { display: none; }
+    .menu-btn[aria-expanded="true"] .x { display: block; }
     .btn:hover { background: var(--pine-2); }
     .btn-line { background: transparent; color: var(--pine); box-shadow: inset 0 0 0 1.5px var(--pine); }
     .btn-line:hover { background: var(--sand); }
@@ -57,11 +71,19 @@
     .hero p.lead { margin-top: 16px; font-size: 18.5px; color: var(--muted); max-width: 50ch; }
     .hero .actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
     .hours { background: var(--sand); border-radius: 10px; padding: 26px 28px; }
-    .hours h2 { font-size: 18px; margin-bottom: 10px; }
+    .hours-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .hours h2 { font-size: 18px; }
+    .status { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; background: var(--white); padding: 4px 11px; border-radius: 999px; }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .status[hidden] { display: none; }
+    .is-open { color: #1f7a4a; }
+    .is-closed { color: #9a3b2a; }
     .hours table { width: 100%; border-collapse: collapse; font-size: 15px; }
-    .hours td { padding: 8px 0; border-bottom: 1px solid #e6e0d4; }
+    .hours th, .hours td { padding: 8px 0; border-bottom: 1px solid #e6e0d4; text-align: left; font-weight: 400; }
+    .hours tr.today th, .hours tr.today td { color: var(--pine); font-weight: 600; }
+    .hours tr.today th::after { content: " · σήμερα"; font-weight: 400; color: var(--muted); }
     .hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-    .hours tr:last-child td { border-bottom: 0; }
+    .hours tr:last-child th, .hours tr:last-child td { border-bottom: 0; }
     .hours .closed { color: var(--muted); }
     .hours p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 
@@ -72,6 +94,7 @@
 
     .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
     .svc { padding: 24px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .svc .ico { display: block; width: 40px; height: 40px; padding: 8px; margin-bottom: 14px; border-radius: 8px; background: var(--sand); color: var(--pine-2); }
     .svc h3 { font-size: 19px; margin-bottom: 6px; }
     .svc p { color: var(--muted); font-size: 15px; }
 
@@ -97,19 +120,27 @@
     textarea { min-height: 80px; resize: vertical; }
     input:focus, select:focus, textarea:focus { outline: 2px solid var(--pine-2); outline-offset: 0; }
     .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 13.5px; color: var(--muted); }
-    .check input { margin-top: 3px; }
-    .ok { display: none; background: #eef6f1; border-left: 3px solid var(--pine); color: #1f4d3a; padding: 12px 14px; font-size: 14.5px; }
-    .ok.show { display: block; }
+    .check input { margin-top: 2px; width: 18px; height: 18px; flex: none; accent-color: var(--pine); }
+    .err { color: #b42318; font-size: 13.5px; font-weight: 500; }
+    input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: #b42318; box-shadow: 0 0 0 1px #b42318; }
+    .ok { background: #eef6f1; border-left: 3px solid var(--pine); color: #1f4d3a; padding: 12px 14px; font-size: 14.5px; }
+    .ok:empty { position: absolute; width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); }
     .book ul { margin: 16px 0 0; padding-left: 18px; color: var(--muted); }
 
-    details { border-bottom: 1px solid var(--rule); padding: 16px 0; }
+    .faq { max-width: 820px; }
+    details { border-bottom: 1px solid var(--rule); padding: 6px 0; }
     details:first-of-type { border-top: 1px solid var(--rule); }
-    summary { cursor: pointer; font-weight: 600; color: var(--pine); font-size: 16.5px; }
-    details p { margin-top: 8px; color: var(--muted); max-width: 70ch; }
+    summary { cursor: pointer; font-weight: 600; color: var(--pine); font-size: 16.5px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: ""; flex: none; width: 9px; height: 9px; margin-right: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-3px) rotate(45deg); transition: transform .2s ease; }
+    details[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+    summary:hover { color: var(--pine-2); }
+    details p { margin: 0 0 12px; color: var(--muted); max-width: 70ch; }
 
     .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .contact b { display: block; color: var(--pine); }
     .contact span { color: var(--muted); }
+    .contact a { color: var(--muted); }
 
     footer { background: #163a33; color: #b9ccc6; font-size: 14px; padding: 28px 0; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -118,6 +149,12 @@
     .hero .wrap > *, .book > * { min-width: 0; }
     @media (max-width: 960px) {
       nav { display: none; }
+      .menu-btn { display: inline-flex; }
+      .bar { gap: 12px; }
+      .bar .btn { margin-left: auto; }
+      nav.open { display: flex; flex-direction: column; gap: 0; position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 1px solid var(--rule); box-shadow: 0 12px 24px rgba(22, 58, 51, .08); padding: 4px 20px 12px; font-size: 16px; }
+      nav.open a { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+      nav.open a:last-child { border-bottom: 0; }
       .hero .wrap, .book, .team { grid-template-columns: 1fr; }
       .services { grid-template-columns: 1fr 1fr; }
       ol.visit { grid-template-columns: 1fr 1fr; }
@@ -126,7 +163,10 @@
     @media (max-width: 560px) {
       .services, ol.visit, .row { grid-template-columns: 1fr; }
       .util .hide-s { display: none; }
-      .bar .btn { padding: 9px 14px; font-size: 14px; }
+      .bar .btn { min-height: 44px; padding: 0 14px; font-size: 14px; }
+      .bar .long { display: none; }
+      .bar .short { display: inline; }
+      .brand b { font-size: 17px; }
       .brand small { display: none; }
       section { padding: 60px 0; }
     }
@@ -134,11 +174,12 @@
   </style>
 </head>
 <body>
-  <div class="demo">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Το οδοντιατρείο, τα ονόματα και τα στοιχεία είναι φανταστικά.</div>
+  <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <div class="demo" id="top">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Το οδοντιατρείο, τα ονόματα και τα στοιχεία είναι φανταστικά.</div>
   <div class="util">
     <div class="wrap">
       <span>Λεωφ. Παραδείγματος 100, Αμπελόκηποι <span class="hide-s">· 2 λεπτά από το μετρό Αμπελόκηποι</span></span>
-      <span>Ραντεβού: <a href="#rantevou">210 000 0000</a></span>
+      <span>Ραντεβού: <a href="tel:+302100000000">210 000 0000</a></span>
     </div>
   </div>
 
@@ -148,17 +189,21 @@
         <svg class="tooth" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#1e4d43"/><path d="M11 9c2-1 4 0 6 1 2-1 4-2 6-1 3 1 3 5 2 8l-1.5 6c-.4 1.6-2.4 1.6-2.8 0L19 18c-.4-1.4-2.6-1.4-3 0l-1.7 5c-.4 1.6-2.4 1.6-2.8 0L10 17c-1-3-1-7 1-8z" fill="#f4f1ea"/></svg>
         <span><b>Οδοντιατρείο Ρίζα</b><small>Γενική οδοντιατρική · Παιδοδοντία</small></span>
       </a>
-      <nav aria-label="Κύριο μενού">
+      <nav id="nav" aria-label="Κύριο μενού">
         <a href="#ypiresies">Υπηρεσίες</a>
         <a href="#iatroi">Οι γιατροί</a>
         <a href="#episkepsi">Πρώτη επίσκεψη</a>
         <a href="#erotiseis">Ερωτήσεις</a>
       </nav>
-      <a class="btn" href="#rantevou">Κλείστε ραντεβού</a>
+      <a class="btn" href="#rantevou"><span class="long">Κλείστε ραντεβού</span><span class="short">Ραντεβού</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Μενού">
+        <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
-  <main id="top">
+  <main id="main" tabindex="-1">
     <div class="hero">
       <div class="wrap">
         <div>
@@ -166,20 +211,23 @@
           <p class="lead">Προληπτικός έλεγχος, θεραπείες και παιδοδοντία, με ραντεβού στην ώρα τους και καθαρή ενημέρωση για κάθε θεραπεία και το κόστος της πριν ξεκινήσουμε.</p>
           <div class="actions">
             <a class="btn" href="#rantevou">Αίτημα ραντεβού online</a>
-            <a class="btn btn-line" href="#rantevou">210 000 0000</a>
+            <a class="btn btn-line" href="tel:+302100000000">Κλήση: 210 000 0000</a>
           </div>
         </div>
         <aside class="hours" aria-labelledby="hours-title">
-          <h2 id="hours-title">Ωράριο</h2>
+          <div class="hours-head">
+            <h2 id="hours-title">Ωράριο</h2>
+            <span class="status" hidden data-hours='{"1":[["09:00","14:00"],["17:00","21:00"]],"2":[["09:00","14:00"]],"3":[["09:00","14:00"],["17:00","21:00"]],"4":[["12:00","20:00"]],"5":[["09:00","15:00"]]}' data-open="Ανοιχτά τώρα, έως τις {t}" data-closed="Κλειστά αυτή την ώρα"></span>
+          </div>
           <table>
-            <tr><td>Δευτέρα</td><td>09:00–14:00, 17:00–21:00</td></tr>
-            <tr><td>Τρίτη</td><td>09:00–14:00</td></tr>
-            <tr><td>Τετάρτη</td><td>09:00–14:00, 17:00–21:00</td></tr>
-            <tr><td>Πέμπτη</td><td>12:00–20:00</td></tr>
-            <tr><td>Παρασκευή</td><td>09:00–15:00</td></tr>
-            <tr><td>Σάββατο – Κυριακή</td><td class="closed">Κλειστά</td></tr>
+            <tr data-day="1"><th scope="row">Δευτέρα</th><td>09:00–14:00, 17:00–21:00</td></tr>
+            <tr data-day="2"><th scope="row">Τρίτη</th><td>09:00–14:00</td></tr>
+            <tr data-day="3"><th scope="row">Τετάρτη</th><td>09:00–14:00, 17:00–21:00</td></tr>
+            <tr data-day="4"><th scope="row">Πέμπτη</th><td>12:00–20:00</td></tr>
+            <tr data-day="5"><th scope="row">Παρασκευή</th><td>09:00–15:00</td></tr>
+            <tr data-day="6 0"><th scope="row">Σάββατο – Κυριακή</th><td class="closed">Κλειστά</td></tr>
           </table>
-          <p>Για επείγοντα περιστατικά καλέστε στο 210 000 0000 και θα σας εξυπηρετήσουμε την ίδια μέρα.</p>
+          <p>Για επείγοντα περιστατικά καλέστε στο <a href="tel:+302100000000">210 000 0000</a> και θα σας εξυπηρετήσουμε την ίδια μέρα.</p>
         </aside>
       </div>
     </div>
@@ -188,12 +236,12 @@
       <div class="wrap">
         <div class="head"><h2>Υπηρεσίες</h2><p>Πριν από κάθε θεραπεία σάς δίνουμε γραπτό πλάνο με τα βήματα και το κόστος.</p></div>
         <div class="services">
-          <div class="svc"><h3>Έλεγχος και καθαρισμός</h3><p>Εξέταση, ψηφιακή ακτινογραφία και καθαρισμός, κάθε 6 μήνες.</p></div>
-          <div class="svc"><h3>Σφραγίσματα</h3><p>Λευκά σφραγίσματα σύνθετης ρητίνης, στο χρώμα του δοντιού.</p></div>
-          <div class="svc"><h3>Απονευρώσεις</h3><p>Ενδοδοντική θεραπεία με ηλεκτρονικό εντοπισμό ακρορριζίου.</p></div>
-          <div class="svc"><h3>Παιδοδοντία</h3><p>Πρώτη επίσκεψη από 3 ετών, προληπτικές εμφράξεις και φθορίωση.</p></div>
-          <div class="svc"><h3>Λεύκανση</h3><p>Λεύκανση στο ιατρείο ή στο σπίτι με εξατομικευμένους νάρθηκες.</p></div>
-          <div class="svc"><h3>Στεφάνες και εμφυτεύματα</h3><p>Αποκατάσταση δοντιών που λείπουν, σε συνεργασία με χειρουργό.</p></div>
+          <div class="svc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="8.5" r="4.5"/><path d="M11.3 11.7 4.5 18.5"/></svg><h3>Έλεγχος και καθαρισμός</h3><p>Εξέταση, ψηφιακή ακτινογραφία και καθαρισμός, κάθε 6 μήνες.</p></div>
+          <div class="svc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.6c1.5-.6 3 .1 4.5.8 1.5-.7 3-1.4 4.5-.8 2.5 1 2.6 4.4 1.8 6.9l-1.5 6.9c-.4 1.7-2.4 1.7-2.8 0L13 13.6c-.3-1.2-1.7-1.2-2 0l-1 3.8c-.4 1.7-2.4 1.7-2.8 0L5.7 10.5C4.9 8 5 4.6 7.5 3.6z"/><circle cx="12" cy="8.6" r="1.7" fill="currentColor" stroke="none"/></svg><h3>Σφραγίσματα</h3><p>Λευκά σφραγίσματα σύνθετης ρητίνης, στο χρώμα του δοντιού.</p></div>
+          <div class="svc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.6c1.5-.6 3 .1 4.5.8 1.5-.7 3-1.4 4.5-.8 2.5 1 2.6 4.4 1.8 6.9l-1.5 6.9c-.4 1.7-2.4 1.7-2.8 0L13 13.6c-.3-1.2-1.7-1.2-2 0l-1 3.8c-.4 1.7-2.4 1.7-2.8 0L5.7 10.5C4.9 8 5 4.6 7.5 3.6z"/><path d="M10.6 8v3.5M13.4 8v3.5"/></svg><h3>Απονευρώσεις</h3><p>Ενδοδοντική θεραπεία με ηλεκτρονικό εντοπισμό ακρορριζίου.</p></div>
+          <div class="svc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.6 13.6c1.8 2.1 5 2.1 6.8 0"/><path d="M9.2 9.6h.01M14.8 9.6h.01" stroke-width="2.6"/></svg><h3>Παιδοδοντία</h3><p>Πρώτη επίσκεψη από 3 ετών, προληπτικές εμφράξεις και φθορίωση.</p></div>
+          <div class="svc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v4M12 16.5v4M3.5 12h4M16.5 12h4M6.3 6.3l2.4 2.4M15.3 15.3l2.4 2.4M17.7 6.3l-2.4 2.4M8.7 15.3l-2.4 2.4"/></svg><h3>Λεύκανση</h3><p>Λεύκανση στο ιατρείο ή στο σπίτι με εξατομικευμένους νάρθηκες.</p></div>
+          <div class="svc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5h15L18 8l-3.8 3.4L12 6l-2.2 5.4L6 8z"/><path d="M5.5 19.5h13"/></svg><h3>Στεφάνες και εμφυτεύματα</h3><p>Αποκατάσταση δοντιών που λείπουν, σε συνεργασία με χειρουργό.</p></div>
         </div>
       </div>
     </section>
@@ -226,18 +274,18 @@
           <div class="head"><h2>Αίτημα ραντεβού</h2><p>Συμπληρώστε τη φόρμα και θα σας καλέσουμε για να επιβεβαιώσουμε ημέρα και ώρα.</p></div>
           <ul>
             <li>Απαντάμε την ίδια εργάσιμη μέρα.</li>
-            <li>Για επείγοντα, καλέστε στο 210 000 0000.</li>
+            <li>Για επείγοντα, καλέστε στο <a href="tel:+302100000000">210 000 0000</a>.</li>
             <li>Δεχόμαστε μετρητά και κάρτες. Δίνουμε απόδειξη για αποζημίωση από ιδιωτική ασφάλεια.</li>
           </ul>
         </div>
         <form id="appt" novalidate>
           <div class="row">
-            <label for="name">Ονοματεπώνυμο<input id="name" name="name" required autocomplete="name"></label>
-            <label for="phone">Κινητό<input id="phone" name="phone" type="tel" required autocomplete="tel"></label>
+            <label for="name">Ονοματεπώνυμο<input id="name" name="name" required autocomplete="name" data-msg="Γράψτε το ονοματεπώνυμό σας."></label>
+            <label for="phone">Κινητό<input id="phone" name="phone" type="tel" required autocomplete="tel" pattern="[0-9 +]{10,}" placeholder="π.χ. 6912345678…" data-msg="Γράψτε κινητό με 10 ψηφία, π.χ. 6912345678."></label>
           </div>
           <div class="row">
             <label for="reason">Λόγος επίσκεψης
-              <select id="reason" name="reason" required>
+              <select id="reason" name="reason" required data-msg="Επιλέξτε τον λόγο της επίσκεψης.">
                 <option value="">Επιλέξτε</option>
                 <option>Έλεγχος και καθαρισμός</option><option>Πόνος ή ευαισθησία</option><option>Παιδί</option><option>Λεύκανση</option><option>Άλλο</option>
               </select>
@@ -246,10 +294,10 @@
               <select id="when" name="when"><option>Πρωί</option><option>Απόγευμα</option><option>Οποιαδήποτε</option></select>
             </label>
           </div>
-          <label for="msg">Σχόλια (προαιρετικά)<textarea id="msg" name="msg"></textarea></label>
-          <label class="check" for="consent"><input id="consent" type="checkbox" required> Συναινώ στην επεξεργασία των στοιχείων μου για τον προγραμματισμό του ραντεβού.</label>
+          <label for="msg">Σχόλια (προαιρετικά)<textarea id="msg" name="msg" autocomplete="off" placeholder="π.χ. ευαισθησία στο κρύο, κάτω αριστερά…"></textarea></label>
+          <label class="check" for="consent"><input id="consent" name="consent" type="checkbox" required data-msg="Χρειάζεται η συναίνεσή σας για να σας καλέσουμε."> Συναινώ στην επεξεργασία των στοιχείων μου για τον προγραμματισμό του ραντεβού.</label>
           <button class="btn" type="submit">Αποστολή αιτήματος</button>
-          <div class="ok" id="ok" role="status"></div>
+          <div class="ok" id="ok" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
@@ -257,16 +305,20 @@
     <section id="erotiseis">
       <div class="wrap">
         <div class="head"><h2>Συχνές ερωτήσεις</h2></div>
+        <div class="faq">
         <details><summary>Κάθε πότε πρέπει να κάνω έλεγχο;</summary><p>Για τους περισσότερους ενήλικες, κάθε 6 μήνες. Αν έχετε ιστορικό ουλίτιδας, μπορεί να σας προτείνουμε συχνότερα.</p></details>
         <details><summary>Από ποια ηλικία να φέρω το παιδί μου;</summary><p>Προτείνουμε την πρώτη επίσκεψη γύρω στα 3, ώστε το παιδί να εξοικειωθεί με το ιατρείο χωρίς πίεση.</p></details>
         <details><summary>Θα μάθω το κόστος πριν ξεκινήσει η θεραπεία;</summary><p>Ναι. Μετά την εξέταση λαμβάνετε γραπτό πλάνο θεραπείας με το κόστος κάθε βήματος.</p></details>
+        <details><summary>Δέχεστε ιδιωτικές ασφάλειες;</summary><p>Δίνουμε απόδειξη και αναλυτική βεβαίωση θεραπείας, ώστε να ζητήσετε αποζημίωση από την ασφαλιστική σας εταιρεία. Δεν είμαστε συμβεβλημένοι με τον ΕΟΠΥΥ.</p></details>
+        <details><summary>Τι κάνω αν πονάω εκτός ωραρίου;</summary><p>Καλέστε στο <a href="tel:+302100000000">210 000 0000</a>. Αν δεν απαντήσουμε, το μήνυμα του τηλεφωνητή δίνει τον αριθμό για επείγοντα.</p></details>
+        </div>
       </div>
     </section>
 
     <section>
       <div class="wrap contact">
         <div><b>Διεύθυνση</b><span>Λεωφ. Παραδείγματος 100, 3ος όροφος, 115 26 Αμπελόκηποι</span></div>
-        <div><b>Τηλέφωνο</b><span>210 000 0000</span></div>
+        <div><b>Τηλέφωνο</b><span><a href="tel:+302100000000">210 000 0000</a></span></div>
         <div><b>Πρόσβαση</b><span>Μετρό Αμπελόκηποι (γραμμή 3), 2 λεπτά με τα πόδια</span></div>
       </div>
     </section>
@@ -279,14 +331,14 @@
     </div>
   </footer>
 
+  <script src="../shared/sample.js"></script>
   <script>
-    document.getElementById('appt').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = e.target, ok = document.getElementById('ok');
-      if (!f.checkValidity()) { f.reportValidity(); return; }
-      ok.textContent = 'Το αίτημα στάλθηκε. Σε πραγματική ιστοσελίδα, το ιατρείο θα το έβλεπε αμέσως στο πρόγραμμά του και θα σας στελνόταν αυτόματα SMS επιβεβαίωσης στο ' + f.phone.value.trim() + '.';
-      ok.classList.add('show');
-      f.reset();
+    sampleForm(document.getElementById('appt'), {
+      busy: 'Αποστολή…',
+      reset: true,
+      success: function (f) {
+        return 'Το αίτημα στάλθηκε. Σε πραγματική ιστοσελίδα, το ιατρείο θα το έβλεπε αμέσως στο πρόγραμμά του και θα σας στελνόταν αυτόματα SMS επιβεβαίωσης στο ' + f.phone.value.trim() + '.';
+      }
     });
   </script>
 </body>

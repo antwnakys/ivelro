@@ -6,6 +6,7 @@
   <title>Ταβέρνα Το Πλατάνι, Ψυρρή | Δείγμα ιστοσελίδας IVELRO</title>
   <meta name="description" content="Δείγμα ιστοσελίδας ταβέρνας, σχεδιασμένο από την IVELRO. Η ταβέρνα είναι φανταστική.">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#23305a">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,13 +27,18 @@
       color-scheme: light;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; -webkit-tap-highlight-color: rgba(35, 48, 90, .12); }
     body { margin: 0; background: var(--white); color: var(--text); font-family: var(--sans); font-size: 17.5px; line-height: 1.6; }
     h1, h2, h3 { font-family: var(--serif); color: var(--ink); margin: 0; line-height: 1.15; font-weight: 700; text-wrap: balance; }
     p { margin: 0; }
     a { color: var(--ink-2); }
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)); }
     :focus-visible { outline: 2px solid var(--tomato); outline-offset: 3px; }
+    a, button, label, select, input, abbr { touch-action: manipulation; }
+    a, button { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
+    .res:active, .line:active, form button:active { transform: translateY(1px); }
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: #fff; padding: 10px 16px; font-weight: 700; text-decoration: none; }
+    .skip:focus { top: 12px; }
 
     .demo { background: #fff7e6; color: #6b4b10; font-size: 13px; text-align: center; padding: 6px 16px; border-bottom: 1px solid #f0dfb8; font-family: Arial, sans-serif; }
     .demo a { color: inherit; font-weight: 600; }
@@ -43,7 +49,13 @@
     nav { display: flex; gap: 24px; font-weight: 500; }
     nav a { color: var(--text); text-decoration: none; }
     nav a:hover { color: var(--tomato); }
-    .res { background: var(--tomato); color: #fff; text-decoration: none; font-weight: 700; padding: 9px 16px; border-radius: 2px; white-space: nowrap; }
+    .res { display: inline-flex; align-items: center; min-height: 44px; background: var(--tomato); color: #fff; text-decoration: none; font-weight: 700; padding: 0 16px; border-radius: 2px; white-space: nowrap; }
+    .short { display: none; }
+    .menu-btn { display: none; flex: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 2px; background: var(--white); color: var(--ink); cursor: pointer; }
+    .menu-btn:hover { border-color: var(--ink); }
+    .menu-btn svg { width: 20px; height: 20px; }
+    .menu-btn .x, .menu-btn[aria-expanded="true"] .bars { display: none; }
+    .menu-btn[aria-expanded="true"] .x { display: block; }
     .res:hover { background: #a93826; }
 
     .hero { text-align: center; padding: 72px 0 56px; border-bottom: 1px solid var(--rule); }
@@ -55,8 +67,16 @@
       linear-gradient(var(--ink) 0 2px, transparent 2px 12px, var(--ink) 12px 14px) 0 0 / 100% 14px no-repeat; opacity: .85; }
     .hero .info { display: flex; justify-content: center; gap: 10px 28px; flex-wrap: wrap; margin-top: 26px; color: var(--text); }
     .hero .info b { color: var(--ink); }
+    .hero .info a { color: inherit; text-decoration: none; }
+    .hero .info a:hover { text-decoration: underline; }
+    .now { margin-top: 18px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; }
+    .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+    .status[hidden] { display: none; }
+    .is-open { color: #1f7a4a; }
+    .is-closed { color: #a93826; }
     .hero .cta { margin-top: 28px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-    .line { color: var(--ink); text-decoration: none; font-weight: 700; padding: 9px 16px; box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: 2px; }
+    .line { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; font-weight: 700; padding: 0 16px; box-shadow: inset 0 0 0 1.5px var(--ink); border-radius: 2px; }
     .line:hover { background: var(--tint); }
 
     section { padding: 80px 0; }
@@ -72,6 +92,7 @@
     .dish .en { grid-column: 1; color: var(--muted); font-size: 15px; font-style: italic; }
     .dish .p { grid-row: 1; grid-column: 2; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
     .menu-note { text-align: center; color: var(--muted); font-size: 14.5px; margin-top: 36px; }
+    .veg { display: inline-grid; place-items: center; width: 19px; height: 19px; margin-left: 6px; border: 1.5px solid #3c7a4a; border-radius: 50%; color: #2f6a3d; font-size: 11px; font-weight: 700; font-style: normal; text-decoration: none; vertical-align: 2px; cursor: help; }
 
     .tint { background: var(--tint); }
     .story { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -90,12 +111,16 @@
     input:focus, select:focus { outline: 2px solid var(--ink-2); outline-offset: 0; }
     form button { background: var(--tomato); color: #fff; border: 0; font: inherit; font-weight: 700; padding: 12px; cursor: pointer; border-radius: 2px; }
     form button:hover { background: #a93826; }
-    .ok { display: none; background: #eef6f1; border-left: 3px solid #2e7d4f; color: #1f5a37; padding: 12px 14px; font-size: 15.5px; }
-    .ok.show { display: block; }
+    form button:disabled { opacity: .8; cursor: progress; }
+    .err { color: #b42318; font-size: 14px; font-weight: 500; }
+    input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #b42318; box-shadow: 0 0 0 1px #b42318; }
+    .ok { background: #eef6f1; border-left: 3px solid #2e7d4f; color: #1f5a37; padding: 12px 14px; font-size: 15.5px; }
+    .ok:empty { position: absolute; width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); }
 
     .visit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
     .visit h3 { font-size: 22px; margin-bottom: 6px; }
     .visit p { color: var(--muted); }
+    .visit a { color: inherit; }
 
     footer { background: var(--ink); color: #c7cde0; font-size: 15px; padding: 28px 0; }
     footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -104,10 +129,18 @@
     .reserve > *, .story > * { min-width: 0; }
     @media (max-width: 900px) {
       nav { display: none; }
+      .menu-btn { display: inline-flex; }
+      .bar { gap: 12px; }
+      .bar .res { margin-left: auto; }
+      nav.open { display: flex; flex-direction: column; gap: 0; position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 2px solid var(--ink); box-shadow: 0 12px 24px rgba(35, 48, 90, .08); padding: 4px 20px 12px; }
+      nav.open a { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+      nav.open a:last-child { border-bottom: 0; }
       .menu, .story, .reserve, .visit { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
       .row3, .row2 { grid-template-columns: 1fr; }
+      .bar .long { display: none; }
+      .bar .short { display: inline; }
       section { padding: 60px 0; }
       .hero { padding: 52px 0 44px; }
     }
@@ -115,22 +148,27 @@
   </style>
 </head>
 <body>
-  <div class="demo">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Η ταβέρνα, το μενού και οι τιμές είναι φανταστικά.</div>
+  <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <div class="demo" id="top">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Η ταβέρνα, το μενού και οι τιμές είναι φανταστικά.</div>
 
   <header>
     <div class="wrap bar">
       <a class="brand" href="#top">Το Πλατάνι</a>
-      <nav aria-label="Κύριο μενού">
+      <nav id="nav" aria-label="Κύριο μενού">
         <a href="#menou">Μενού</a>
         <a href="#istoria">Η ταβέρνα</a>
         <a href="#kratisi">Κράτηση</a>
         <a href="#episkepsi">Πού είμαστε</a>
       </nav>
-      <a class="res" href="#kratisi">Κράτηση τραπεζιού</a>
+      <a class="res" href="#kratisi"><span class="long">Κράτηση τραπεζιού</span><span class="short">Κράτηση</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Μενού">
+        <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
-  <main id="top">
+  <main id="main" tabindex="-1">
     <div class="hero">
       <div class="wrap">
         <p class="since">Ψυρρή · από το 1987</p>
@@ -140,8 +178,9 @@
         <div class="info">
           <span><b>Τρίτη–Κυριακή</b> 13:00–00:30</span>
           <span><b>Δευτέρα</b> κλειστά</span>
-          <span><b>Τηλ.</b> 210 000 0000</span>
+          <span><b>Τηλ.</b> <a href="tel:+302100000000">210 000 0000</a></span>
         </div>
+        <p class="now"><span class="status" hidden data-hours='{"2":[["13:00","24:30"]],"3":[["13:00","24:30"]],"4":[["13:00","24:30"]],"5":[["13:00","24:30"]],"6":[["13:00","24:30"]],"0":[["13:00","24:30"]]}' data-open="Ανοιχτά τώρα, έως τις {t}" data-closed="Κλειστά αυτή την ώρα"></span></p>
         <div class="cta">
           <a class="res" href="#kratisi">Κλείστε τραπέζι</a>
           <a class="line" href="#menou">Δείτε το μενού</a>
@@ -155,21 +194,21 @@
         <div class="menu">
           <div class="cat">
             <h3>Ορεκτικά <small>Starters</small></h3>
-            <div class="dish"><b>Τζατζίκι</b><span class="p">5,50</span><span class="en">Tzatziki, yoghurt with cucumber and garlic</span></div>
-            <div class="dish"><b>Φάβα Σαντορίνης με κάππαρη</b><span class="p">6,50</span><span class="en">Yellow split pea purée with capers</span></div>
-            <div class="dish"><b>Κολοκυθοκεφτέδες</b><span class="p">7,00</span><span class="en">Courgette fritters with mint</span></div>
-            <div class="dish"><b>Μελιτζανοσαλάτα</b><span class="p">6,00</span><span class="en">Smoky aubergine dip</span></div>
+            <div class="dish"><b>Τζατζίκι <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">5,50</span><span class="en">Tzatziki, yoghurt with cucumber and garlic</span></div>
+            <div class="dish"><b>Φάβα Σαντορίνης με κάππαρη <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">6,50</span><span class="en">Yellow split pea purée with capers</span></div>
+            <div class="dish"><b>Κολοκυθοκεφτέδες <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">7,00</span><span class="en">Courgette fritters with mint</span></div>
+            <div class="dish"><b>Μελιτζανοσαλάτα <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">6,00</span><span class="en">Smoky aubergine dip</span></div>
           </div>
           <div class="cat">
             <h3>Σαλάτες <small>Salads</small></h3>
-            <div class="dish"><b>Χωριάτικη</b><span class="p">9,00</span><span class="en">Greek salad with feta and olives</span></div>
-            <div class="dish"><b>Ντάκος</b><span class="p">8,00</span><span class="en">Cretan barley rusk, tomato, mizithra cheese</span></div>
-            <div class="dish"><b>Λάχανο καρότο</b><span class="p">5,50</span><span class="en">Cabbage and carrot with lemon</span></div>
+            <div class="dish"><b>Χωριάτικη <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">9,00</span><span class="en">Greek salad with feta and olives</span></div>
+            <div class="dish"><b>Ντάκος <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">8,00</span><span class="en">Cretan barley rusk, tomato, mizithra cheese</span></div>
+            <div class="dish"><b>Λάχανο καρότο <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">5,50</span><span class="en">Cabbage and carrot with lemon</span></div>
           </div>
           <div class="cat">
             <h3>Μαγειρευτά <small>Today’s dishes</small></h3>
             <div class="dish"><b>Μουσακάς</b><span class="p">12,00</span><span class="en">Moussaka with aubergine and béchamel</span></div>
-            <div class="dish"><b>Γεμιστά</b><span class="p">10,50</span><span class="en">Stuffed tomatoes and peppers with rice</span></div>
+            <div class="dish"><b>Γεμιστά <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">10,50</span><span class="en">Stuffed tomatoes and peppers with rice</span></div>
             <div class="dish"><b>Κοκκινιστό με χυλοπίτες</b><span class="p">13,50</span><span class="en">Beef in tomato sauce with egg pasta</span></div>
           </div>
           <div class="cat">
@@ -179,8 +218,21 @@
             <div class="dish"><b>Σουβλάκι κοτόπουλο</b><span class="p">11,50</span><span class="en">Chicken skewers with pitta and tzatziki</span></div>
             <div class="dish"><b>Χταπόδι σχάρας</b><span class="p">16,00</span><span class="en">Grilled octopus with oregano</span></div>
           </div>
+          <div class="cat">
+            <h3>Κρασί και ποτά <small>Wine and drinks</small></h3>
+            <div class="dish"><b>Κρασί από βαρέλι, ½ λίτρο</b><span class="p">6,00</span><span class="en">House wine from the barrel, white or red</span></div>
+            <div class="dish"><b>Κρασί από βαρέλι, 1 λίτρο</b><span class="p">10,00</span><span class="en">House wine from the barrel, white or red</span></div>
+            <div class="dish"><b>Τσίπουρο, καραφάκι 200 ml</b><span class="p">7,00</span><span class="en">Tsipouro, with or without anise</span></div>
+            <div class="dish"><b>Μπύρα 500 ml</b><span class="p">5,00</span><span class="en">Greek lager</span></div>
+          </div>
+          <div class="cat">
+            <h3>Γλυκά <small>Desserts</small></h3>
+            <div class="dish"><b>Γιαούρτι με μέλι και καρύδια <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">5,50</span><span class="en">Strained yoghurt with thyme honey and walnuts</span></div>
+            <div class="dish"><b>Χαλβάς σιμιγδαλένιος <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">4,50</span><span class="en">Semolina halva with cinnamon</span></div>
+            <div class="dish"><b>Φρούτο εποχής <abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr></b><span class="p">κέρασμα</span><span class="en">Seasonal fruit, on the house</span></div>
+          </div>
         </div>
-        <p class="menu-note">Το μενού αλλάζει ανάλογα με την εποχή. Ενημερώστε μας για αλλεργίες. Υπεύθυνος αγορανομικού ελέγχου: [όνομα].</p>
+        <p class="menu-note"><abbr class="veg" title="Χορτοφαγικό · Vegetarian">V</abbr> Χορτοφαγικό · Vegetarian. Το μενού αλλάζει ανάλογα με την εποχή. Ενημερώστε μας για αλλεργίες. Υπεύθυνος αγορανομικού ελέγχου: [όνομα].</p>
       </div>
     </section>
 
@@ -208,11 +260,12 @@
         </div>
         <form id="book" novalidate>
           <div class="row3">
-            <label for="date">Ημερομηνία<input id="date" name="date" type="date" required></label>
+            <label for="date">Ημερομηνία<input id="date" name="date" type="date" required data-msg="Επιλέξτε ημερομηνία από σήμερα και μετά."></label>
             <label for="time">Ώρα
-              <select id="time" name="time" required>
+              <select id="time" name="time" required data-msg="Επιλέξτε ώρα.">
                 <option value="">Επιλέξτε</option>
-                <option>13:30</option><option>14:30</option><option>15:30</option><option>20:00</option><option>21:00</option><option>22:00</option>
+                <optgroup label="Μεσημέρι"><option>13:30</option><option>14:30</option><option>15:30</option></optgroup>
+                <optgroup label="Βράδυ"><option>20:00</option><option>21:00</option><option>22:00</option></optgroup>
               </select>
             </label>
             <label for="people">Άτομα
@@ -220,14 +273,14 @@
             </label>
           </div>
           <div class="row2">
-            <label for="name">Όνομα<input id="name" name="name" required autocomplete="name"></label>
-            <label for="phone">Κινητό<input id="phone" name="phone" type="tel" required autocomplete="tel"></label>
+            <label for="name">Όνομα<input id="name" name="name" required autocomplete="name" data-msg="Γράψτε το όνομά σας."></label>
+            <label for="phone">Κινητό<input id="phone" name="phone" type="tel" required autocomplete="tel" pattern="[0-9 +]{10,}" placeholder="π.χ. 6912345678…" data-msg="Γράψτε κινητό με 10 ψηφία, π.χ. 6912345678."></label>
           </div>
           <label for="area">Προτίμηση
             <select id="area" name="area"><option>Χωρίς προτίμηση</option><option>Μέσα</option><option>Αυλή</option></select>
           </label>
-          <button type="submit">Κράτηση</button>
-          <div class="ok" id="ok" role="status"></div>
+          <button type="submit">Κλείστε το τραπέζι</button>
+          <div class="ok" id="ok" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
@@ -236,7 +289,7 @@
       <div class="wrap visit">
         <div><h3>Διεύθυνση</h3><p>Οδός Παραδείγματος 7<br>105 54 Ψυρρή, Αθήνα</p></div>
         <div><h3>Πρόσβαση</h3><p>Μετρό Μοναστηράκι, 4 λεπτά με τα πόδια</p></div>
-        <div><h3>Επικοινωνία</h3><p>210 000 0000<br>info@example.com</p></div>
+        <div><h3>Επικοινωνία</h3><p><a href="tel:+302100000000">210 000 0000</a><br><a href="mailto:info@example.com">info@example.com</a></p></div>
       </div>
     </section>
   </main>
@@ -248,16 +301,26 @@
     </div>
   </footer>
 
+  <script src="../shared/sample.js"></script>
   <script>
     (function () {
-      var f = document.getElementById('book'), ok = document.getElementById('ok');
-      var d = new Date(); d.setDate(d.getDate() + 1); f.date.value = d.toISOString().slice(0, 10);
-      f.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!f.checkValidity()) { f.reportValidity(); return; }
-        ok.textContent = 'Η κράτηση για ' + f.people.value + ' άτομα στις ' + f.date.value.split('-').reverse().join('/') + ', ' + f.time.value + ' καταχωρήθηκε. ' +
-          'Σε πραγματική ιστοσελίδα, θα εμφανιζόταν αμέσως στο βιβλίο κρατήσεων της ταβέρνας και θα στελνόταν αυτόματα SMS επιβεβαίωσης στο ' + f.phone.value.trim() + '.';
-        ok.classList.add('show');
+      var f = document.getElementById('book');
+      var parse = function (v) { var a = v.split('-'); return new Date(a[0], a[1] - 1, a[2]); };
+      var d = new Date();
+      f.date.min = isoDate(d);
+      d.setDate(d.getDate() + 1);
+      if (d.getDay() === 1) d.setDate(d.getDate() + 1); // closed on Mondays
+      f.date.value = isoDate(d);
+
+      sampleForm(f, {
+        busy: 'Καταχώρηση…',
+        check: function () {
+          return f.date.value && parse(f.date.value).getDay() === 1 ? [[f.date, 'Τη Δευτέρα είμαστε κλειστά. Επιλέξτε άλλη ημέρα.']] : [];
+        },
+        success: function () {
+          return 'Η κράτηση για ' + f.people.value + ' άτομα στις ' + f.date.value.split('-').reverse().join('/') + ', ' + f.time.value + ' καταχωρήθηκε. ' +
+            'Σε πραγματική ιστοσελίδα, θα εμφανιζόταν αμέσως στο βιβλίο κρατήσεων της ταβέρνας και θα στελνόταν αυτόματα SMS επιβεβαίωσης στο ' + f.phone.value.trim() + '.';
+        }
       });
     })();
   </script>

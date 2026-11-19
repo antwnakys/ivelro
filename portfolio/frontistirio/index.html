@@ -6,6 +6,7 @@
   <title>Φροντιστήριο Ευθεία | Μέσης Εκπαίδευσης, Παγκράτι (δείγμα IVELRO)</title>
   <meta name="description" content="Δείγμα ιστοσελίδας φροντιστηρίου μέσης εκπαίδευσης, σχεδιασμένο από την IVELRO. Το φροντιστήριο είναι φανταστικό.">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#16325c">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,13 +28,19 @@
       color-scheme: light;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; -webkit-tap-highlight-color: rgba(22, 50, 92, .12); }
     body { margin: 0; background: var(--white); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
     a { color: var(--blue-2); }
     h1, h2, h3 { font-family: var(--serif); color: var(--blue); margin: 0; line-height: 1.25; font-weight: 600; text-wrap: balance; }
     p { margin: 0; }
     .wrap { max-width: calc(var(--wrap) + 40px); margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)); }
     :focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; }
+    a, button, summary, label, select, input { touch-action: manipulation; }
+    a, .btn, .cta, .menu-btn { transition: color .18s ease, background-color .18s ease, border-color .18s ease; }
+    .btn:active, .cta:active { transform: translateY(1px); }
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--blue); color: #fff; padding: 10px 16px; font-weight: 600; text-decoration: none; border-radius: 3px; }
+    .skip:focus { top: 12px; }
+    .ic { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; }
 
     .demo { background: #fff7e6; color: #6b4b10; font-size: 13px; text-align: center; padding: 6px 16px; border-bottom: 1px solid #f0dfb8; }
     .demo a { color: inherit; font-weight: 600; }
@@ -42,6 +49,7 @@
     .util .wrap { display: flex; justify-content: space-between; gap: 16px; padding-top: 7px; padding-bottom: 7px; flex-wrap: wrap; }
     .util span + span { margin-left: 18px; }
     .util a { color: #fff; text-decoration: none; }
+    .util a:hover { text-decoration: underline; }
 
     header { position: sticky; top: 0; z-index: 30; background: var(--white); border-bottom: 1px solid var(--rule); }
     .bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 74px; }
@@ -52,7 +60,12 @@
     nav.main { display: flex; gap: 24px; font-size: 15px; font-weight: 500; }
     nav.main a { color: var(--text); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
     nav.main a:hover { border-bottom-color: var(--ochre); }
-    .cta { background: var(--ochre); color: #fff; text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 10px 18px; border-radius: 3px; white-space: nowrap; }
+    .cta { display: inline-flex; align-items: center; min-height: 44px; background: var(--ochre); color: #fff; text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 0 18px; border-radius: 3px; white-space: nowrap; }
+    .menu-btn { display: none; flex: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 3px; background: var(--white); color: var(--blue); cursor: pointer; }
+    .menu-btn:hover { border-color: var(--blue); }
+    .menu-btn svg { width: 20px; height: 20px; }
+    .menu-btn .x, .menu-btn[aria-expanded="true"] .bars { display: none; }
+    .menu-btn[aria-expanded="true"] .x { display: block; }
     .cta:hover { background: #9f7322; }
 
     .intro { background: var(--alt); border-bottom: 1px solid var(--rule); }
@@ -61,9 +74,11 @@
     .intro h1 { font-size: clamp(30px, 3.8vw, 42px); }
     .intro p.lead { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 56ch; }
     .intro .links { margin-top: 26px; display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
-    .btn { background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 3px; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; background: var(--blue); color: #fff; text-decoration: none; padding: 0 22px; border-radius: 3px; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+    .btn:disabled { opacity: .75; cursor: progress; }
     .btn:hover { background: var(--blue-2); }
-    .more { font-weight: 600; text-decoration: none; }
+    .more { font-weight: 600; text-decoration: none; padding: 10px 0; }
+    .more:hover { text-decoration: underline; }
     .more::after { content: " →"; }
 
     .news { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--blue); }
@@ -134,9 +149,16 @@
     input, select { font: inherit; font-size: 15.5px; padding: 10px 11px; border: 1px solid #c4ccd8; border-radius: 3px; background: #fff; color: var(--text); }
     input:focus, select:focus { outline: 2px solid var(--blue-2); outline-offset: 0; }
     .check { display: flex; gap: 10px; font-weight: 400; color: var(--muted); font-size: 13.5px; align-items: flex-start; }
-    .check input { margin-top: 3px; }
-    .ok { display: none; border-left: 3px solid #2e7d4f; background: #eef7f1; color: #1f5a37; padding: 12px 14px; font-size: 14.5px; }
-    .ok.show { display: block; }
+    .check input { margin-top: 2px; width: 18px; height: 18px; flex: none; accent-color: var(--blue); }
+    .err { color: #b42318; font-size: 13.5px; font-weight: 500; }
+    input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #b42318; box-shadow: 0 0 0 1px #b42318; }
+    .ok { border-left: 3px solid #2e7d4f; background: #eef7f1; color: #1f5a37; padding: 12px 14px; font-size: 14.5px; }
+    .ok:empty { position: absolute; width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); }
+    .status { display: inline-flex; align-items: center; gap: 7px; margin-top: 6px; font-size: 14px; font-weight: 600; }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .status[hidden] { display: none; }
+    .is-open { color: #1f7a4a; }
+    .is-closed { color: #9a3b2a; }
 
     .contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; }
     .contact dl { margin: 0; }
@@ -165,6 +187,12 @@
 
     @media (max-width: 980px) {
       nav.main { display: none; }
+      .menu-btn { display: inline-flex; }
+      .bar { gap: 12px; }
+      .cta { margin-left: auto; }
+      nav.main.open { display: flex; flex-direction: column; gap: 0; position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 1px solid var(--rule); box-shadow: 0 12px 24px rgba(15, 35, 64, .08); padding: 4px 20px 12px; }
+      nav.main.open a { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+      nav.main.open a:last-child { border-bottom: 0; }
       .intro .wrap, .about, .two, .signup, .contact, .foot { grid-template-columns: 1fr; }
       .levels { grid-template-columns: 1fr; }
       .level + .level { border-left: 0; border-top: 1px solid var(--rule); }
@@ -176,7 +204,10 @@
       .row, ol.method, .staff { grid-template-columns: 1fr; }
       .bar { height: 66px; }
       .brand small { display: none; }
-      .cta { padding: 9px 12px; font-size: 13.5px; }
+      .cta { padding: 0 12px; font-size: 13.5px; }
+      .cta .yr { display: none; }
+      .brand b { font-size: 17px; }
+      .crest { width: 34px; height: 40px; font-size: 21px; }
       section { padding: 56px 0; }
       th, td { padding: 10px 12px; }
     }
@@ -184,11 +215,12 @@
   </style>
 </head>
 <body>
-  <div class="demo">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Το φροντιστήριο, τα ονόματα και τα στοιχεία είναι φανταστικά.</div>
+  <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <div class="demo" id="top">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Το φροντιστήριο, τα ονόματα και τα στοιχεία είναι φανταστικά.</div>
 
   <div class="util">
     <div class="wrap">
-      <div><span>☎ 210 000 0000</span><span class="hide-s">✉ info@example.com</span></div>
+      <div><span><a href="tel:+302100000000"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>210 000 0000</a></span><span class="hide-s"><a href="mailto:info@example.com"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>info@example.com</a></span></div>
       <div><span class="hide-s">Δευτέρα–Παρασκευή 14:00–21:30</span><span><a href="#eggrafi">Ηλεκτρονική καρτέλα γονέων</a></span></div>
     </div>
   </div>
@@ -199,18 +231,22 @@
         <span class="crest" aria-hidden="true">Ε</span>
         <span><b>Φροντιστήριο Ευθεία</b><small>Μέσης Εκπαίδευσης · Παγκράτι · από το 2009</small></span>
       </a>
-      <nav class="main" aria-label="Κύριο μενού">
-        <a href="#fronstistirio">Το φροντιστήριο</a>
+      <nav class="main" id="nav" aria-label="Κύριο μενού">
+        <a href="#frontistirio">Το φροντιστήριο</a>
         <a href="#tmimata">Τμήματα</a>
         <a href="#kathigites">Καθηγητές</a>
         <a href="#epitychontes">Επιτυχόντες</a>
         <a href="#epikoinonia">Επικοινωνία</a>
       </nav>
-      <a class="cta" href="#eggrafi">Εγγραφές 2026–27</a>
+      <a class="cta" href="#eggrafi">Εγγραφές<span class="yr">&nbsp;2026–27</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Μενού">
+        <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </header>
 
-  <main id="top">
+  <main id="main" tabindex="-1">
     <div class="intro">
       <div class="wrap">
         <div>
@@ -233,7 +269,7 @@
       </div>
     </div>
 
-    <section id="fronstistirio">
+    <section id="frontistirio">
       <div class="wrap about">
         <div>
           <div class="sec-head"><div><h2>Το φροντιστήριο</h2></div></div>
@@ -274,7 +310,7 @@
           <h3>Γ΄ Λυκείου: ώρες ανά εβδομάδα και πεδίο</h3>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>Επιστημονικό πεδίο</th><th>Μαθήματα</th><th>Ώρες / εβδομάδα</th></tr></thead>
+              <thead><tr><th scope="col">Επιστημονικό πεδίο</th><th scope="col">Μαθήματα</th><th scope="col">Ώρες / εβδομάδα</th></tr></thead>
               <tbody>
                 <tr><td>1ο Ανθρωπιστικών Σπουδών</td><td>Νεοελληνική Γλώσσα, Αρχαία, Ιστορία, Λατινικά</td><td class="n">16</td></tr>
                 <tr><td>2ο Θετικών Σπουδών</td><td>Νεοελληνική Γλώσσα, Μαθηματικά, Φυσική, Χημεία</td><td class="n">18</td></tr>
@@ -319,7 +355,7 @@
           <div class="sec-head"><div><h2>Επιτυχόντες Πανελλαδικών 2026</h2><p>Ενδεικτικά αποτελέσματα των μαθητών μας.</p></div></div>
           <div class="box table-wrap">
             <table>
-              <thead><tr><th>Μαθητής/τρια</th><th>Σχολή</th><th>Ίδρυμα</th></tr></thead>
+              <thead><tr><th scope="col">Μαθητής/τρια</th><th scope="col">Σχολή</th><th scope="col">Ίδρυμα</th></tr></thead>
               <tbody>
                 <tr><td>Μ. Π.</td><td>Ιατρική</td><td>ΕΚΠΑ</td></tr>
                 <tr><td>Γ. Κ.</td><td>Ηλεκτρολόγων Μηχ. &amp; Μηχ. Υπολογιστών</td><td>ΕΜΠ</td></tr>
@@ -357,26 +393,26 @@
         </div>
         <form id="signup" novalidate>
           <div class="row">
-            <label for="parent">Ονοματεπώνυμο γονέα<input id="parent" name="parent" required autocomplete="name"></label>
-            <label for="student">Όνομα μαθητή/τριας<input id="student" name="student" required></label>
+            <label for="parent">Ονοματεπώνυμο γονέα<input id="parent" name="parent" required autocomplete="name" data-msg="Γράψτε το ονοματεπώνυμό σας."></label>
+            <label for="student">Όνομα μαθητή/τριας<input id="student" name="student" required autocomplete="off" data-msg="Γράψτε το όνομα του μαθητή ή της μαθήτριας."></label>
           </div>
           <div class="row">
-            <label for="email">Email<input id="email" name="email" type="email" required autocomplete="email"></label>
-            <label for="phone">Τηλέφωνο<input id="phone" name="phone" type="tel" autocomplete="tel"></label>
+            <label for="email">Email<input id="email" name="email" type="email" required autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" placeholder="π.χ. onoma@example.com…" data-msg="Γράψτε ένα έγκυρο email, π.χ. onoma@example.com."></label>
+            <label for="phone">Τηλέφωνο<input id="phone" name="phone" type="tel" autocomplete="tel" pattern="[0-9 +]{10,}" placeholder="π.χ. 6912345678…" data-msg="Γράψτε τηλέφωνο με 10 ψηφία, π.χ. 6912345678."></label>
           </div>
           <div class="row">
             <label for="grade">Τάξη
-              <select id="grade" name="grade" required>
+              <select id="grade" name="grade" required data-msg="Επιλέξτε την τάξη του μαθητή.">
                 <option value="">Επιλέξτε</option>
                 <option>Α΄ Γυμνασίου</option><option>Β΄ Γυμνασίου</option><option>Γ΄ Γυμνασίου</option>
                 <option>Α΄ Λυκείου</option><option>Β΄ Λυκείου</option><option>Γ΄ Λυκείου</option>
               </select>
             </label>
-            <label for="school">Σχολείο<input id="school" name="school" placeholder="π.χ. 5ο ΓΕΛ Αθηνών"></label>
+            <label for="school">Σχολείο<input id="school" name="school" autocomplete="off" placeholder="π.χ. 5ο ΓΕΛ Αθηνών…"></label>
           </div>
-          <label class="check" for="consent"><input id="consent" type="checkbox" required> Συναινώ στην επεξεργασία των στοιχείων για τον σκοπό της εγγραφής, σύμφωνα με την Πολιτική Απορρήτου.</label>
-          <button class="btn" type="submit">Υποβολή</button>
-          <div class="ok" id="ok" role="status"></div>
+          <label class="check" for="consent"><input id="consent" name="consent" type="checkbox" required data-msg="Χρειάζεται η συναίνεσή σας για να καταχωρηθεί η αίτηση."> Συναινώ στην επεξεργασία των στοιχείων για τον σκοπό της εγγραφής, σύμφωνα με την Πολιτική Απορρήτου.</label>
+          <button class="btn" type="submit">Υποβολή αίτησης</button>
+          <div class="ok" id="ok" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
@@ -387,9 +423,9 @@
           <div class="sec-head"><div><h2>Επικοινωνία</h2></div></div>
           <dl>
             <dt>Διεύθυνση</dt><dd>Οδός Παραδείγματος 12, 116 34 Παγκράτι</dd>
-            <dt>Τηλέφωνο</dt><dd>210 000 0000</dd>
-            <dt>Email</dt><dd>info@example.com</dd>
-            <dt>Ωράριο γραμματείας</dt><dd>Δευτέρα–Παρασκευή 14:00–21:30<br>Σάββατο 10:00–14:00</dd>
+            <dt>Τηλέφωνο</dt><dd><a href="tel:+302100000000">210 000 0000</a></dd>
+            <dt>Email</dt><dd><a href="mailto:info@example.com">info@example.com</a></dd>
+            <dt>Ωράριο γραμματείας</dt><dd>Δευτέρα–Παρασκευή 14:00–21:30<br>Σάββατο 10:00–14:00<br><span class="status" hidden data-hours='{"1":[["14:00","21:30"]],"2":[["14:00","21:30"]],"3":[["14:00","21:30"]],"4":[["14:00","21:30"]],"5":[["14:00","21:30"]],"6":[["10:00","14:00"]]}' data-open="Η γραμματεία είναι ανοιχτή έως τις {t}" data-closed="Η γραμματεία είναι κλειστή αυτή την ώρα"></span></dd>
             <dt>Πρόσβαση</dt><dd>Στάση «Πλατεία Βαρνάβα», λεωφορεία 2, 4, 11</dd>
           </dl>
         </div>
@@ -410,7 +446,7 @@
       </div>
       <div>
         <h4>Επικοινωνία</h4>
-        <ul><li>Οδός Παραδείγματος 12, Παγκράτι</li><li>210 000 0000</li><li>info@example.com</li></ul>
+        <ul><li>Οδός Παραδείγματος 12, Παγκράτι</li><li><a href="tel:+302100000000">210 000 0000</a></li><li><a href="mailto:info@example.com">info@example.com</a></li></ul>
       </div>
     </div>
     <div class="legal">
@@ -421,16 +457,16 @@
     </div>
   </footer>
 
+  <script src="../shared/sample.js"></script>
   <script>
-    document.getElementById('signup').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = e.target, ok = document.getElementById('ok');
-      if (!f.checkValidity()) { f.reportValidity(); return; }
-      ok.textContent = 'Η αίτηση εγγραφής για τον/την ' + f.student.value.trim() + ' καταχωρήθηκε. ' +
-        'Σε πραγματική ιστοσελίδα θα στελνόταν αυτόματα email επιβεβαίωσης στο ' + f.email.value.trim() +
-        ' και η αίτηση θα έμπαινε στη λίστα εγγραφών του φροντιστηρίου.';
-      ok.classList.add('show');
-      f.reset();
+    sampleForm(document.getElementById('signup'), {
+      busy: 'Αποστολή…',
+      reset: true,
+      success: function (f) {
+        return 'Η αίτηση εγγραφής για τον/την ' + f.student.value.trim() + ' καταχωρήθηκε. ' +
+          'Σε πραγματική ιστοσελίδα θα στελνόταν αυτόματα email επιβεβαίωσης στο ' + f.email.value.trim() +
+          ' και η αίτηση θα έμπαινε στη λίστα εγγραφών του φροντιστηρίου.';
+      }
     });
   </script>
 </body>
