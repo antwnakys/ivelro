@@ -30,6 +30,50 @@
     });
   }
 
+  /* ---------- Reveal on scroll (.rv -> .rv.in) ---------- */
+  var rv = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    rv.forEach(function (e) { e.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function (e) { io.observe(e); });
+  }
+
+  /* ---------- Sticky header shadow ---------- */
+  var hdr = document.querySelector('header');
+  if (hdr) {
+    var onScroll = function () { hdr.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- Tabs: [role=tablist] > [role=tab][aria-controls] ---------- */
+  document.querySelectorAll('[role="tablist"]').forEach(function (list) {
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var select = function (t, focus) {
+      tabs.forEach(function (x) {
+        var on = x === t;
+        x.setAttribute('aria-selected', String(on));
+        x.tabIndex = on ? 0 : -1;
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) t.focus();
+    };
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+        if (j === null) return;
+        e.preventDefault();
+        select(tabs[(j + tabs.length) % tabs.length], true);
+      });
+    });
+  });
+
   /* ---------- Opening hours (Athens time) ---------- */
   function athensNow() {
     var o = {};
@@ -78,7 +122,9 @@
     var btn = form.querySelector('[type="submit"]');
     var fields = Array.prototype.filter.call(form.elements, function (f) { return f.willValidate; });
 
+    var first = function (f) { return f.type === 'radio' ? form.querySelector('input[name="' + f.name + '"]') : f; };
     function clear(field) {
+      field = first(field);
       field.removeAttribute('aria-invalid');
       field.removeAttribute('aria-describedby');
       var err = document.getElementById(field.id + '-err');
@@ -91,12 +137,12 @@
       err.className = 'err';
       err.id = field.id + '-err';
       err.textContent = msg;
-      (field.closest('label') || field.parentNode).appendChild(err);
+      (field.type === 'radio' ? field.closest('fieldset') : (field.closest('label') || field.parentNode)).appendChild(err);
       field.setAttribute('aria-describedby', err.id);
     }
     function onEdit(e) {
       var f = e.target;
-      if (f.getAttribute('aria-invalid') !== 'true') return;
+      if (!f.willValidate || first(f).getAttribute('aria-invalid') !== 'true') return;
       f.setCustomValidity('');
       if (f.checkValidity()) clear(f);
     }
@@ -109,7 +155,11 @@
       fields.forEach(function (f) { f.setCustomValidity(''); clear(f); });
       (opts.check ? opts.check(form) : []).forEach(function (c) { c[0].setCustomValidity(c[1]); });
 
-      var bad = fields.filter(function (f) { return !f.checkValidity(); });
+      var seen = {};
+      var bad = fields.filter(function (f) {
+        if (f.type === 'radio') { if (seen[f.name]) return false; seen[f.name] = 1; f = first(f); }
+        return !f.checkValidity();
+      }).map(first);
       bad.forEach(function (f) {
         fail(f, f.validity.customError ? f.validationMessage : (f.getAttribute('data-msg') || f.validationMessage));
       });
