@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Οδοντιατρείο Ρίζα, Αμπελόκηποι | Δείγμα ιστοσελίδας IVELRO</title>
+  <meta name="description" content="Δείγμα ιστοσελίδας οδοντιατρείου, σχεδιασμένο από την IVELRO. Το οδοντιατρείο είναι φανταστικό.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&display=swap">
+  <style>
+    /* Calm clinic: white rooms, deep pine green, warm sand panels, generous type. */
+    :root {
+      --pine: #1e4d43;
+      --pine-2: #2b6658;
+      --sand: #f4f1ea;
+      --text: #1f2726;
+      --muted: #5d6967;
+      --rule: #e2e6e3;
+      --white: #ffffff;
+      --font: "Commissioner", "Segoe UI", Arial, sans-serif;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { margin: 0; background: var(--white); color: var(--text); font-family: var(--font); font-size: 16.5px; line-height: 1.65; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; color: var(--pine); font-weight: 600; text-wrap: balance; }
+    p { margin: 0; }
+    a { color: var(--pine-2); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-left, 0px)); }
+    :focus-visible { outline: 3px solid #e0b25b; outline-offset: 2px; }
+
+    .demo { background: #fff7e6; color: #6b4b10; font-size: 13px; text-align: center; padding: 6px 16px; border-bottom: 1px solid #f0dfb8; }
+    .demo a { color: inherit; font-weight: 600; }
+    .util { background: var(--pine); color: #d5e3df; font-size: 13.5px; }
+    .util .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 7px; padding-bottom: 7px; }
+    .util a { color: #fff; text-decoration: none; font-weight: 600; }
+
+    header { position: sticky; top: 0; z-index: 20; background: var(--white); border-bottom: 1px solid var(--rule); }
+    .bar { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .tooth { width: 34px; height: 34px; }
+    .brand b { display: block; color: var(--pine); font-size: 19px; line-height: 1.1; }
+    .brand small { color: var(--muted); font-size: 12.5px; }
+    nav { display: flex; gap: 24px; font-size: 15px; font-weight: 500; }
+    nav a { color: var(--text); text-decoration: none; }
+    nav a:hover { color: var(--pine-2); }
+    .btn { display: inline-block; background: var(--pine); color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; padding: 11px 20px; border-radius: 6px; border: 0; cursor: pointer; font-family: inherit; }
+    .btn:hover { background: var(--pine-2); }
+    .btn-line { background: transparent; color: var(--pine); box-shadow: inset 0 0 0 1.5px var(--pine); }
+    .btn-line:hover { background: var(--sand); }
+
+    .hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; padding-top: 64px; padding-bottom: 64px; }
+    .hero h1 { font-size: clamp(32px, 4.4vw, 48px); }
+    .hero p.lead { margin-top: 16px; font-size: 18.5px; color: var(--muted); max-width: 50ch; }
+    .hero .actions { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .hours { background: var(--sand); border-radius: 10px; padding: 26px 28px; }
+    .hours h2 { font-size: 18px; margin-bottom: 10px; }
+    .hours table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .hours td { padding: 8px 0; border-bottom: 1px solid #e6e0d4; }
+    .hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+    .hours tr:last-child td { border-bottom: 0; }
+    .hours .closed { color: var(--muted); }
+    .hours p { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+    section { padding: 80px 0; border-top: 1px solid var(--rule); }
+    .head { max-width: 640px; margin-bottom: 36px; }
+    .head h2 { font-size: clamp(27px, 3.2vw, 36px); }
+    .head p { margin-top: 10px; color: var(--muted); font-size: 17.5px; }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+    .svc { padding: 24px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .svc h3 { font-size: 19px; margin-bottom: 6px; }
+    .svc p { color: var(--muted); font-size: 15px; }
+
+    .team { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .doc { display: grid; grid-template-columns: 88px 1fr; gap: 20px; align-items: start; }
+    .initials { width: 88px; height: 88px; border-radius: 50%; background: var(--sand); color: var(--pine); display: grid; place-items: center; font-size: 26px; font-weight: 600; }
+    .doc h3 { font-size: 20px; }
+    .doc .role { color: var(--pine-2); font-weight: 500; font-size: 15px; margin: 2px 0 8px; }
+    .doc p { color: var(--muted); font-size: 15px; }
+
+    .sand { background: var(--sand); border-top: 0; }
+    ol.visit { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: v; }
+    ol.visit li { counter-increment: v; }
+    ol.visit li::before { content: counter(v); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--pine); color: #fff; font-weight: 600; margin-bottom: 12px; }
+    ol.visit h3 { font-size: 17.5px; margin-bottom: 4px; }
+    ol.visit p { color: var(--muted); font-size: 15px; }
+
+    .book { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+    form { display: grid; gap: 14px; background: var(--white); border: 1px solid var(--rule); border-radius: 10px; padding: 26px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: grid; gap: 5px; font-size: 14px; font-weight: 500; }
+    input, select, textarea { font: inherit; font-size: 15.5px; padding: 10px 12px; border: 1px solid #c8d0cd; border-radius: 6px; color: var(--text); background: #fff; }
+    textarea { min-height: 80px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--pine-2); outline-offset: 0; }
+    .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 13.5px; color: var(--muted); }
+    .check input { margin-top: 3px; }
+    .ok { display: none; background: #eef6f1; border-left: 3px solid var(--pine); color: #1f4d3a; padding: 12px 14px; font-size: 14.5px; }
+    .ok.show { display: block; }
+    .book ul { margin: 16px 0 0; padding-left: 18px; color: var(--muted); }
+
+    details { border-bottom: 1px solid var(--rule); padding: 16px 0; }
+    details:first-of-type { border-top: 1px solid var(--rule); }
+    summary { cursor: pointer; font-weight: 600; color: var(--pine); font-size: 16.5px; }
+    details p { margin-top: 8px; color: var(--muted); max-width: 70ch; }
+
+    .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .contact b { display: block; color: var(--pine); }
+    .contact span { color: var(--muted); }
+
+    footer { background: #163a33; color: #b9ccc6; font-size: 14px; padding: 28px 0; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { color: #e9c987; }
+
+    .hero .wrap > *, .book > * { min-width: 0; }
+    @media (max-width: 960px) {
+      nav { display: none; }
+      .hero .wrap, .book, .team { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr 1fr; }
+      ol.visit { grid-template-columns: 1fr 1fr; }
+      .contact { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .services, ol.visit, .row { grid-template-columns: 1fr; }
+      .util .hide-s { display: none; }
+      .bar .btn { padding: 9px 14px; font-size: 14px; }
+      .brand small { display: none; }
+      section { padding: 60px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <div class="demo">Δείγμα ιστοσελίδας από την <a href="https://ivelro.com">IVELRO</a>. Το οδοντιατρείο, τα ονόματα και τα στοιχεία είναι φανταστικά.</div>
+  <div class="util">
+    <div class="wrap">
+      <span>Λεωφ. Παραδείγματος 100, Αμπελόκηποι <span class="hide-s">· 2 λεπτά από το μετρό Αμπελόκηποι</span></span>
+      <span>Ραντεβού: <a href="#rantevou">210 000 0000</a></span>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap bar">
+      <a class="brand" href="#top">
+        <svg class="tooth" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#1e4d43"/><path d="M11 9c2-1 4 0 6 1 2-1 4-2 6-1 3 1 3 5 2 8l-1.5 6c-.4 1.6-2.4 1.6-2.8 0L19 18c-.4-1.4-2.6-1.4-3 0l-1.7 5c-.4 1.6-2.4 1.6-2.8 0L10 17c-1-3-1-7 1-8z" fill="#f4f1ea"/></svg>
+        <span><b>Οδοντιατρείο Ρίζα</b><small>Γενική οδοντιατρική · Παιδοδοντία</small></span>
+      </a>
+      <nav aria-label="Κύριο μενού">
+        <a href="#ypiresies">Υπηρεσίες</a>
+        <a href="#iatroi">Οι γιατροί</a>
+        <a href="#episkepsi">Πρώτη επίσκεψη</a>
+        <a href="#erotiseis">Ερωτήσεις</a>
+      </nav>
+      <a class="btn" href="#rantevou">Κλείστε ραντεβού</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Οδοντιατρική φροντίδα για όλη την οικογένεια, στους Αμπελοκήπους</h1>
+          <p class="lead">Προληπτικός έλεγχος, θεραπείες και παιδοδοντία, με ραντεβού στην ώρα τους και καθαρή ενημέρωση για κάθε θεραπεία και το κόστος της πριν ξεκινήσουμε.</p>
+          <div class="actions">
+            <a class="btn" href="#rantevou">Αίτημα ραντεβού online</a>
+            <a class="btn btn-line" href="#rantevou">210 000 0000</a>
+          </div>
+        </div>
+        <aside class="hours" aria-labelledby="hours-title">
+          <h2 id="hours-title">Ωράριο</h2>
+          <table>
+            <tr><td>Δευτέρα</td><td>09:00–14:00, 17:00–21:00</td></tr>
+            <tr><td>Τρίτη</td><td>09:00–14:00</td></tr>
+            <tr><td>Τετάρτη</td><td>09:00–14:00, 17:00–21:00</td></tr>
+            <tr><td>Πέμπτη</td><td>12:00–20:00</td></tr>
+            <tr><td>Παρασκευή</td><td>09:00–15:00</td></tr>
+            <tr><td>Σάββατο – Κυριακή</td><td class="closed">Κλειστά</td></tr>
+          </table>
+          <p>Για επείγοντα περιστατικά καλέστε στο 210 000 0000 και θα σας εξυπηρετήσουμε την ίδια μέρα.</p>
+        </aside>
+      </div>
+    </div>
+
+    <section id="ypiresies">
+      <div class="wrap">
+        <div class="head"><h2>Υπηρεσίες</h2><p>Πριν από κάθε θεραπεία σάς δίνουμε γραπτό πλάνο με τα βήματα και το κόστος.</p></div>
+        <div class="services">
+          <div class="svc"><h3>Έλεγχος και καθαρισμός</h3><p>Εξέταση, ψηφιακή ακτινογραφία και καθαρισμός, κάθε 6 μήνες.</p></div>
+          <div class="svc"><h3>Σφραγίσματα</h3><p>Λευκά σφραγίσματα σύνθετης ρητίνης, στο χρώμα του δοντιού.</p></div>
+          <div class="svc"><h3>Απονευρώσεις</h3><p>Ενδοδοντική θεραπεία με ηλεκτρονικό εντοπισμό ακρορριζίου.</p></div>
+          <div class="svc"><h3>Παιδοδοντία</h3><p>Πρώτη επίσκεψη από 3 ετών, προληπτικές εμφράξεις και φθορίωση.</p></div>
+          <div class="svc"><h3>Λεύκανση</h3><p>Λεύκανση στο ιατρείο ή στο σπίτι με εξατομικευμένους νάρθηκες.</p></div>
+          <div class="svc"><h3>Στεφάνες και εμφυτεύματα</h3><p>Αποκατάσταση δοντιών που λείπουν, σε συνεργασία με χειρουργό.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="iatroi">
+      <div class="wrap">
+        <div class="head"><h2>Οι γιατροί</h2></div>
+        <div class="team">
+          <div class="doc"><div class="initials" aria-hidden="true">ΜΗ</div><div><h3>Μαρία Ηλιοπούλου</h3><p class="role">Οδοντίατρος, DDS</p><p>Πτυχιούχος της Οδοντιατρικής Σχολής Αθηνών, με μεταπτυχιακό στην ενδοδοντία. Ασκεί το επάγγελμα από το 2011.</p></div></div>
+          <div class="doc"><div class="initials" aria-hidden="true">ΓΒ</div><div><h3>Γιώργος Βλάχος</h3><p class="role">Οδοντίατρος, Παιδοδοντίατρος</p><p>Ειδικεύεται στη φροντίδα παιδιών και εφήβων. Συνεργάζεται με το ιατρείο από το 2018.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="episkepsi" class="sand">
+      <div class="wrap">
+        <div class="head"><h2>Η πρώτη σας επίσκεψη</h2><p>Διαρκεί περίπου 40 λεπτά.</p></div>
+        <ol class="visit">
+          <li><h3>Ιστορικό</h3><p>Συζητάμε το ιατρικό σας ιστορικό και ό,τι σας απασχολεί.</p></li>
+          <li><h3>Εξέταση</h3><p>Κλινικός έλεγχος και ψηφιακή ακτινογραφία, όπου χρειάζεται.</p></li>
+          <li><h3>Πλάνο θεραπείας</h3><p>Γραπτό πλάνο με επιλογές, χρόνο και κόστος.</p></li>
+          <li><h3>Επόμενο ραντεβού</h3><p>Λαμβάνετε υπενθύμιση με SMS την προηγούμενη μέρα.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="rantevou">
+      <div class="wrap book">
+        <div>
+          <div class="head"><h2>Αίτημα ραντεβού</h2><p>Συμπληρώστε τη φόρμα και θα σας καλέσουμε για να επιβεβαιώσουμε ημέρα και ώρα.</p></div>
+          <ul>
+            <li>Απαντάμε την ίδια εργάσιμη μέρα.</li>
+            <li>Για επείγοντα, καλέστε στο 210 000 0000.</li>
+            <li>Δεχόμαστε μετρητά και κάρτες. Δίνουμε απόδειξη για αποζημίωση από ιδιωτική ασφάλεια.</li>
+          </ul>
+        </div>
+        <form id="appt" novalidate>
+          <div class="row">
+            <label for="name">Ονοματεπώνυμο<input id="name" name="name" required autocomplete="name"></label>
+            <label for="phone">Κινητό<input id="phone" name="phone" type="tel" required autocomplete="tel"></label>
+          </div>
+          <div class="row">
+            <label for="reason">Λόγος επίσκεψης
+              <select id="reason" name="reason" required>
+                <option value="">Επιλέξτε</option>
+                <option>Έλεγχος και καθαρισμός</option><option>Πόνος ή ευαισθησία</option><option>Παιδί</option><option>Λεύκανση</option><option>Άλλο</option>
+              </select>
+            </label>
+            <label for="when">Προτιμώμενη ώρα
+              <select id="when" name="when"><option>Πρωί</option><option>Απόγευμα</option><option>Οποιαδήποτε</option></select>
+            </label>
+          </div>
+          <label for="msg">Σχόλια (προαιρετικά)<textarea id="msg" name="msg"></textarea></label>
+          <label class="check" for="consent"><input id="consent" type="checkbox" required> Συναινώ στην επεξεργασία των στοιχείων μου για τον προγραμματισμό του ραντεβού.</label>
+          <button class="btn" type="submit">Αποστολή αιτήματος</button>
+          <div class="ok" id="ok" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="erotiseis">
+      <div class="wrap">
+        <div class="head"><h2>Συχνές ερωτήσεις</h2></div>
+        <details><summary>Κάθε πότε πρέπει να κάνω έλεγχο;</summary><p>Για τους περισσότερους ενήλικες, κάθε 6 μήνες. Αν έχετε ιστορικό ουλίτιδας, μπορεί να σας προτείνουμε συχνότερα.</p></details>
+        <details><summary>Από ποια ηλικία να φέρω το παιδί μου;</summary><p>Προτείνουμε την πρώτη επίσκεψη γύρω στα 3, ώστε το παιδί να εξοικειωθεί με το ιατρείο χωρίς πίεση.</p></details>
+        <details><summary>Θα μάθω το κόστος πριν ξεκινήσει η θεραπεία;</summary><p>Ναι. Μετά την εξέταση λαμβάνετε γραπτό πλάνο θεραπείας με το κόστος κάθε βήματος.</p></details>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap contact">
+        <div><b>Διεύθυνση</b><span>Λεωφ. Παραδείγματος 100, 3ος όροφος, 115 26 Αμπελόκηποι</span></div>
+        <div><b>Τηλέφωνο</b><span>210 000 0000</span></div>
+        <div><b>Πρόσβαση</b><span>Μετρό Αμπελόκηποι (γραμμή 3), 2 λεπτά με τα πόδια</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Οδοντιατρείο Ρίζα · Αρ. άδειας λειτουργίας: [αριθμός] · <a href="#top">Πολιτική απορρήτου</a></span>
+      <span>Σχεδιασμός και ανάπτυξη: <a href="https://ivelro.com">IVELRO</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('appt').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target, ok = document.getElementById('ok');
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      ok.textContent = 'Το αίτημα στάλθηκε. Σε πραγματική ιστοσελίδα, το ιατρείο θα το έβλεπε αμέσως στο πρόγραμμά του και θα σας στελνόταν αυτόματα SMS επιβεβαίωσης στο ' + f.phone.value.trim() + '.';
+      ok.classList.add('show');
+      f.reset();
+    });
+  </script>
+</body>
+</html>
