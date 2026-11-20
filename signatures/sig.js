@@ -32,9 +32,10 @@
       t: TEXT[o.lang === 'el' ? 'el' : 'en']
     };
   }
-  function row(icon, inner) {
+  // Text labels instead of icon images: tiny images get squeezed or blocked by some email apps.
+  function row(label, inner) {
     return '<tr>' +
-      '<td style="padding:0 10px 5px 0;vertical-align:middle;width:14px;"><img src="' + IMG + icon + '.png" width="14" height="14" alt="" style="display:block;border:0;width:14px;height:14px;"></td>' +
+      '<td width="18" style="width:18px;padding:0 8px 5px 0;vertical-align:middle;font-family:' + FONT + ';font-size:10px;line-height:18px;font-weight:bold;letter-spacing:1px;color:#a6a6a6;">' + label + '</td>' +
       '<td style="padding:0 0 5px 0;vertical-align:middle;font-family:' + FONT + ';font-size:13px;line-height:18px;color:#3d3d3d;">' + inner + '</td>' +
       '</tr>';
   }
@@ -42,10 +43,10 @@
   function full(o) {
     var d = clean(o);
     var link = 'color:#3d3d3d;text-decoration:none;';
-    var rows = row('phone', '<a href="tel:' + d.tel + '" style="' + link + '">' + d.phone + '</a>') +
-      row('mail', '<a href="mailto:' + d.email + '" style="' + link + '">' + d.email + '</a>') +
-      row('web', '<a href="' + d.t.site + '" style="color:#0a0a0a;text-decoration:none;font-weight:bold;">ivelro.com</a>') +
-      (d.linkedin ? row('linkedin', '<a href="' + d.linkedin + '" style="' + link + '">LinkedIn</a>') : '');
+    var rows = row('T', '<a href="tel:' + d.tel + '" style="' + link + '">' + d.phone + '</a>') +
+      row('E', '<a href="mailto:' + d.email + '" style="' + link + '">' + d.email + '</a>') +
+      row('W', '<a href="' + d.t.site + '" style="color:#0a0a0a;text-decoration:none;font-weight:bold;">ivelro.com</a>') +
+      (d.linkedin ? row('in', '<a href="' + d.linkedin + '" style="' + link + '">LinkedIn</a>') : '');
     return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:' + FONT + ';color:#0a0a0a;">' +
       '<tr>' +
         '<td style="vertical-align:top;padding:2px 20px 0 0;width:104px;">' +
