@@ -116,8 +116,8 @@
       <div class="field">
         <label class="label" for="role">Ρόλος</label>
         <select id="role" name="role">
-          <option>Sales &amp; Partnerships</option>
-          <option selected>Project Manager</option>
+          <option selected>Sales &amp; Partnerships</option>
+          <option>Marketing &amp; Content</option>
           <option>Designer</option>
           <option>Web Developer</option>
           <option>Automation &amp; AI Developer</option>
@@ -206,8 +206,8 @@
     if (linkedin && !/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
     return {
       name: esc((o.name || '').trim() || 'Name Surname'),
-      role: esc((o.role || 'Project Manager').trim()),
-      roleCaps: esc((o.role || 'Project Manager').trim().toUpperCase()),
+      role: esc((o.role || 'Sales & Partnerships').trim()),
+      roleCaps: esc((o.role || 'Sales & Partnerships').trim().toUpperCase()),
       phone: esc(phone),
       tel: esc(phone.replace(/[^0-9+]/g, '')),
       email: esc((o.email || '').trim() || 'name@ivelro.com'),

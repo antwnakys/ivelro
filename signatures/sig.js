@@ -23,8 +23,8 @@
     if (linkedin && !/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
     return {
       name: esc((o.name || '').trim() || 'Name Surname'),
-      role: esc((o.role || 'Project Manager').trim()),
-      roleCaps: esc((o.role || 'Project Manager').trim().toUpperCase()),
+      role: esc((o.role || 'Sales & Partnerships').trim()),
+      roleCaps: esc((o.role || 'Sales & Partnerships').trim().toUpperCase()),
       phone: esc(phone),
       tel: esc(phone.replace(/[^0-9+]/g, '')),
       email: esc((o.email || '').trim() || 'name@ivelro.com'),
