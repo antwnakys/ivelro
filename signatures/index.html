@@ -4,151 +4,340 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0a">
 <title>Υπογραφές email IVELRO</title>
+<link rel="icon" href="https://ivelro.com/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Commissioner:wght@300;400;500&display=swap">
 <style>
-  :root { color-scheme: light; }
+  :root {
+    --bg: #0a0a0a; --panel: #111111; --rule: #1f1f1f; --rule-2: #2c2c2c;
+    --text: #f2f2f2; --muted: #8c8c8c; --faint: #5a5a5a; --ok: #9fdcb6;
+    --font: "Jost", "Commissioner", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; background: #0a0a0a; color: #f2f2f2; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-  main { max-width: 880px; margin: 0 auto; padding: 40px 16px 56px; }
-  h1 { font-size: 26px; font-weight: 400; margin: 0 0 8px; letter-spacing: -.01em; }
-  .intro { color: #8c8c8c; margin: 0 0 28px; line-height: 1.55; }
-  .maker { display: grid; grid-template-columns: 300px 1fr; gap: 20px; align-items: start; }
-  .panel { background: #121212; border: 1px solid #1f1f1f; border-radius: 12px; padding: 22px; }
-  label { display: grid; gap: 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #8c8c8c; margin-bottom: 14px; }
-  input, select { font: inherit; font-size: 15px; letter-spacing: 0; text-transform: none; color: #f2f2f2; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 0 12px; min-height: 44px; width: 100%; }
-  input:focus, select:focus { outline: none; border-color: #f2f2f2; }
-  .preview { background: #ffffff; border-radius: 12px; padding: 32px 28px; overflow-x: auto; }
-  .tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #8c8c8c; margin: 0 0 10px; }
-  .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-  button { font: inherit; font-size: 14px; min-height: 44px; padding: 0 18px; border-radius: 8px; border: 1px solid #f2f2f2; cursor: pointer; transition: background-color .2s ease, color .2s ease; }
-  .primary { background: #f2f2f2; color: #0a0a0a; }
-  .primary:hover { background: #ffffff; }
-  .ghost { background: transparent; color: #f2f2f2; }
-  .ghost:hover { background: #1f1f1f; }
-  .status { min-height: 1.4em; margin: 12px 0 0; color: #9fdcb6; font-size: 14px; }
-  .steps { margin-top: 20px; }
-  .steps ol { margin: 0; padding-left: 20px; line-height: 1.75; color: #cfcfcf; }
-  .steps b { color: #fff; }
-  @media (max-width: 760px) { .maker { grid-template-columns: 1fr; } }
+  html { -webkit-tap-highlight-color: rgba(255,255,255,.08); }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-weight: 300; line-height: 1.6; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background:
+    radial-gradient(900px 500px at 85% -10%, rgba(255,255,255,.05), transparent 60%),
+    repeating-linear-gradient(57deg, transparent 0 260px, rgba(255,255,255,.025) 260px 261px); }
+  main { position: relative; max-width: 1180px; margin: 0 auto; padding: 48px 20px 64px; }
+  .top { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
+  .top img { width: 22px; height: auto; }
+  .top span { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: clamp(30px, 4vw, 46px); font-weight: 300; letter-spacing: -.015em; line-height: 1.1; margin: 0; max-width: 18ch; }
+  .lead { color: var(--muted); max-width: 58ch; margin: 16px 0 40px; font-size: 17px; }
+  .grid { display: grid; grid-template-columns: 340px 1fr; gap: 24px; align-items: start; }
+  .panel { background: var(--panel); border: 1px solid var(--rule); border-radius: 16px; padding: 24px; }
+  .label { display: block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  input, select { width: 100%; min-height: 46px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--rule-2); background: var(--bg); color: var(--text); font: inherit; font-size: 15px; font-weight: 400; transition: border-color .2s ease; }
+  input::placeholder { color: var(--faint); }
+  input:hover, select:hover { border-color: #3a3a3a; }
+  input:focus, select:focus { outline: none; border-color: var(--text); }
+  .hint { font-size: 12.5px; color: var(--faint); margin: 6px 0 0; }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--bg); }
+  .seg label { position: relative; }
+  .seg input { position: absolute; opacity: 0; width: 1px; height: 1px; min-height: 0; }
+  .seg span { display: flex; align-items: center; justify-content: center; min-height: 40px; border-radius: 8px; font-size: 14px; font-weight: 400; color: var(--muted); cursor: pointer; transition: background-color .2s ease, color .2s ease; text-align: center; padding: 0 8px; }
+  .seg span:hover { color: var(--text); }
+  .seg input:checked + span { background: var(--text); color: var(--bg); }
+  .seg input:focus-visible + span { outline: 1px solid var(--text); outline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 22px 0; }
+
+  .mail { background: #ffffff; color: #1d1d1f; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 80px -40px rgba(0,0,0,.9); }
+  .mail-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #f4f4f5; border-bottom: 1px solid #e6e6e8; }
+  .mail-bar i { width: 11px; height: 11px; border-radius: 50%; background: #d4d4d8; }
+  .mail-bar span { margin-left: 10px; font-size: 13px; color: #71717a; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .mail-head { padding: 16px 28px 14px; border-bottom: 1px solid #f0f0f1; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13.5px; color: #52525b; line-height: 1.9; }
+  .mail-head b { color: #a1a1aa; font-weight: 400; display: inline-block; width: 62px; }
+  .mail-head .subject { color: #18181b; font-weight: 600; font-size: 15px; }
+  .mail-body { padding: 24px 28px 34px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14.5px; line-height: 1.6; color: #27272a; overflow-x: auto; }
+  .mail-body p { margin: 0 0 14px; }
+  .sig-gap { height: 12px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  button { font: inherit; font-size: 15px; font-weight: 400; min-height: 48px; padding: 0 22px; border-radius: 999px; cursor: pointer; border: 1px solid var(--text); transition: background-color .2s ease, color .2s ease, border-color .2s ease; touch-action: manipulation; }
+  .primary { background: var(--text); color: var(--bg); }
+  .primary:hover { background: #fff; }
+  .ghost { background: transparent; color: var(--text); border-color: var(--rule-2); }
+  .ghost:hover { border-color: var(--text); }
+  button:focus-visible { outline: 1px solid var(--text); outline-offset: 3px; }
+  .status { min-height: 1.6em; margin: 14px 0 0; color: var(--ok); font-size: 14.5px; }
+
+  .how { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; }
+  .how div { padding: 22px; background: var(--panel); }
+  .how div + div { border-left: 1px solid var(--rule); }
+  .how b { display: block; font-size: 12px; letter-spacing: .22em; color: var(--faint); font-weight: 400; margin-bottom: 8px; }
+  .how p { margin: 0; color: #cfcfcf; font-size: 15px; }
+  .tips { margin-top: 24px; color: var(--muted); font-size: 14.5px; }
+  .tips li { margin: 6px 0; }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .how { grid-template-columns: 1fr 1fr; }
+    .how div:nth-child(3) { border-left: 0; }
+    .how div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  }
+  @media (max-width: 520px) {
+    .how { grid-template-columns: 1fr; }
+    .how div + div { border-left: 0; border-top: 1px solid var(--rule); }
+    .mail-head, .mail-body { padding-left: 18px; padding-right: 18px; }
+    .mail-head b { width: auto; margin-right: 6px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
 <main>
-  <h1>Υπογραφές email IVELRO</h1>
-  <p class="intro">Διαλέξτε ρόλο, γράψτε τα στοιχεία σας και πατήστε «Αντιγραφή υπογραφής». Μετά την επικολλάτε στο OpenInbox.</p>
+  <div class="top"><img src="https://ivelro.com/assets/img/mark.png" alt="" width="22" height="22"><span>IVELRO · Email</span></div>
+  <h1>Η υπογραφή σας, έτοιμη σε ένα λεπτό.</h1>
+  <p class="lead">Διαλέξτε ρόλο, γράψτε τα στοιχεία σας και πατήστε «Αντιγραφή». Η προεπισκόπηση δείχνει ακριβώς πώς θα τη βλέπει ο πελάτης.</p>
 
-  <div class="maker">
-    <form class="panel" id="f" autocomplete="on" onsubmit="return false">
-      <label for="role">Ρόλος
+  <div class="grid">
+    <form class="panel" id="f" onsubmit="return false" autocomplete="on">
+      <div class="field">
+        <span class="label" id="style-l">Τύπος</span>
+        <div class="seg" role="radiogroup" aria-labelledby="style-l">
+          <label><input type="radio" name="style" value="full" checked><span>Πλήρης</span></label>
+          <label><input type="radio" name="style" value="reply"><span>Για απαντήσεις</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="label" id="lang-l">Γλώσσα</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lang-l">
+          <label><input type="radio" name="lang" value="en" checked><span>English</span></label>
+          <label><input type="radio" name="lang" value="el"><span>Ελληνικά</span></label>
+        </div>
+      </div>
+      <hr>
+      <div class="field">
+        <label class="label" for="role">Ρόλος</label>
         <select id="role" name="role">
-          <option value="Sales &amp; Partnerships">Sales &amp; Partnerships</option>
-          <option value="Project Manager">Project Manager</option>
-          <option value="Designer">Designer</option>
-          <option value="Web Developer">Web Developer</option>
-          <option value="Automation &amp; AI Developer">Automation &amp; AI Developer</option>
+          <option>Sales &amp; Partnerships</option>
+          <option selected>Project Manager</option>
+          <option>Designer</option>
+          <option>Web Developer</option>
+          <option>Automation &amp; AI Developer</option>
         </select>
-      </label>
-      <label for="name">Ονοματεπώνυμο (με λατινικούς χαρακτήρες)
+      </div>
+      <div class="field">
+        <label class="label" for="name">Ονοματεπώνυμο</label>
         <input id="name" name="name" autocomplete="name" placeholder="π.χ. Nikos Papadopoulos…">
-      </label>
-      <label for="phone">Τηλέφωνο
+        <p class="hint">Με λατινικούς χαρακτήρες, για να εμφανίζεται σωστά παντού.</p>
+      </div>
+      <div class="field">
+        <label class="label" for="phone">Τηλέφωνο</label>
         <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="π.χ. +30 691 234 5678…">
-      </label>
-      <label for="email">Email IVELRO
-        <input id="email" name="email" type="email" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="π.χ. nikos@ivelro.com…">
-      </label>
+      </div>
+      <div class="field">
+        <label class="label" for="email">Email IVELRO</label>
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" placeholder="π.χ. nikos@ivelro.com…">
+      </div>
+      <div class="field">
+        <label class="label" for="linkedin">LinkedIn (προαιρετικό)</label>
+        <input id="linkedin" name="linkedin" type="url" inputmode="url" spellcheck="false" autocapitalize="off" placeholder="π.χ. linkedin.com/in/nikos…">
+      </div>
     </form>
 
     <div>
-      <p class="tag">Προεπισκόπηση</p>
-      <div class="preview" id="preview"></div>
-      <div class="buttons">
+      <div class="mail" aria-label="Προεπισκόπηση email">
+        <div class="mail-bar" aria-hidden="true"><i></i><i></i><i></i><span>Νέο μήνυμα</span></div>
+        <div class="mail-head" aria-hidden="true">
+          <div><b>Από</b><span id="from"></span></div>
+          <div><b>Προς</b>info@frontistirio-example.gr</div>
+          <div class="subject">Πρόταση για τη νέα σας ιστοσελίδα</div>
+        </div>
+        <div class="mail-body">
+          <p aria-hidden="true">Καλησπέρα σας,</p>
+          <p aria-hidden="true">Σας ευχαριστούμε για τη σημερινή συνάντηση. Σας επισυνάπτουμε την πρότασή μας για την ιστοσελίδα και την ηλεκτρονική εγγραφή μαθητών.</p>
+          <p aria-hidden="true">Με εκτίμηση,</p>
+          <div class="sig-gap"></div>
+          <div id="sig"></div>
+        </div>
+      </div>
+      <div class="actions">
         <button class="primary" type="button" id="copy">Αντιγραφή υπογραφής</button>
-        <button class="ghost" type="button" id="copy-html">Αντιγραφή κώδικα HTML</button>
+        <button class="ghost" type="button" id="copy-html">Αντιγραφή HTML</button>
+        <button class="ghost" type="button" id="download">Λήψη αρχείου</button>
       </div>
       <p class="status" id="status" role="status" aria-live="polite"></p>
     </div>
   </div>
 
-  <section class="panel steps">
-    <p class="tag">Πώς τη βάζετε στο OpenInbox</p>
-    <ol>
-      <li>Συμπληρώστε τα στοιχεία σας και πατήστε <b>Αντιγραφή υπογραφής</b>.</li>
-      <li>Στο OpenInbox: <b>Ρυθμίσεις → Υπογραφή</b>, και Επικόλληση (Ctrl+V / Cmd+V).</li>
-      <li>Αν το OpenInbox έχει επιλογή HTML («Source» ή «&lt;/&gt;»), πατήστε <b>Αντιγραφή κώδικα HTML</b> και επικολλήστε εκεί.</li>
-      <li>Ορίστε την ως προεπιλογή για νέα μηνύματα και απαντήσεις, και στείλτε ένα δοκιμαστικό email σε κάποιον από την ομάδα.</li>
-    </ol>
+  <section class="how" aria-label="Οδηγίες">
+    <div><b>01</b><p>Συμπληρώστε τα στοιχεία σας. Τα θυμάται την επόμενη φορά.</p></div>
+    <div><b>02</b><p>Πατήστε «Αντιγραφή υπογραφής».</p></div>
+    <div><b>03</b><p>OpenInbox: Ρυθμίσεις → Υπογραφή → Επικόλληση.</p></div>
+    <div><b>04</b><p>Στείλτε ένα δοκιμαστικό email σε κάποιον από την ομάδα.</p></div>
   </section>
+  <ul class="tips">
+    <li>Βάλτε την <b>πλήρη</b> υπογραφή στα νέα μηνύματα και τη <b>σύντομη</b> στις απαντήσεις, για να μη γεμίζει η συζήτηση.</li>
+    <li>Αν το OpenInbox έχει επιλογή κώδικα («HTML», «Source» ή «&lt;/&gt;»), χρησιμοποιήστε το «Αντιγραφή HTML».</li>
+    <li>Σε πελάτες στα ελληνικά, διαλέξτε γλώσσα «Ελληνικά»: αλλάζουν το κουμπί και το σύνθημα.</li>
+  </ul>
 </main>
 
+<script id="sig-template">
+/* IVELRO email signature template. One source for the maker page and the ready-made role files.
+   Email-safe: tables, inline styles, hosted images with fixed sizes and alt text. */
+(function (root) {
+  'use strict';
+
+  var IMG = 'https://ivelro.com/assets/img/email/';
+  var FONT = "'Helvetica Neue',Helvetica,Arial,sans-serif";
+  var TEXT = {
+    en: { tagline: 'INTELLIGENT AUTOMATION &middot; DIGITAL INNOVATION', cta: 'SEE OUR WORK', site: 'https://ivelro.com/' },
+    el: { tagline: '&Epsilon;&Upsilon;&Phi;&Upsilon;&Eta;&Sigma; &Alpha;&Upsilon;&Tau;&Omicron;&Mu;&Alpha;&Tau;&Omicron;&Pi;&Omicron;&Iota;&Eta;&Sigma;&Eta; &middot; &Psi;&Eta;&Phi;&Iota;&Alpha;&Kappa;&Eta; &Kappa;&Alpha;&Iota;&Nu;&Omicron;&Tau;&Omicron;&Mu;&Iota;&Alpha;',
+          cta: '&Delta;&Epsilon;&Iota;&Tau;&Epsilon; &Tau;&Eta; &Delta;&Omicron;&Upsilon;&Lambda;&Epsilon;&Iota;&Alpha; &Mu;&Alpha;&Sigma;', site: 'https://ivelro.com/el/' }
+  };
+  var WORK = 'https://ivelro.com/portfolio/';
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function clean(o) {
+    var phone = (o.phone || '').trim() || '+30 69X XXX XXXX';
+    var linkedin = (o.linkedin || '').trim();
+    if (linkedin && !/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
+    return {
+      name: esc((o.name || '').trim() || 'Name Surname'),
+      role: esc((o.role || 'Project Manager').trim()),
+      roleCaps: esc((o.role || 'Project Manager').trim().toUpperCase()),
+      phone: esc(phone),
+      tel: esc(phone.replace(/[^0-9+]/g, '')),
+      email: esc((o.email || '').trim() || 'name@ivelro.com'),
+      linkedin: esc(linkedin),
+      t: TEXT[o.lang === 'el' ? 'el' : 'en']
+    };
+  }
+  function row(icon, inner) {
+    return '<tr>' +
+      '<td style="padding:0 10px 5px 0;vertical-align:middle;width:14px;"><img src="' + IMG + icon + '.png" width="14" height="14" alt="" style="display:block;border:0;width:14px;height:14px;"></td>' +
+      '<td style="padding:0 0 5px 0;vertical-align:middle;font-family:' + FONT + ';font-size:13px;line-height:18px;color:#3d3d3d;">' + inner + '</td>' +
+      '</tr>';
+  }
+
+  function full(o) {
+    var d = clean(o);
+    var link = 'color:#3d3d3d;text-decoration:none;';
+    var rows = row('phone', '<a href="tel:' + d.tel + '" style="' + link + '">' + d.phone + '</a>') +
+      row('mail', '<a href="mailto:' + d.email + '" style="' + link + '">' + d.email + '</a>') +
+      row('web', '<a href="' + d.t.site + '" style="color:#0a0a0a;text-decoration:none;font-weight:bold;">ivelro.com</a>') +
+      (d.linkedin ? row('linkedin', '<a href="' + d.linkedin + '" style="' + link + '">LinkedIn</a>') : '');
+    return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:' + FONT + ';color:#0a0a0a;">' +
+      '<tr>' +
+        '<td style="vertical-align:top;padding:2px 20px 0 0;width:104px;">' +
+          '<a href="' + d.t.site + '" style="text-decoration:none;"><img src="' + IMG + 'tile.png" width="104" height="104" alt="IVELRO" style="display:block;border:0;width:104px;height:104px;border-radius:14px;"></a>' +
+        '</td>' +
+        '<td style="vertical-align:top;">' +
+          '<div style="font-family:' + FONT + ';font-size:18px;line-height:22px;font-weight:bold;letter-spacing:-0.2px;color:#0a0a0a;">' + d.name + '</div>' +
+          '<div style="font-family:' + FONT + ';font-size:10px;line-height:16px;letter-spacing:2px;color:#8c8c8c;padding:3px 0 0 0;">' + d.roleCaps + '&nbsp;&nbsp;&middot;&nbsp;&nbsp;IVELRO</div>' +
+          '<div style="width:28px;height:2px;background-color:#0a0a0a;font-size:0;line-height:2px;margin:11px 0 12px 0;">&nbsp;</div>' +
+          '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">' + rows + '</table>' +
+          '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:9px 0 0 0;"><tr>' +
+            '<td style="background-color:#0a0a0a;border-radius:4px;">' +
+              '<a href="' + WORK + '" style="display:inline-block;padding:7px 14px;font-family:' + FONT + ';font-size:10px;line-height:14px;letter-spacing:1.6px;font-weight:bold;color:#ffffff;text-decoration:none;">' + d.t.cta + '&nbsp;&nbsp;&rarr;</a>' +
+            '</td>' +
+          '</tr></table>' +
+        '</td>' +
+      '</tr>' +
+      '<tr><td colspan="2" style="padding:16px 0 0 0;">' +
+        '<div style="border-top:1px solid #e6e6e6;padding:10px 0 0 0;font-family:' + FONT + ';font-size:9px;line-height:13px;letter-spacing:2px;color:#a0a0a0;">' + d.t.tagline + '</div>' +
+      '</td></tr>' +
+    '</table>';
+  }
+
+  function reply(o) {
+    var d = clean(o);
+    return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:' + FONT + ';">' +
+      '<tr>' +
+        '<td style="vertical-align:middle;padding:0 12px 0 0;width:40px;">' +
+          '<a href="' + d.t.site + '" style="text-decoration:none;"><img src="' + IMG + 'tile-small.png" width="40" height="40" alt="IVELRO" style="display:block;border:0;width:40px;height:40px;border-radius:8px;"></a>' +
+        '</td>' +
+        '<td style="vertical-align:middle;font-family:' + FONT + ';font-size:12.5px;line-height:18px;color:#5a5a5a;">' +
+          '<b style="font-size:13.5px;color:#0a0a0a;">' + d.name + '</b>&nbsp;&nbsp;&middot;&nbsp;&nbsp;' + d.role + ', IVELRO<br>' +
+          '<a href="tel:' + d.tel + '" style="color:#5a5a5a;text-decoration:none;">' + d.phone + '</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;' +
+          '<a href="' + d.t.site + '" style="color:#0a0a0a;text-decoration:none;font-weight:bold;">ivelro.com</a>' +
+        '</td>' +
+      '</tr>' +
+    '</table>';
+  }
+
+  function ivelroSignature(o) { return (o && o.style === 'reply') ? reply(o || {}) : full(o || {}); }
+  root.ivelroSignature = ivelroSignature;
+  if (typeof module !== 'undefined' && module.exports) module.exports = ivelroSignature;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
 <script>
 (function () {
-  var TEMPLATE = `<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#111111;">
-  <tr>
-    <td style="padding:0 20px 0 0;vertical-align:middle;">
-      <a href="https://ivelro.com" style="text-decoration:none;"><img src="https://ivelro.com/assets/img/email-logo.png" alt="IVELRO" width="120" height="63" style="display:block;border:0;width:120px;height:63px;"></a>
-    </td>
-    <td style="width:1px;background-color:#e2e2e2;font-size:0;line-height:0;">&nbsp;</td>
-    <td style="padding:0 0 0 20px;vertical-align:middle;">
-      <div style="font-size:16px;line-height:1.3;font-weight:bold;color:#111111;">__NAME__</div>
-      <div style="font-size:10px;line-height:1.7;letter-spacing:1.6px;color:#7a7a7a;padding:0 0 8px 0;">__ROLE__</div>
-      <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-size:13px;line-height:1.65;color:#444444;">
-        <tr><td style="padding:0 10px 0 0;font-size:10px;font-weight:bold;color:#a3a3a3;">T</td><td><a href="tel:__TEL__" style="color:#444444;text-decoration:none;">__PHONE__</a></td></tr>
-        <tr><td style="padding:0 10px 0 0;font-size:10px;font-weight:bold;color:#a3a3a3;">E</td><td><a href="mailto:__EMAIL__" style="color:#444444;text-decoration:none;">__EMAIL__</a></td></tr>
-        <tr><td style="padding:0 10px 0 0;font-size:10px;font-weight:bold;color:#a3a3a3;">W</td><td><a href="https://ivelro.com" style="color:#111111;font-weight:bold;text-decoration:none;">ivelro.com</a></td></tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="3" style="padding:14px 0 0 0;">
-      <div style="border-top:1px solid #e2e2e2;padding:10px 0 0 0;font-size:9.5px;line-height:1.4;letter-spacing:1.8px;color:#9a9a9a;">INTELLIGENT AUTOMATION · DIGITAL INNOVATION</div>
-    </td>
-  </tr>
-</table>`;
-  var f = document.getElementById('f'), out = document.getElementById('preview');
+  var f = document.getElementById('f'), sig = document.getElementById('sig'), from = document.getElementById('from');
   var status = document.getElementById('status');
-  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function build() {
-    var name = f.name.value.trim() || 'Name Surname';
-    var phone = f.phone.value.trim() || '+30 69X XXX XXXX';
-    var email = f.email.value.trim() || 'name@ivelro.com';
-    return TEMPLATE
-      .split('__NAME__').join(esc(name))
-      .split('__ROLE__').join(esc(f.role.value.toUpperCase()))
-      .split('__TEL__').join(esc(phone.replace(/[^0-9+]/g, '')))
-      .split('__PHONE__').join(esc(phone))
-      .split('__EMAIL__').join(esc(email));
+  var KEY = 'ivelro-signature';
+  var fields = ['role', 'name', 'phone', 'email', 'linkedin'];
+
+  function val(name) { var el = f.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; }
+  function opts() {
+    var o = { style: val('style'), lang: val('lang') };
+    fields.forEach(function (k) { o[k] = f[k].value; });
+    return o;
   }
-  function render() { out.innerHTML = build(); status.textContent = ''; }
+  function render() {
+    var o = opts();
+    sig.innerHTML = ivelroSignature(o);
+    from.textContent = (o.name.trim() || 'Name Surname') + ' <' + (o.email.trim() || 'name@ivelro.com') + '>';
+    status.textContent = '';
+    try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+  }
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved) {
+      fields.forEach(function (k) { if (saved[k]) f[k].value = saved[k]; });
+      ['style', 'lang'].forEach(function (k) { var el = f.querySelector('input[name="' + k + '"][value="' + saved[k] + '"]'); if (el) el.checked = true; });
+    }
+  } catch (e) {}
   f.addEventListener('input', render);
   f.addEventListener('change', render);
   render();
 
-  function copyRich() {
+  function say(msg) { status.textContent = msg; }
+  function copyBySelection() {
     var sel = window.getSelection(), range = document.createRange();
-    range.selectNodeContents(out);
-    sel.removeAllRanges(); sel.addRange(range);
-    var ok = false;
-    try { ok = document.execCommand('copy'); } catch (e) {}
-    sel.removeAllRanges();
-    return ok;
+    range.selectNodeContents(sig); sel.removeAllRanges(); sel.addRange(range);
+    var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    sel.removeAllRanges(); return ok;
   }
+  var COPIED = 'Αντιγράφηκε. Επικολλήστε τη στο OpenInbox (Ρυθμίσεις → Υπογραφή).';
+  var FAILED = 'Η αντιγραφή δεν έγινε. Επιλέξτε την υπογραφή στην προεπισκόπηση και πατήστε Ctrl+C / Cmd+C.';
+
   document.getElementById('copy').addEventListener('click', function () {
-    var h = build();
+    var html = ivelroSignature(opts());
     if (navigator.clipboard && window.ClipboardItem) {
       navigator.clipboard.write([new ClipboardItem({
-        'text/html': new Blob([h], { type: 'text/html' }),
-        'text/plain': new Blob([out.innerText], { type: 'text/plain' })
-      })]).then(function () { status.textContent = 'Η υπογραφή αντιγράφηκε. Επικολλήστε τη στο OpenInbox.'; },
-        function () { status.textContent = copyRich() ? 'Η υπογραφή αντιγράφηκε. Επικολλήστε τη στο OpenInbox.' : 'Δεν έγινε αντιγραφή. Επιλέξτε την προεπισκόπηση και πατήστε Ctrl+C.'; });
-    } else {
-      status.textContent = copyRich() ? 'Η υπογραφή αντιγράφηκε. Επικολλήστε τη στο OpenInbox.' : 'Δεν έγινε αντιγραφή. Επιλέξτε την προεπισκόπηση και πατήστε Ctrl+C.';
-    }
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([sig.innerText], { type: 'text/plain' })
+      })]).then(function () { say(COPIED); }, function () { say(copyBySelection() ? COPIED : FAILED); });
+    } else { say(copyBySelection() ? COPIED : FAILED); }
   });
   document.getElementById('copy-html').addEventListener('click', function () {
-    var h = build();
-    var done = function () { status.textContent = 'Ο κώδικας HTML αντιγράφηκε.'; };
-    if (navigator.clipboard) navigator.clipboard.writeText(h).then(done, function () { status.textContent = 'Δεν έγινε αντιγραφή του κώδικα.'; });
+    var html = ivelroSignature(opts());
+    if (navigator.clipboard) navigator.clipboard.writeText(html).then(function () { say('Ο κώδικας HTML αντιγράφηκε.'); }, function () { say(FAILED); });
+    else say(FAILED);
+  });
+  document.getElementById('download').addEventListener('click', function () {
+    var o = opts();
+    var page = '<!doctype html>\n<html><head><meta charset="utf-8"><title>IVELRO signature</title></head>\n<body style="margin:0;padding:40px 24px;background:#ffffff;">\n' + ivelroSignature(o) + '\n</body></html>\n';
+    var slug = (o.name.trim() || 'signature').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'signature';
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([page], { type: 'text/html' }));
+    a.download = 'ivelro-signature-' + slug + (o.style === 'reply' ? '-reply' : '') + '.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    say('Το αρχείο κατέβηκε.');
   });
 })();
 </script>
