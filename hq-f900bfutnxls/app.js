@@ -4,7 +4,7 @@
   'use strict';
 
   // Web app URL of the deployed Apps Script (Deploy → Manage deployments → Web app URL).
-  var API = '';
+  var API = 'https://script.google.com/macros/s/AKfycbz6s7DbCldaH93dElqWtV_l0lEV4F0O_jINbutfI7bgc9JDbDJ6YHsj0ep6V-xR4sez/exec';
 
   var STAGES = ['Signed', 'Design', 'Build', 'Review', 'Live', 'Paused'];
   var STAGE_PCT = { Signed: 10, Design: 30, Build: 60, Review: 85, Live: 100, Paused: 0 };
