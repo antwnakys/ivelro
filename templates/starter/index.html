@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{BUSINESS_NAME}} | {{TAGLINE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="theme-color" content="{{COLOR_BRAND}}">
+  <link rel="canonical" href="https://{{DOMAIN}}/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BUSINESS_NAME}}">
+  <meta property="og:title" content="{{BUSINESS_NAME}} | {{TAGLINE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="https://{{DOMAIN}}/">
+  <meta property="og:image" content="https://{{DOMAIN}}/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Google uses this to show the business on Search and Maps. Fill in every field. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{BUSINESS_NAME}}",
+    "description": "{{DESCRIPTION}}",
+    "url": "https://{{DOMAIN}}/",
+    "telephone": "{{PHONE_INTL}}",
+    "email": "{{EMAIL}}",
+    "image": "https://{{DOMAIN}}/assets/img/og-image.jpg",
+    "address": { "@type": "PostalAddress", "streetAddress": "{{STREET}}", "addressLocality": "{{CITY}}", "postalCode": "{{POSTCODE}}", "addressCountry": "GR" },
+    "openingHours": {{OPENING_HOURS_SCHEMA}}
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="{{BUSINESS_NAME}}, αρχική">
+        <span class="brand-mark" aria-hidden="true">{{INITIAL}}</span>
+        <span class="brand-name">{{BUSINESS_NAME}}<small>{{AREA}}</small></span>
+      </a>
+      <nav id="nav" aria-label="Κύριο μενού">
+        <a href="#services">Υπηρεσίες</a>
+        <a href="#about">Ποιοι είμαστε</a>
+        <a href="#reviews">Κριτικές</a>
+        <a href="#faq">Ερωτήσεις</a>
+        <a href="#contact">Επικοινωνία</a>
+      </nav>
+      <a class="btn btn-small" href="#contact">{{CTA_SHORT}}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Μενού">
+        <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">{{AREA}} · από το {{YEAR_FOUNDED}}</p>
+          <h1 id="hero-title">{{HERO_TITLE}}</h1>
+          <p class="lead">{{HERO_TEXT}}</p>
+          <div class="actions">
+            <a class="btn" href="#contact">{{CTA_MAIN}}</a>
+            <a class="btn btn-line" href="tel:{{PHONE_INTL}}">Κλήση: {{PHONE}}</a>
+          </div>
+          <ul class="badges">
+            <li><span class="status" hidden data-hours='{{HOURS_JSON}}' data-open="Ανοιχτά τώρα, έως τις {t}" data-closed="Κλειστά αυτή την ώρα"></span></li>
+            <li>{{BADGE_1}}</li>
+            <li>{{BADGE_2}}</li>
+          </ul>
+        </div>
+        <figure class="hero-media">
+          <!-- Replace with a real photo: assets/img/hero.jpg (1200×900, under 250 KB). -->
+          <img src="assets/img/placeholder.svg" alt="{{HERO_IMAGE_ALT}}" width="1200" height="900" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="head rv"><p class="eyebrow">Υπηρεσίες</p><h2 id="services-title">{{SERVICES_TITLE}}</h2><p>{{SERVICES_TEXT}}</p></div>
+        <div class="cards">
+          <article class="card rv"><h3>{{SERVICE_1}}</h3><p>{{SERVICE_1_TEXT}}</p></article>
+          <article class="card rv"><h3>{{SERVICE_2}}</h3><p>{{SERVICE_2_TEXT}}</p></article>
+          <article class="card rv"><h3>{{SERVICE_3}}</h3><p>{{SERVICE_3_TEXT}}</p></article>
+          <article class="card rv"><h3>{{SERVICE_4}}</h3><p>{{SERVICE_4_TEXT}}</p></article>
+          <article class="card rv"><h3>{{SERVICE_5}}</h3><p>{{SERVICE_5_TEXT}}</p></article>
+          <article class="card rv"><h3>{{SERVICE_6}}</h3><p>{{SERVICE_6_TEXT}}</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section tint" aria-labelledby="about-title">
+      <div class="wrap split">
+        <figure class="media rv">
+          <img src="assets/img/placeholder.svg" alt="{{ABOUT_IMAGE_ALT}}" width="1200" height="900" loading="lazy">
+        </figure>
+        <div class="rv">
+          <p class="eyebrow">Ποιοι είμαστε</p>
+          <h2 id="about-title">{{ABOUT_TITLE}}</h2>
+          <p>{{ABOUT_TEXT}}</p>
+          <ul class="ticks">
+            <li>{{REASON_1}}</li>
+            <li>{{REASON_2}}</li>
+            <li>{{REASON_3}}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="head center rv"><p class="eyebrow">Κριτικές</p><h2 id="reviews-title">Τι λένε οι πελάτες μας</h2></div>
+        <div class="cards three">
+          <figure class="review rv"><blockquote>{{REVIEW_1}}</blockquote><figcaption>{{REVIEW_1_NAME}}</figcaption></figure>
+          <figure class="review rv"><blockquote>{{REVIEW_2}}</blockquote><figcaption>{{REVIEW_2_NAME}}</figcaption></figure>
+          <figure class="review rv"><blockquote>{{REVIEW_3}}</blockquote><figcaption>{{REVIEW_3_NAME}}</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section tint" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <div class="head rv"><p class="eyebrow">Ερωτήσεις</p><h2 id="faq-title">Συχνές ερωτήσεις</h2></div>
+        <details class="rv"><summary>{{FAQ_1_Q}}</summary><p>{{FAQ_1_A}}</p></details>
+        <details class="rv"><summary>{{FAQ_2_Q}}</summary><p>{{FAQ_2_A}}</p></details>
+        <details class="rv"><summary>{{FAQ_3_Q}}</summary><p>{{FAQ_3_A}}</p></details>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="wrap split">
+        <div class="rv">
+          <p class="eyebrow">Επικοινωνία</p>
+          <h2 id="contact-title">{{CONTACT_TITLE}}</h2>
+          <dl class="info">
+            <div><dt>Διεύθυνση</dt><dd>{{STREET}}, {{POSTCODE}} {{CITY}}</dd></div>
+            <div><dt>Τηλέφωνο</dt><dd><a href="tel:{{PHONE_INTL}}">{{PHONE}}</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></dd></div>
+          </dl>
+          <table class="hours" aria-label="Ωράριο">
+            {{HOURS_ROWS}}
+          </table>
+          <!-- Google Maps: Share → Embed a map → copy the src into the iframe below. -->
+          <iframe class="map" src="{{MAP_EMBED_URL}}" title="Χάρτης: {{BUSINESS_NAME}}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <form class="form rv" id="contact-form" novalidate
+              data-sending="Αποστολή…" data-ok="Ευχαριστούμε! Λάβαμε το μήνυμά σας και θα σας απαντήσουμε σύντομα."
+              data-error="Κάτι πήγε στραβά. Καλέστε μας στο {{PHONE}}.">
+          <input type="hidden" name="access_key" value="{{WEB3FORMS_KEY}}">
+          <input type="hidden" name="subject" value="Νέο μήνυμα από {{DOMAIN}}">
+          <input type="hidden" name="from_name" value="{{DOMAIN}}">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <h3>{{FORM_TITLE}}</h3>
+          <div class="row">
+            <div class="field"><label for="f-name">Ονοματεπώνυμο</label><input id="f-name" name="name" required autocomplete="name" data-msg="Γράψτε το όνομά σας."></div>
+            <div class="field"><label for="f-phone">Τηλέφωνο</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" pattern="[0-9 +]{10,}" placeholder="π.χ. 6912345678…" data-msg="Γράψτε τηλέφωνο με 10 ψηφία."></div>
+          </div>
+          <div class="field"><label for="f-email">Email (προαιρετικό)</label><input id="f-email" name="email" type="email" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="π.χ. onoma@example.com…" data-msg="Γράψτε ένα έγκυρο email."></div>
+          <div class="field"><label for="f-message">Μήνυμα</label><textarea id="f-message" name="message" required placeholder="{{FORM_PLACEHOLDER}}" data-msg="Γράψτε λίγα λόγια για το τι χρειάζεστε."></textarea></div>
+          <label class="check"><input id="f-consent" name="consent" type="checkbox" required data-msg="Χρειάζεται η συναίνεσή σας."><span>Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου μόνο για να μου απαντήσετε (<a href="privacy.html">πολιτική απορρήτου</a>).</span></label>
+          <button class="btn" type="submit">Αποστολή</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div>
+        <b>{{BUSINESS_NAME}}</b>
+        <p>{{STREET}}, {{CITY}}<br><a href="tel:{{PHONE_INTL}}">{{PHONE}}</a> · <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></p>
+      </div>
+      <nav aria-label="Υποσέλιδο"><a href="#services">Υπηρεσίες</a><a href="#contact">Επικοινωνία</a><a href="privacy.html">Πολιτική απορρήτου</a></nav>
+    </div>
+    <div class="wrap legal"><span>© {{YEAR}} {{BUSINESS_NAME}}</span><span>Σχεδιασμός και ανάπτυξη: <a href="https://ivelro.com">IVELRO</a></span></div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+</body>
+</html>

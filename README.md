@@ -81,7 +81,8 @@ Sample websites built for typical local businesses. Each one includes an online 
 
 ```
 .
-├── index.html               Company homepage
+├── index.html               Company homepage (English)
+├── el/                      Greek homepage and Greek portfolio page
 ├── 404.html                 Not-found page
 ├── assets/
 │   ├── css/style.css        Site styles (colour tokens at the top)
@@ -95,6 +96,10 @@ Sample websites built for typical local businesses. Each one includes an online 
 │   ├── taverna/             Sample: taverna
 │   ├── shared/sample.js     Shared menu, opening hours and form logic
 │   └── img/                 Preview images for the Work page
+├── signatures/              Email signatures and signature maker (not published)
+├── templates/               Starter template and generator for client sites (not published)
+├── staging/                 Contact section and privacy pages, ready to switch on (not published)
+├── docs/                    Hosting guide, launch checklist, support package (not published)
 ├── sitemap.xml · robots.txt · CNAME
 └── .github/workflows/pages.yml   Deploy to GitHub Pages
 ```

@@ -1,0 +1,42 @@
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(40px, 7vw, 96px); align-items: start; }
+.contact-text { color: var(--muted); max-width: 40ch; }
+.contact-direct { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 18px; }
+.contact-direct span { display: block; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+.contact-direct a { font-size: 18px; font-weight: 300; border-bottom: 1px solid transparent; transition: border-color .3s var(--ease); }
+.contact-direct a:hover { border-color: var(--text); }
+.contact-form { display: grid; gap: 26px; }
+.contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.field { display: grid; gap: 8px; min-width: 0; align-content: start; }
+.field label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea {
+  width: 100%; font: inherit; font-size: 16px; font-weight: 300; color: var(--text);
+  background: transparent; border: 0; border-bottom: 1px solid var(--rule-strong); border-radius: 0;
+  padding: 10px 0; transition: border-color .3s var(--ease);
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: var(--faint); }
+.field input:focus, .field textarea:focus { outline: none; border-bottom-color: var(--text); }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-bottom-color: #e5807a; }
+.field-err { font-size: 13px; color: #e5807a; }
+.consent { font-size: 13px; color: var(--faint); max-width: 56ch; }
+.consent a { color: var(--muted); border-bottom: 1px solid var(--rule-strong); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form .btn { justify-self: start; background: transparent; color: var(--text); font-family: inherit; cursor: pointer; }
+.contact-form .btn:disabled { opacity: .6; cursor: progress; }
+.form-status { min-height: 1.4em; font-size: 15px; }
+.form-status.is-ok { color: #9fdcb6; }
+.form-status.is-error { color: #e5807a; }
+.legal-page { padding-top: calc(var(--header-h) + 72px); padding-bottom: clamp(80px, 10vw, 128px); }
+.legal-page h1 { font-size: clamp(32px, 4.4vw, 52px); font-weight: 300; line-height: 1.1; margin: 20px 0 12px; }
+.legal-page .updated { color: var(--faint); font-size: 14px; margin-bottom: 48px; }
+.legal-page h2 { font-size: 20px; font-weight: 400; margin: 44px 0 12px; }
+.legal-page p, .legal-page li { color: var(--muted); max-width: 70ch; }
+.legal-page ul { padding-left: 20px; list-style: disc; }
+.legal-page li + li { margin-top: 6px; }
+.legal-page a { color: var(--text); border-bottom: 1px solid var(--rule-strong); }
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-form .row { grid-template-columns: 1fr; }
+}

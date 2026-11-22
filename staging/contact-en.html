@@ -1,0 +1,31 @@
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="label">Contact</p>
+          <h2 class="section-title" id="contact-title" style="margin-top:22px">Tell us about your business.</h2>
+          <p class="contact-text" style="margin-top:22px">Send us a few lines about what you need. We reply within one working day, and the first conversation is free.</p>
+          <ul class="contact-direct">
+            <li><span>Email</span><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+            <li><span>Phone</span><a href="tel:{{TEL}}">{{PHONE}}</a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate
+              data-sending="Sending…" data-ok="Thank you. Your message has been sent and we will reply within one working day."
+              data-error="Something went wrong. Please email us directly at {{EMAIL}}.">
+          <input type="hidden" name="access_key" value="{{WEB3FORMS_KEY}}">
+          <input type="hidden" name="subject" value="New enquiry from ivelro.com">
+          <input type="hidden" name="from_name" value="ivelro.com">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="row">
+            <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" required autocomplete="name" data-msg="Please enter your name."></div>
+            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="name@company.com…" data-msg="Please enter a valid email, e.g. name@company.com."></div>
+          </div>
+          <div class="field"><label for="c-business">Business (optional)</label><input id="c-business" name="business" autocomplete="organization" placeholder="e.g. a tutoring centre in Athens…"></div>
+          <div class="field"><label for="c-message">What do you need?</label><textarea id="c-message" name="message" required placeholder="e.g. a new website with online bookings…" data-msg="Please write a few words about what you need."></textarea></div>
+          <p class="consent">By sending this form you agree that we use your details only to reply to you. See our <a href="privacy.html">privacy policy</a>.</p>
+          <button class="btn" type="submit">Send message <span aria-hidden="true">→</span></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+

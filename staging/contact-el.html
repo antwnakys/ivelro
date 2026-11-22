@@ -1,0 +1,31 @@
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="label">Επικοινωνία</p>
+          <h2 class="section-title" id="contact-title" style="margin-top:22px">Πείτε μας για την επιχείρησή σας.</h2>
+          <p class="contact-text" style="margin-top:22px">Γράψτε μας λίγα λόγια για το τι χρειάζεστε. Απαντάμε μέσα σε μία εργάσιμη και η πρώτη συζήτηση είναι δωρεάν.</p>
+          <ul class="contact-direct">
+            <li><span>Email</span><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+            <li><span>Τηλέφωνο</span><a href="tel:{{TEL}}">{{PHONE}}</a></li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate
+              data-sending="Αποστολή…" data-ok="Ευχαριστούμε. Το μήνυμά σας στάλθηκε και θα σας απαντήσουμε μέσα σε μία εργάσιμη."
+              data-error="Κάτι πήγε στραβά. Στείλτε μας απευθείας email στο {{EMAIL}}.">
+          <input type="hidden" name="access_key" value="{{WEB3FORMS_KEY}}">
+          <input type="hidden" name="subject" value="Νέο μήνυμα από το ivelro.com/el">
+          <input type="hidden" name="from_name" value="ivelro.com">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="row">
+            <div class="field"><label for="c-name">Ονοματεπώνυμο</label><input id="c-name" name="name" required autocomplete="name" data-msg="Γράψτε το όνομά σας."></div>
+            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="onoma@etaireia.gr…" data-msg="Γράψτε ένα έγκυρο email, π.χ. onoma@etaireia.gr."></div>
+          </div>
+          <div class="field"><label for="c-business">Επιχείρηση (προαιρετικό)</label><input id="c-business" name="business" autocomplete="organization" placeholder="π.χ. φροντιστήριο στην Αθήνα…"></div>
+          <div class="field"><label for="c-message">Τι χρειάζεστε;</label><textarea id="c-message" name="message" required placeholder="π.χ. νέα ιστοσελίδα με online κρατήσεις…" data-msg="Γράψτε λίγα λόγια για το τι χρειάζεστε."></textarea></div>
+          <p class="consent">Στέλνοντας τη φόρμα συμφωνείτε να χρησιμοποιήσουμε τα στοιχεία σας μόνο για να σας απαντήσουμε. Δείτε την <a href="privacy.html">πολιτική απορρήτου</a>.</p>
+          <button class="btn" type="submit">Αποστολή μηνύματος <span aria-hidden="true">→</span></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
