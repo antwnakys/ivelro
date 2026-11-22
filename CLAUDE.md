@@ -20,3 +20,4 @@ After **any** change to the website, templates, staging package or website docs,
 - "Contact us" buttons carry `data-contact-cta hidden` until `staging/enable.py` runs.
 - Deploy: push to `main`; `.github/workflows/pages.yml` publishes only the folders listed in its `cp` line.
 - Test with Playwright at 360, 390, 768, 1024 and 1440 px: no sideways scrolling, no console errors.
+- `hq-f900bfutnxls/` is the private team dashboard (clients, progress, domains). Never link it, never add it to the sitemap, never mention its address in the README. Its data lives in the private Google Sheet "Client websites tracker"; the back end is `tools/dashboard/Code.gs` (Apps Script, password checked there). Put the web app URL in `var API` in its `app.js`.

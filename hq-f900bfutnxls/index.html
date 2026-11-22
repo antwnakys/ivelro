@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://script.google.com https://script.googleusercontent.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <title>IVELRO · Team</title>
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Commissioner:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Sign in -->
+  <main id="login" class="login" hidden>
+    <form id="login-form" class="login-card" novalidate>
+      <img src="../assets/img/mark.png" alt="" width="34" height="34" class="login-mark">
+      <h1>Team dashboard</h1>
+      <p class="muted">Clients, progress and domains. Team only.</p>
+      <label for="pw">Password</label>
+      <input id="pw" name="password" type="password" autocomplete="current-password" required spellcheck="false">
+      <p id="login-msg" class="msg" role="alert" aria-live="assertive"></p>
+      <button type="submit" class="btn btn-solid" id="login-btn">Sign in</button>
+    </form>
+  </main>
+
+  <!-- Dashboard -->
+  <div id="app" hidden>
+    <header class="top">
+      <div class="wrap top-in">
+        <div class="brand"><img src="../assets/img/mark.png" alt="" width="22" height="22"><span>IVELRO</span><span class="sep">/</span><span class="muted">Clients</span></div>
+        <div class="top-actions">
+          <span id="sync" class="sync muted" aria-live="polite"></span>
+          <button type="button" class="btn btn-ghost" id="refresh">Refresh</button>
+          <button type="button" class="btn btn-ghost" id="logout">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="stats" aria-label="Summary">
+        <div class="stat"><span class="stat-label">Clients</span><b id="s-total">0</b><span class="stat-sub" id="s-total-sub">&nbsp;</span></div>
+        <div class="stat"><span class="stat-label">In progress</span><b id="s-progress">0</b><span class="stat-sub">Signed to Review</span></div>
+        <div class="stat"><span class="stat-label">Live sites</span><b id="s-live">0</b><span class="stat-sub" id="s-live-sub">&nbsp;</span></div>
+        <div class="stat"><span class="stat-label">Monthly support</span><b id="s-mrr">0 €</b><span class="stat-sub" id="s-mrr-sub">per month</span></div>
+        <div class="stat"><span class="stat-label">Projects value</span><b id="s-value">0 €</b><span class="stat-sub">one-off, all clients</span></div>
+      </section>
+
+      <section class="panel" aria-labelledby="pipe-h">
+        <div class="panel-head"><h2 id="pipe-h">Pipeline</h2><span class="muted" id="pipe-sum"></span></div>
+        <div class="pipe" id="pipe" role="img"></div>
+        <ul class="legend" id="pipe-legend"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="att-h">
+        <div class="panel-head"><h2 id="att-h">Needs attention</h2><span class="muted" id="att-count"></span></div>
+        <ul class="attention" id="attention"></ul>
+      </section>
+
+      <section class="panel" aria-labelledby="cl-h">
+        <div class="panel-head">
+          <h2 id="cl-h">Clients</h2>
+          <button type="button" class="btn btn-solid" id="add">+ Add client</button>
+        </div>
+        <div class="filters">
+          <label class="sr" for="q">Search</label>
+          <input id="q" type="search" placeholder="Search business, domain, person…" autocomplete="off">
+          <label class="sr" for="f-stage">Stage</label>
+          <select id="f-stage"><option value="">All stages</option></select>
+          <label class="sr" for="sort">Sort</label>
+          <select id="sort">
+            <option value="stage">Sort: stage</option>
+            <option value="renewal">Sort: domain renewal</option>
+            <option value="updated">Sort: last updated</option>
+            <option value="business">Sort: name</option>
+          </select>
+        </div>
+        <div id="clients" class="clients"></div>
+        <p id="empty" class="empty" hidden>No clients yet. Press <b>+ Add client</b> when the first one signs.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add / edit client -->
+  <dialog id="dlg" aria-labelledby="dlg-h">
+    <form id="client-form" method="dialog" novalidate>
+      <div class="dlg-head">
+        <h2 id="dlg-h">Client</h2>
+        <button type="button" class="x" id="dlg-close" aria-label="Close">×</button>
+      </div>
+      <div class="dlg-body">
+        <input type="hidden" name="id">
+        <fieldset>
+          <legend>Business</legend>
+          <div class="grid">
+            <label class="span2">Business name *<input name="business" required maxlength="300"></label>
+            <label>Industry<input name="industry" list="industries" maxlength="300"></label>
+            <label>Responsible<select name="owner"></select></label>
+            <label>Contact person<input name="contact" maxlength="300" autocomplete="off"></label>
+            <label>Phone<input name="phone" type="tel" maxlength="300" autocomplete="off"></label>
+            <label class="span2">Email<input name="email" type="email" maxlength="300" autocomplete="off"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Progress</legend>
+          <div class="grid">
+            <label>Stage<select name="stage"></select></label>
+            <label>Start date<input name="startDate" type="date"></label>
+            <label class="span2">Next step<input name="nextStep" maxlength="300" placeholder="e.g. Waiting for photos from the client"></label>
+            <label>Launch date<input name="launchDate" type="date"></label>
+            <label>Website<input name="website" type="url" maxlength="300" placeholder="https://"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Domain and hosting</legend>
+          <div class="grid">
+            <label>Domain<input name="domain" maxlength="300" placeholder="example.gr" spellcheck="false"></label>
+            <label>Registrar<input name="registrar" list="registrars" maxlength="300"></label>
+            <label>Domain renewal<input name="renewal" type="date"></label>
+            <label>Hosting<input name="hosting" list="hostings" maxlength="300"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Money and support</legend>
+          <div class="grid">
+            <label>Project price (€)<input name="projectPrice" type="number" min="0" step="1" inputmode="decimal"></label>
+            <label>Support package<select name="package"></select></label>
+            <label>Monthly fee (€)<input name="monthly" type="number" min="0" step="1" inputmode="decimal"></label>
+            <label>Last monthly check<input name="lastCheck" type="date"></label>
+          </div>
+        </fieldset>
+        <label class="block">Notes<textarea name="notes" rows="3" maxlength="2000"></textarea></label>
+        <p id="dlg-msg" class="msg" role="alert"></p>
+      </div>
+      <div class="dlg-foot">
+        <button type="button" class="btn btn-danger" id="del">Delete</button>
+        <span class="grow"></span>
+        <button type="button" class="btn btn-ghost" id="dlg-cancel">Cancel</button>
+        <button type="submit" class="btn btn-solid" id="save">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <datalist id="industries"><option value="Tutoring centre"><option value="Clinic"><option value="Dental practice"><option value="Restaurant"><option value="Taverna"><option value="Café"><option value="Guesthouse"><option value="Shop"><option value="Other"></datalist>
+  <datalist id="registrars"><option value="papaki.gr"><option value="Cloudflare"><option value="Namecheap"><option value="GoDaddy"><option value="Client's own"></datalist>
+  <datalist id="hostings"><option value="Cloudflare Pages"><option value="GitHub Pages"><option value="Client's own"></datalist>
+</body>
+</html>
