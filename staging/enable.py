@@ -77,6 +77,17 @@ def enable_contact(a):
         write('.github/workflows/pages.yml', wf)
     print('Privacy pages written, styles and form script installed, deploy workflow updated.')
 
+    # Show the "Contact us" buttons on the industry pages and guides
+    for base in ('websites', 'el/istoselides', 'el/odigoi'):
+        for root, _, files in os.walk(os.path.join(ROOT, base)):
+            for name in files:
+                if name.endswith('.html'):
+                    p = os.path.relpath(os.path.join(root, name), ROOT)
+                    s = read(p)
+                    if ' data-contact-cta hidden' in s:
+                        write(p, s.replace(' data-contact-cta hidden', ' data-contact-cta'))
+    print('Contact buttons switched on in the industry pages and guides.')
+
 
 def enable_analytics(token):
     tag = ("<script defer src='https://static.cloudflareinsights.com/beacon.min.js' "
