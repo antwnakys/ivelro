@@ -21,7 +21,7 @@
     <form id="login-form" class="login-card" novalidate>
       <img src="../assets/img/mark.png" alt="" width="34" height="34" class="login-mark">
       <h1>Team dashboard</h1>
-      <p class="muted">Clients, progress and domains. Team only.</p>
+      <p class="muted">Clients, services and progress. Team only.</p>
       <label for="pw">Password</label>
       <input id="pw" name="password" type="password" autocomplete="current-password" required spellcheck="false">
       <p id="login-msg" class="msg" role="alert" aria-live="assertive"></p>
@@ -45,7 +45,7 @@
     <main class="wrap">
       <section class="stats" aria-label="Summary">
         <div class="stat"><span class="stat-label">Clients</span><b id="s-total">0</b><span class="stat-sub" id="s-total-sub">&nbsp;</span></div>
-        <div class="stat"><span class="stat-label">In progress</span><b id="s-progress">0</b><span class="stat-sub">Signed to Review</span></div>
+        <div class="stat"><span class="stat-label">In progress</span><b id="s-progress">0</b><span class="stat-sub">Signed to Testing</span></div>
         <div class="stat"><span class="stat-label">Live sites</span><b id="s-live">0</b><span class="stat-sub" id="s-live-sub">&nbsp;</span></div>
         <div class="stat"><span class="stat-label">Monthly support</span><b id="s-mrr">0 €</b><span class="stat-sub" id="s-mrr-sub">per month</span></div>
         <div class="stat"><span class="stat-label">Projects value</span><b id="s-value">0 €</b><span class="stat-sub">one-off, all clients</span></div>
@@ -69,13 +69,13 @@
         </div>
         <div class="filters">
           <label class="sr" for="q">Search</label>
-          <input id="q" type="search" placeholder="Search business, domain, person…" autocomplete="off">
+          <input id="q" type="search" placeholder="Search business, service, person…" autocomplete="off">
           <label class="sr" for="f-stage">Stage</label>
           <select id="f-stage"><option value="">All stages</option></select>
           <label class="sr" for="sort">Sort</label>
           <select id="sort">
             <option value="stage">Sort: stage</option>
-            <option value="renewal">Sort: domain renewal</option>
+            <option value="renewal">Sort: next renewal</option>
             <option value="updated">Sort: last updated</option>
             <option value="business">Sort: name</option>
           </select>
@@ -109,20 +109,21 @@
         <fieldset>
           <legend>Progress</legend>
           <div class="grid">
+            <label>Service<select name="service"></select></label>
             <label>Stage<select name="stage"></select></label>
             <label>Start date<input name="startDate" type="date"></label>
-            <label class="span2">Next step<input name="nextStep" maxlength="300" placeholder="e.g. Waiting for photos from the client"></label>
+            <label class="span2">Next step<input name="nextStep" maxlength="300" placeholder="e.g. Waiting for the client’s documents"></label>
             <label>Launch date<input name="launchDate" type="date"></label>
-            <label>Website<input name="website" type="url" maxlength="300" placeholder="https://"></label>
           </div>
         </fieldset>
         <fieldset>
-          <legend>Domain and hosting</legend>
+          <legend>Systems and renewals</legend>
           <div class="grid">
-            <label>Domain<input name="domain" maxlength="300" placeholder="example.gr" spellcheck="false"></label>
-            <label>Registrar<input name="registrar" list="registrars" maxlength="300"></label>
-            <label>Domain renewal<input name="renewal" type="date"></label>
-            <label>Hosting<input name="hosting" list="hostings" maxlength="300"></label>
+            <label class="span2">Systems and tools<input name="tools" maxlength="300" placeholder="e.g. Gmail, Google Sheets, CRM, local AI server"></label>
+            <label>Runs on<input name="runsOn" list="runs-on" maxlength="300"></label>
+            <label>Client website<input name="website" type="url" maxlength="300" placeholder="https://"></label>
+            <label>Renewal of<input name="renewalOf" maxlength="300" placeholder="e.g. Automation platform plan"></label>
+            <label>Next renewal<input name="renewal" type="date"></label>
           </div>
         </fieldset>
         <fieldset>
@@ -147,7 +148,6 @@
   </dialog>
 
   <datalist id="industries"><option value="Tutoring centre"><option value="Clinic"><option value="Dental practice"><option value="Restaurant"><option value="Taverna"><option value="Café"><option value="Guesthouse"><option value="Shop"><option value="Other"></datalist>
-  <datalist id="registrars"><option value="papaki.gr"><option value="Cloudflare"><option value="Namecheap"><option value="GoDaddy"><option value="Client's own"></datalist>
-  <datalist id="hostings"><option value="Cloudflare Pages"><option value="GitHub Pages"><option value="Client's own"></datalist>
+  <datalist id="runs-on"><option value="Cloud services"><option value="Client's computer"><option value="Client's own server"><option value="Private cloud server"></datalist>
 </body>
 </html>

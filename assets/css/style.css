@@ -521,3 +521,9 @@ html[lang="el"] .hero-title { max-width: 26ch; font-size: clamp(30px, 4vw, 50px)
   .hero-title.split .w > span { transform: none; }
   .scroll-cue i::after { top: 30%; }
 }
+
+/* ---------- Three services (positioning update) ---------- */
+.services { grid-template-columns: repeat(3, 1fr); }
+.js-reveal .services .reveal:nth-child(3) { transition-delay: .2s; }
+@media (max-width: 1100px) and (min-width: 961px) { .card-num { font-size: 84px; } }
+@media (max-width: 960px) { .services { grid-template-columns: 1fr; } }

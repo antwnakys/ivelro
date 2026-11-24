@@ -1,12 +1,12 @@
 /**
- * IVELRO client dashboard: back end.
+ * IVELRO client dashboard: back end (clients, services, progress and renewals).
  *
- * Paste this whole file into the Google Sheet "Client websites tracker"
+ * Paste this whole file into the Google Sheet "Client projects tracker"
  * (Extensions → Apps Script) and deploy it as a web app. The dashboard page on
  * ivelro.com talks to it. Client data stays in the private Google Sheet and is
  * only returned after the team password is checked here, on Google's side.
  *
- * Setup steps: Drive → IVELRO → Website (Web Developer) → "Client dashboard: setup and use".
+ * Setup steps: Drive → IVELRO → Website (Developer) → "Client dashboard: setup and use".
  */
 
 var SHEET_NAME = 'Clients';
@@ -23,16 +23,17 @@ var COLUMNS = [
   ['contact', 'Contact person'],
   ['phone', 'Phone'],
   ['email', 'Email'],
+  ['service', 'Service'],
   ['stage', 'Stage'],
   ['nextStep', 'Next step'],
   ['owner', 'Responsible'],
   ['startDate', 'Start date'],
   ['launchDate', 'Launch date'],
-  ['website', 'Website'],
-  ['domain', 'Domain'],
-  ['registrar', 'Registrar'],
-  ['renewal', 'Domain renewal'],
-  ['hosting', 'Hosting'],
+  ['website', 'Client website'],
+  ['tools', 'Systems and tools'],
+  ['runsOn', 'Runs on'],
+  ['renewalOf', 'Renewal of'],
+  ['renewal', 'Next renewal'],
   ['projectPrice', 'Project price (€)'],
   ['package', 'Support package'],
   ['monthly', 'Monthly fee (€)'],
@@ -40,7 +41,8 @@ var COLUMNS = [
   ['notes', 'Notes'],
   ['updated', 'Last updated']
 ];
-var STAGES = ['Signed', 'Design', 'Build', 'Review', 'Live', 'Paused'];
+var STAGES = ['Signed', 'Discovery', 'Build', 'Testing', 'Live', 'Paused'];
+var SERVICES = ['AI Search Presence', 'Automation & AI Integration', 'Local AI', 'Several services'];
 var PACKAGES = ['None', 'Basic', 'Plus'];
 var DATE_KEYS = ['startDate', 'launchDate', 'renewal', 'lastCheck'];
 var NUMBER_KEYS = ['projectPrice', 'monthly'];
@@ -95,6 +97,8 @@ function setupSheet() {
   var rows = Math.max(sh.getMaxRows() - 1, 1);
   sh.getRange(2, head.stage + 1, rows, 1).setDataValidation(
     SpreadsheetApp.newDataValidation().requireValueInList(STAGES, true).setAllowInvalid(false).build());
+  sh.getRange(2, head.service + 1, rows, 1).setDataValidation(
+    SpreadsheetApp.newDataValidation().requireValueInList(SERVICES, true).setAllowInvalid(false).build());
   sh.getRange(2, head['package'] + 1, rows, 1).setDataValidation(
     SpreadsheetApp.newDataValidation().requireValueInList(PACKAGES, true).setAllowInvalid(false).build());
 }
@@ -222,6 +226,7 @@ function clean_(key, v) {
   if (DATE_KEYS.indexOf(key) !== -1) return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : '';
   if (key === 'stage') return STAGES.indexOf(s) !== -1 ? s : 'Signed';
   if (key === 'package') return PACKAGES.indexOf(s) !== -1 ? s : 'None';
+  if (key === 'service') return SERVICES.indexOf(s) !== -1 ? s : '';
   if (key === 'website' && s && !/^https?:\/\//i.test(s)) s = 'https://' + s;
   if (/^[=+\-@]/.test(s)) s = "'" + s;   // never let a value become a spreadsheet formula
   return s;

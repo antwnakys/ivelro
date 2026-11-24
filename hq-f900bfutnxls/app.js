@@ -6,11 +6,12 @@
   // Web app URL of the deployed Apps Script (Deploy → Manage deployments → Web app URL).
   var API = 'https://script.google.com/macros/s/AKfycbz6s7DbCldaH93dElqWtV_l0lEV4F0O_jINbutfI7bgc9JDbDJ6YHsj0ep6V-xR4sez/exec';
 
-  var STAGES = ['Signed', 'Design', 'Build', 'Review', 'Live', 'Paused'];
-  var STAGE_PCT = { Signed: 10, Design: 30, Build: 60, Review: 85, Live: 100, Paused: 0 };
-  var IN_PROGRESS = ['Signed', 'Design', 'Build', 'Review'];
+  var STAGES = ['Signed', 'Discovery', 'Build', 'Testing', 'Live', 'Paused'];
+  var STAGE_PCT = { Signed: 10, Discovery: 30, Build: 60, Testing: 85, Live: 100, Paused: 0 };
+  var IN_PROGRESS = ['Signed', 'Discovery', 'Build', 'Testing'];
+  var SERVICES = ['AI Search Presence', 'Automation & AI Integration', 'Local AI', 'Several services'];
   var PACKAGES = ['None', 'Basic', 'Plus'];
-  var ROLES = ['', 'Sales & Partnerships', 'Marketing & Content', 'Designer', 'Web Developer', 'Automation & AI Developer'];
+  var ROLES = ['', 'Sales & Partnerships', 'AI Search & Content Lead', 'Brand & Communication Designer', 'Developer', 'AI Solutions Specialist'];
   var TOKEN_KEY = 'ivelro_hq_session';
 
   var $ = function (id) { return document.getElementById(id); };
@@ -199,16 +200,17 @@
       var name = x.business || '(no name)';
       var d = daysFromToday(x.renewal);
       if (x.stage !== 'Paused' && d !== null && d <= 60) {
-        if (d < 0) out.push({ sev: 0, c: x, title: name + ': domain expired', detail: (x.domain || 'Domain') + ' expired ' + plural(-d, 'day') + ' ago. Renew it now.', badge: ['b-crit', 'Expired'] });
-        else if (d <= 30) out.push({ sev: 1, c: x, title: name + ': renew the domain', detail: (x.domain || 'Domain') + ' renews on ' + fmtDate(x.renewal) + (x.registrar ? ' at ' + x.registrar : '') + '.', badge: ['b-crit', d === 0 ? 'Today' : 'In ' + plural(d, 'day')] });
-        else out.push({ sev: 3, c: x, title: name + ': domain renewal coming up', detail: (x.domain || 'Domain') + ' renews on ' + fmtDate(x.renewal) + '.', badge: ['b-warn', 'In ' + plural(d, 'day')] });
+        var what = x.renewalOf || 'A subscription';
+        if (d < 0) out.push({ sev: 0, c: x, title: name + ': renewal overdue', detail: what + ' expired ' + plural(-d, 'day') + ' ago. Check with the client now.', badge: ['b-crit', 'Expired'] });
+        else if (d <= 30) out.push({ sev: 1, c: x, title: name + ': renewal due', detail: what + ' renews on ' + fmtDate(x.renewal) + '.', badge: ['b-crit', d === 0 ? 'Today' : 'In ' + plural(d, 'day')] });
+        else out.push({ sev: 3, c: x, title: name + ': renewal coming up', detail: what + ' renews on ' + fmtDate(x.renewal) + '.', badge: ['b-warn', 'In ' + plural(d, 'day')] });
       }
       if (x.stage === 'Live') {
         if (x['package'] && x['package'] !== 'None') {
           var since = x.lastCheck ? -daysFromToday(x.lastCheck) : null;
           if (since === null || since > 35) out.push({ sev: 2, c: x, title: name + ': monthly check due', detail: since === null ? 'No monthly check recorded yet.' : 'Last check was ' + plural(since, 'day') + ' ago.', badge: ['b-warn', 'Check due'] });
         }
-        if (!x.renewal && x.domain) out.push({ sev: 4, c: x, title: name + ': add the domain renewal date', detail: 'So the dashboard can warn you before ' + x.domain + ' expires.', badge: ['b-info', 'Missing'] });
+        if (!x.renewal && x.renewalOf) out.push({ sev: 4, c: x, title: name + ': add the renewal date', detail: 'So the dashboard can warn you before ' + x.renewalOf + ' expires.', badge: ['b-info', 'Missing'] });
       }
       if (IN_PROGRESS.indexOf(x.stage) !== -1) {
         var upd = x.updated ? -daysFromToday(String(x.updated).slice(0, 10)) : null;
@@ -226,7 +228,7 @@
     $('att-count').textContent = items.length ? plural(items.length, 'item') : '';
     if (!items.length) {
       var li = el('li');
-      li.appendChild(el('span', 'ok-line', state.clients.length ? 'All good. Nothing needs attention right now.' : 'Nothing yet. Warnings about domain renewals, monthly checks and stalled projects appear here.'));
+      li.appendChild(el('span', 'ok-line', state.clients.length ? 'All good. Nothing needs attention right now.' : 'Nothing yet. Warnings about subscription renewals, monthly checks and stalled projects appear here.'));
       list.appendChild(li);
       return;
     }
@@ -264,7 +266,7 @@
     var rows = state.clients.filter(function (x) {
       if (fs && x.stage !== fs) return false;
       if (!q) return true;
-      return [x.business, x.industry, x.contact, x.domain, x.owner, x.email, x.phone, x.nextStep, x.notes]
+      return [x.business, x.industry, x.service, x.tools, x.contact, x.owner, x.email, x.phone, x.nextStep, x.notes]
         .join(' ').toLowerCase().indexOf(q) !== -1;
     });
     rows.sort(function (a, b) {
@@ -301,8 +303,9 @@
       card.appendChild(b);
 
       var c = el('span');
-      c.appendChild(el('span', 'k', 'Domain'));
-      c.appendChild(el('span', 'v', x.domain || '—'));
+      c.appendChild(el('span', 'k', 'Service'));
+      c.appendChild(el('span', 'v', x.service || '—'));
+      if (x.runsOn) c.appendChild(el('span', 'sub', 'Runs on: ' + x.runsOn));
       var rb = renewalBadge(x);
       if (rb) c.appendChild(el('span', 'badge ' + rb[0], rb[1]));
       card.appendChild(c);
@@ -326,6 +329,7 @@
     values.forEach(function (v, i) { var o = el('option', '', labels ? labels[i] : v); o.value = v; sel.appendChild(o); });
   }
   fillSelect(form.elements.stage, STAGES);
+  fillSelect(form.elements.service, [''].concat(SERVICES), ['Not set'].concat(SERVICES));
   fillSelect(form.elements['package'], PACKAGES, ['None', 'Basic', 'Plus']);
   fillSelect(form.elements.owner, ROLES, ['Not set'].concat(ROLES.slice(1)));
   fillSelect($('f-stage'), STAGES);

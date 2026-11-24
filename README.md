@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ivelro.com"><img src=".github/readme/banner.png" alt="IVELRO: web development, business automation and AI integration" width="100%"></a>
+  <a href="https://ivelro.com"><img src=".github/readme/banner.png" alt="IVELRO: AI search presence, business automation and local AI" width="100%"></a>
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
 <p align="center">
   <a href="https://ivelro.com"><b>Website</b></a>
   &nbsp;·&nbsp;
-  <a href="https://ivelro.com/portfolio/"><b>Our work</b></a>
+  <a href="https://ivelro.com/use-cases/"><b>Use cases</b></a>
   &nbsp;·&nbsp;
   <a href="#run-it-locally"><b>Run locally</b></a>
 </p>
@@ -25,81 +25,49 @@
 
 ## About
 
-**IVELRO** is a technology team from Athens, working with businesses of every kind and size, anywhere. We build modern websites and business automation that help businesses work more efficiently, save time on repetitive tasks and give their customers a better experience.
+**IVELRO** helps businesses be found in the AI answers their customers trust. We make companies understandable, credible and easy to recommend in AI-powered search, automate everyday work, and build private AI systems around the knowledge a company already has. Based in Athens, working with companies of every size, anywhere.
 
 > *Intelligence, Simplified.*
 
 | | What we do |
 |---|---|
-| **01 · Web Development & Digital Experiences** | Modern, fast websites that strengthen a business's online presence and make it easy for customers to find what they need. |
-| **02 · Business Automation & AI Integration** | Automating repetitive work, connecting the tools a business already uses and bringing AI into everyday workflows. |
+| **01 · AI Search Presence** | Make a business easier for AI search and answer tools to understand, trust and recommend: clear company information, structured data and regular checks of what AI tools say. No guaranteed rankings, no traditional SEO. |
+| **02 · Business Automation & AI Integration** | Automate repetitive work, connect the tools a business already uses, and bring AI into everyday workflows. |
+| **03 · Local AI for Companies** | Private AI systems that run on hardware the company controls, tailored to its size, workflows, tools and privacy needs, from small teams to large organisations. |
 
-This repository holds the company website, [ivelro.com](https://ivelro.com), and the sample websites in our portfolio.
-
-## Portfolio
-
-Sample websites for four very different kinds of business. Each one includes an online form that shows how a simple automation saves the owner time. Click a preview to open the live site.
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="https://ivelro.com/portfolio/frontistirio/"><img src="portfolio/img/frontistirio.jpg" alt="Sample tutoring-centre website"></a>
-      <br><b>Φροντιστήριο Ευθεία</b> &nbsp;<sub>Tutoring centre · Greek</sub>
-      <br><sub>Classes and exam fields, staff, results, and online signup with automatic confirmation.</sub>
-    </td>
-    <td width="50%" valign="top">
-      <a href="https://ivelro.com/portfolio/guesthouse/"><img src="portfolio/img/guesthouse.jpg" alt="Sample guesthouse website"></a>
-      <br><b>Alkyoni Guesthouse</b> &nbsp;<sub>Guesthouse · English</sub>
-      <br><sub>Rooms and prices, a direct-booking request with a live price estimate, travel information.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <a href="https://ivelro.com/portfolio/dental/"><img src="portfolio/img/dental.jpg" alt="Sample dental practice website"></a>
-      <br><b>Οδοντιατρείο Ρίζα</b> &nbsp;<sub>Dental practice · Greek</sub>
-      <br><sub>Services, live opening hours, the first visit explained, and appointment requests with SMS confirmation.</sub>
-    </td>
-    <td width="50%" valign="top">
-      <a href="https://ivelro.com/portfolio/taverna/"><img src="portfolio/img/taverna.jpg" alt="Sample taverna website"></a>
-      <br><b>Ταβέρνα Το Πλατάνι</b> &nbsp;<sub>Taverna · Greek and English</sub>
-      <br><sub>A bilingual menu with prices, the story of the place, and table reservations with a reminder.</sub>
-    </td>
-  </tr>
-</table>
-
-<sub>The businesses in the samples are fictional. Names, prices and details are illustrative.</sub>
+This repository holds the company website, [ivelro.com](https://ivelro.com), in English and Greek.
 
 ## How it's built
 
 - **Plain HTML, CSS and JavaScript.** No framework and no build step, so pages load fast and are easy to maintain.
 - **Mobile first.** Every page is tested from 360 px phones to 1440 px desktops.
-- **Accessible.** Keyboard navigation, visible focus, readable contrast, reduced-motion support and screen-reader friendly forms.
-- **Search ready.** Meta tags, social preview image, `sitemap.xml` and `robots.txt`.
+- **Accessible.** Keyboard navigation, visible focus, readable contrast, reduced-motion support.
+- **Private.** No cookies, no tracking, and fonts served from the site itself.
+- **Machine-readable.** Structured company information (schema.org) on every page, so AI tools and search engines read IVELRO's details reliably.
 - **Automatic deploys.** Every push to `main` is published to GitHub Pages.
 
 ## Project structure
 
 ```
 .
-├── index.html               Company homepage (English)
-├── el/                      Greek homepage and Greek portfolio page
+├── index.html               Homepage (English)
+├── el/                      Greek homepage, use cases and legal pages
+├── use-cases/               Use cases and how we work (English)
+├── legal/                   Policies (English)
 ├── 404.html                 Not-found page
 ├── assets/
-│   ├── css/style.css        Site styles (colour tokens at the top)
+│   ├── css/                 Site styles (colour tokens at the top of style.css)
+│   ├── fonts/               Self-hosted fonts (SIL Open Font License)
 │   ├── js/main.js           Header, reveal animations, scroll-spy
-│   └── img/                 Logo, favicons, social image
-├── portfolio/
-│   ├── index.html           "Work" page
-│   ├── frontistirio/        Sample: tutoring centre
-│   ├── guesthouse/          Sample: guesthouse
-│   ├── dental/              Sample: dental practice
-│   ├── taverna/             Sample: taverna
-│   ├── shared/sample.js     Shared menu, opening hours and form logic
-│   └── img/                 Preview images for the Work page
+│   └── img/                 Logo, favicons, social image, email signature images
+├── portfolio/, websites/    Redirects from retired pages to the use cases
+├── tools/
+│   ├── build_pages.py       Builds the use-cases pages, redirects and sitemap
+│   ├── build_legal.py       Builds the policies from tools/legal/
+│   └── dashboard/           Back end of the private team dashboard (Apps Script)
 ├── signatures/              Email signatures and signature maker (not published)
-├── templates/               Starter template and generator for client sites (not published)
-├── staging/                 Contact section and privacy pages, ready to switch on (not published)
-├── docs/                    Hosting guide, launch checklist, support package (not published)
+├── staging/                 Contact section, ready to switch on (not published)
+├── docs/                    Delivery process, go-live checklist, support package (not published)
 ├── sitemap.xml · robots.txt · CNAME
 └── .github/workflows/pages.yml   Deploy to GitHub Pages
 ```
@@ -112,7 +80,11 @@ No installation needed. From the project folder:
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000>.
+Then open <http://localhost:8000>. After editing texts in `tools/`, rebuild the generated pages:
+
+```bash
+python3 tools/build_pages.py && python3 tools/build_legal.py
+```
 
 ## Deployment
 

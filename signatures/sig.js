@@ -6,11 +6,10 @@
   var IMG = 'https://ivelro.com/assets/img/email/';
   var FONT = "'Helvetica Neue',Helvetica,Arial,sans-serif";
   var TEXT = {
-    en: { tagline: 'INTELLIGENT AUTOMATION &middot; DIGITAL INNOVATION', cta: 'SEE OUR WORK', site: 'https://ivelro.com/' },
-    el: { tagline: '&Epsilon;&Upsilon;&Phi;&Upsilon;&Eta;&Sigma; &Alpha;&Upsilon;&Tau;&Omicron;&Mu;&Alpha;&Tau;&Omicron;&Pi;&Omicron;&Iota;&Eta;&Sigma;&Eta; &middot; &Psi;&Eta;&Phi;&Iota;&Alpha;&Kappa;&Eta; &Kappa;&Alpha;&Iota;&Nu;&Omicron;&Tau;&Omicron;&Mu;&Iota;&Alpha;',
-          cta: '&Delta;&Epsilon;&Iota;&Tau;&Epsilon; &Tau;&Eta; &Delta;&Omicron;&Upsilon;&Lambda;&Epsilon;&Iota;&Alpha; &Mu;&Alpha;&Sigma;', site: 'https://ivelro.com/el/' }
+    en: { tagline: 'AI SEARCH &middot; AUTOMATION &middot; LOCAL AI', cta: 'SEE USE CASES', site: 'https://ivelro.com/', work: 'https://ivelro.com/use-cases/' },
+    el: { tagline: '&Alpha;&Nu;&Alpha;&Zeta;&Eta;&Tau;&Eta;&Sigma;&Eta; &Mu;&Epsilon; AI &middot; &Alpha;&Upsilon;&Tau;&Omicron;&Mu;&Alpha;&Tau;&Iota;&Sigma;&Mu;&Omicron;&Iota; &middot; &Tau;&Omicron;&Pi;&Iota;&Kappa;&Eta; AI',
+          cta: '&Delta;&Epsilon;&Iota;&Tau;&Epsilon; &Pi;&Alpha;&Rho;&Alpha;&Delta;&Epsilon;&Iota;&Gamma;&Mu;&Alpha;&Tau;&Alpha;', site: 'https://ivelro.com/el/', work: 'https://ivelro.com/el/paradeigmata/' }
   };
-  var WORK = 'https://ivelro.com/portfolio/';
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -54,7 +53,7 @@
           '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">' + rows + '</table>' +
           '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate;margin:9px 0 0 0;"><tr>' +
             '<td style="background-color:#0a0a0a;border-radius:4px;">' +
-              '<a href="' + WORK + '" style="display:inline-block;padding:7px 14px;font-family:' + FONT + ';font-size:10px;line-height:14px;letter-spacing:1.6px;font-weight:bold;color:#ffffff;text-decoration:none;">' + d.t.cta + '&nbsp;&nbsp;&rarr;</a>' +
+              '<a href="' + d.t.work + '" style="display:inline-block;padding:7px 14px;font-family:' + FONT + ';font-size:10px;line-height:14px;letter-spacing:1.6px;font-weight:bold;color:#ffffff;text-decoration:none;">' + d.t.cta + '&nbsp;&nbsp;&rarr;</a>' +
             '</td>' +
           '</tr></table>' +
         '</td>' +

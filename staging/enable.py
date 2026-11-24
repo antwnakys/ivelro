@@ -44,11 +44,11 @@ def fill(text, a):
 def enable_contact(a):
     for page, section, prefix, footer_old, footer_new in [
         ('index.html', 'contact-en.html', '',
-         '          <a href="portfolio/">Work</a>\n',
-         '          <a href="portfolio/">Work</a>\n          <a href="#contact">Contact</a>\n'),
+         '          <a href="use-cases/">Use cases</a>\n',
+         '          <a href="use-cases/">Use cases</a>\n          <a href="#contact">Contact</a>\n'),
         ('el/index.html', 'contact-el.html', '../',
-         '          <a href="portfolio/">Έργα</a>\n',
-         '          <a href="portfolio/">Έργα</a>\n          <a href="#contact">Επικοινωνία</a>\n'),
+         '          <a href="paradeigmata/">Παραδείγματα</a>\n',
+         '          <a href="paradeigmata/">Παραδείγματα</a>\n          <a href="#contact">Επικοινωνία</a>\n'),
     ]:
         s = read(page)
         if 'id="contact"' in s:
@@ -72,8 +72,8 @@ def enable_contact(a):
         write('assets/css/style.css', css.rstrip('\n') + '\n' + open(os.path.join(STAGING, 'contact.css'), encoding='utf-8').read())
     print('Styles and form script installed.')
 
-    # Show the "Contact us" buttons on the industry pages and guides
-    for base in ('websites', 'el/istoselides', 'el/odigoi'):
+    # Show the "Contact us" buttons on the use-cases pages
+    for base in ('use-cases', 'el/paradeigmata'):
         for root, _, files in os.walk(os.path.join(ROOT, base)):
             for name in files:
                 if name.endswith('.html'):
@@ -81,13 +81,13 @@ def enable_contact(a):
                     s = read(p)
                     if ' data-contact-cta hidden' in s:
                         write(p, s.replace(' data-contact-cta hidden', ' data-contact-cta'))
-    print('Contact buttons switched on in the industry pages and guides.')
+    print('Contact buttons switched on in the use-cases pages.')
 
 
 def enable_analytics(token):
     tag = ("<script defer src='https://static.cloudflareinsights.com/beacon.min.js' "
            "data-cf-beacon='{\"token\": \"%s\"}'></script>" % token)
-    pages = ['index.html', 'el/index.html', 'portfolio/index.html', 'el/portfolio/index.html', '404.html']
+    pages = ['index.html', 'el/index.html', 'use-cases/index.html', 'el/paradeigmata/index.html', '404.html']
     for p in pages:
         if not os.path.exists(os.path.join(ROOT, p)):
             continue
