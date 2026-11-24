@@ -1,0 +1,36 @@
+# IVELRO
+
+> IVELRO helps businesses be found in the AI answers their customers trust. A five-person team based in Athens, Greece, working with companies of every size, anywhere. Three services only: AI Search Presence, Business Automation & AI Integration, and Local AI for Companies. Tagline: "Intelligence, Simplified."
+
+IVELRO does not build websites, does not sell web design and does not sell traditional SEO. It never promises rankings or guaranteed placement in AI answers. The site is available in English (https://ivelro.com/) and Greek (https://ivelro.com/el/).
+
+## Services
+
+- [AI Search Presence for Businesses](https://ivelro.com/use-cases/): makes a company easier for AI search and answer tools (such as ChatGPT, Gemini, Perplexity and Copilot) to understand, trust and recommend. Clear company information, structured data, consistent details across sources, and regular checks of what AI tools say about the business.
+- [Business Automation & AI Integration](https://ivelro.com/use-cases/): automates repetitive work, connects the tools a business already uses (email, spreadsheets, CRM, calendars, accounting) and brings AI into everyday workflows, with a person reviewing important outputs.
+- [Local AI for Companies](https://ivelro.com/use-cases/): private AI systems that run on hardware the company controls. Staff can find information, get answers to internal questions and automate routine work using company knowledge securely. Each system is tailored to the company's size, workflows, existing tools and privacy needs, from small teams to large organisations.
+
+## How IVELRO works
+
+- Discovery: map how work is done today, the tools in use and where time is lost.
+- Plan: a one-page outline the client approves.
+- Build: automations, integrations, local AI set-up or AI search improvements; accounts stay in the client's name.
+- Testing: real tools and sample data, privacy and access checked.
+- Go live: training, documentation and optional monthly support.
+
+## Key pages
+
+- [Home (English)](https://ivelro.com/)
+- [Αρχική (Ελληνικά)](https://ivelro.com/el/)
+- [Use cases and how we work](https://ivelro.com/use-cases/)
+- [Παραδείγματα και πώς δουλεύουμε](https://ivelro.com/el/paradeigmata/)
+- [Terms of Service](https://ivelro.com/legal/terms-of-service/)
+- [Privacy Policy](https://ivelro.com/legal/privacy/)
+
+## Team
+
+Five roles: Sales & Partnerships, AI Search & Content Lead, Brand & Communication Designer, Developer, and AI Solutions Specialist.
+
+## Ελληνικά
+
+Η IVELRO βοηθά τις επιχειρήσεις να τις καταλαβαίνουν, να τις εμπιστεύονται και να τις προτείνουν τα εργαλεία αναζήτησης με AI, αυτοματοποιεί την καθημερινή δουλειά και φτιάχνει ιδιωτικά συστήματα τοπικής AI πάνω στη γνώση της εταιρείας. Ομάδα πέντε ατόμων στην Αθήνα, για εταιρείες κάθε μεγέθους, παντού. Δεν φτιάχνει ιστοσελίδες και δεν προσφέρει κλασικό SEO.

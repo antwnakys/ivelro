@@ -23,7 +23,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp -r index.html 404.html robots.txt sitemap.xml assets use-cases portfolio websites legal el hq-f900bfutnxls .nojekyll _site/
+          cp -r index.html 404.html robots.txt sitemap.xml llms.txt 6a111b09f86d74d367a0d79bd05a4690.txt assets use-cases portfolio websites legal el hq-f900bfutnxls .nojekyll _site/
           [ -f CNAME ] && cp CNAME _site/ || true
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -39,3 +39,19 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Tell Bing (and the AI tools that use its index, such as ChatGPT search and Copilot) about every page after each deploy.
+  # The key file 6a111b09f86d74d367a0d79bd05a4690.txt at the site root proves the site is ours (IndexNow protocol).
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          sleep 60
+          urls=$(grep -o '<loc>[^<]*' sitemap.xml | sed 's/<loc>//' | jq -R . | jq -s -c .)
+          body=$(jq -n -c --argjson u "$urls" '{host:"ivelro.com",key:"6a111b09f86d74d367a0d79bd05a4690",keyLocation:"https://ivelro.com/6a111b09f86d74d367a0d79bd05a4690.txt",urlList:$u}')
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$body")
+          echo "IndexNow response: $code"
+          case "$code" in 200|202) ;; *) echo "::warning::IndexNow returned $code" ;; esac

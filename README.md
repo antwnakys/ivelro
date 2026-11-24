@@ -68,7 +68,7 @@ This repository holds the company website, [ivelro.com](https://ivelro.com), in 
 ├── signatures/              Email signatures and signature maker (not published)
 ├── staging/                 Contact section, ready to switch on (not published)
 ├── docs/                    Delivery process, go-live checklist, support package (not published)
-├── sitemap.xml · robots.txt · CNAME
+├── sitemap.xml · robots.txt · llms.txt · CNAME
 └── .github/workflows/pages.yml   Deploy to GitHub Pages
 ```
 

@@ -137,7 +137,7 @@ def main():
     for p, _ in pages:
         loc = f'<loc>{SITE}{p}</loc>'
         if loc not in sm:
-            sm = sm.replace('</urlset>', f'  <url>\n    {loc}\n  </url>\n</urlset>')
+            sm = sm.replace('</urlset>', f'  <url>\n    {loc}\n    <lastmod>{UPDATED["iso"]}</lastmod>\n  </url>\n</urlset>')
     open(sm_path, 'w', encoding='utf-8').write(sm)
     if '--docs' in sys.argv:
         out = sys.argv[sys.argv.index('--docs') + 1]

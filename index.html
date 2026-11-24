@@ -32,58 +32,139 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "IVELRO",
-    "slogan": "Intelligence, Simplified.",
-    "description": "IVELRO helps businesses be understood, trusted and recommended by AI search and answer tools, automates everyday work, and builds private, local AI systems around company knowledge. Based in Athens, working with companies anywhere.",
-    "url": "https://ivelro.com/",
-    "logo": "https://ivelro.com/assets/img/logo.png",
-    "image": "https://ivelro.com/assets/img/og-image.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Athens",
-      "addressCountry": "GR"
-    },
-    "areaServed": [
+    "@graph": [
       {
-        "@type": "City",
-        "name": "Athens"
+        "@type": [
+          "Organization",
+          "ProfessionalService"
+        ],
+        "@id": "https://ivelro.com/#organization",
+        "name": "IVELRO",
+        "alternateName": "Ivelro",
+        "url": "https://ivelro.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ivelro.com/assets/img/logo.png"
+        },
+        "image": "https://ivelro.com/assets/img/og-image.png",
+        "slogan": "Intelligence, Simplified.",
+        "description": "IVELRO helps businesses be understood, trusted and recommended by AI search and answer tools, automates everyday work, and builds private, local AI systems around company knowledge. Based in Athens, working with companies anywhere.",
+        "disambiguatingDescription": "A five-person team in Athens, Greece, offering three services only: AI search presence, business automation and AI integration, and local AI for companies. It does not build websites or sell traditional SEO.",
+        "foundingDate": "2026",
+        "foundingLocation": {
+          "@type": "Place",
+          "name": "Athens, Greece"
+        },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": 5
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Athens",
+          "addressCountry": "GR"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Athens"
+          },
+          {
+            "@type": "Country",
+            "name": "Greece"
+          },
+          {
+            "@type": "Place",
+            "name": "Worldwide"
+          }
+        ],
+        "knowsLanguage": [
+          "el",
+          "en"
+        ],
+        "knowsAbout": [
+          "AI search presence",
+          
+          "Structured data",
+          "Business process automation",
+          "AI integration",
+          "Workflow automation",
+          "Local AI",
+          "Private AI assistants",
+          "Retrieval-augmented generation",
+          "Data privacy"
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://ivelro.com/#service-ai-search",
+              "name": "AI Search Presence for Businesses",
+              "description": "We make a business easier for AI search and answer tools to understand, trust and recommend: clear company information, structured data, consistent details across sources and regular checks of what AI tools say. No guaranteed rankings and no traditional SEO.",
+              "provider": {
+                "@id": "https://ivelro.com/#organization"
+              },
+              "areaServed": "Worldwide",
+              "url": "https://ivelro.com/use-cases/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://ivelro.com/#service-automation",
+              "name": "Business Automation & AI Integration",
+              "description": "We automate repetitive work, connect the tools a business already uses and bring AI into everyday workflows, with a person reviewing what matters.",
+              "provider": {
+                "@id": "https://ivelro.com/#organization"
+              },
+              "areaServed": "Worldwide",
+              "url": "https://ivelro.com/use-cases/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://ivelro.com/#service-local-ai",
+              "name": "Local AI for Companies",
+              "description": "We set up private AI systems on hardware the company controls, so staff can find information, answer internal questions and automate routine work securely. Each system is tailored to the company's size, workflows, tools and privacy needs, from small teams to large organisations.",
+              "provider": {
+                "@id": "https://ivelro.com/#organization"
+              },
+              "areaServed": "Worldwide",
+              "url": "https://ivelro.com/use-cases/"
+            }
+          }
+        ]
       },
       {
-        "@type": "Country",
-        "name": "Greece"
-      },
-      {
-        "@type": "Place",
-        "name": "Worldwide"
-      }
-    ],
-    "knowsLanguage": [
-      "el",
-      "en"
-    ],
-    "inLanguage": "en",
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI search presence for businesses"
+        "@type": "WebSite",
+        "@id": "https://ivelro.com/#website",
+        "url": "https://ivelro.com/",
+        "name": "IVELRO",
+        "inLanguage": [
+          "en",
+          "el"
+        ],
+        "publisher": {
+          "@id": "https://ivelro.com/#organization"
         }
       },
       {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Business automation and AI integration"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Local AI systems for companies"
-        }
+        "@type": "WebPage",
+        "@id": "https://ivelro.com/#webpage",
+        "url": "https://ivelro.com/",
+        "name": "IVELRO",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://ivelro.com/#website"
+        },
+        "about": {
+          "@id": "https://ivelro.com/#organization"
+        },
+        "dateModified": "2026-11-24"
       }
     ]
   }

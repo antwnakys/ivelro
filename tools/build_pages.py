@@ -10,6 +10,7 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LASTMOD = '2026-11-24'  # date of the last content change, for the sitemap
 SITE = 'https://ivelro.com/'
 
 UI = {
@@ -330,7 +331,7 @@ def main():
     # Sitemap: home pages and use cases; build_legal.py adds the legal pages
     urls = ['', 'el/'] + [p for p, _ in pages]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sm += ''.join(f'  <url>\n    <loc>{SITE}{u}</loc>\n  </url>\n' for u in urls) + '</urlset>\n'
+    sm += ''.join(f'  <url>\n    <loc>{SITE}{u}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>\n' for u in urls) + '</urlset>\n'
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write(sm)
 
