@@ -25,7 +25,7 @@
 
 ## About
 
-**IVELRO** is a technology company from Athens. We build modern websites and business automation that help businesses work more efficiently, save time on repetitive tasks and give their customers a better experience.
+**IVELRO** is a technology team from Athens, working with businesses of every kind and size, anywhere. We build modern websites and business automation that help businesses work more efficiently, save time on repetitive tasks and give their customers a better experience.
 
 > *Intelligence, Simplified.*
 
@@ -38,7 +38,7 @@ This repository holds the company website, [ivelro.com](https://ivelro.com), and
 
 ## Portfolio
 
-Sample websites built for typical local businesses. Each one includes an online form that shows how a simple automation saves the owner time. Click a preview to open the live site.
+Sample websites for four very different kinds of business. Each one includes an online form that shows how a simple automation saves the owner time. Click a preview to open the live site.
 
 <table>
   <tr>

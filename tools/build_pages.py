@@ -36,7 +36,7 @@ UI = {
 
 INDUSTRIES = [
     dict(key='tutoring', sample='frontistirio', en_slug='tutoring-centres', el_slug='frontistiria',
-         en=dict(name='Tutoring centres', title='Websites for tutoring centres in Athens',
+         en=dict(name='Tutoring centres', title='Websites for tutoring centres',
                  desc='Websites for tutoring centres: classes and timetables, online signup with automatic confirmation and a progress page for parents.',
                  h1='Websites for tutoring centres that fill your classes',
                  lead='Parents compare tutoring centres online before they call. We build a clear, fast website that shows your classes, your results and your teachers, and lets parents sign up in a minute.',
@@ -52,7 +52,7 @@ INDUSTRIES = [
                  faq=[('How long does it take?', 'Usually two to four weeks, depending on how quickly we receive texts and photos.'),
                       ('Can I update announcements myself?', 'Yes. We show you how, or we do it for you with a monthly support plan.'),
                       ('What do you need from us?', 'Your logo, a few photos and the basic information. We help with the texts.')]),
-         el=dict(name='Φροντιστήρια', title='Ιστοσελίδες για φροντιστήρια στην Αθήνα',
+         el=dict(name='Φροντιστήρια', title='Ιστοσελίδες για φροντιστήρια',
                  desc='Κατασκευή ιστοσελίδας για φροντιστήριο: τμήματα και πρόγραμμα, ηλεκτρονική εγγραφή με αυτόματη επιβεβαίωση και καρτέλα προόδου για γονείς.',
                  h1='Ιστοσελίδες για φροντιστήρια που γεμίζουν τα τμήματα',
                  lead='Οι γονείς συγκρίνουν φροντιστήρια στο internet πριν τηλεφωνήσουν. Φτιάχνουμε μια καθαρή, γρήγορη ιστοσελίδα που δείχνει τα τμήματα, τους επιτυχόντες και τους καθηγητές σας, και επιτρέπει εγγραφή σε ένα λεπτό.',
@@ -69,7 +69,7 @@ INDUSTRIES = [
                       ('Μπορώ να αλλάζω μόνος μου τις ανακοινώσεις;', 'Ναι. Σας δείχνουμε πώς, ή το κάνουμε εμείς με μηνιαία υποστήριξη.'),
                       ('Τι χρειάζεστε από εμάς;', 'Το λογότυπο, μερικές φωτογραφίες και τα βασικά στοιχεία. Στα κείμενα βοηθάμε εμείς.')])),
     dict(key='clinics', sample='dental', en_slug='clinics', el_slug='iatreia',
-         en=dict(name='Clinics and practices', title='Websites for clinics and dental practices in Athens',
+         en=dict(name='Clinics and practices', title='Websites for clinics and dental practices',
                  desc='Websites for clinics, dental practices and physiotherapists: services and prices, live opening hours and online appointment requests with SMS confirmation.',
                  h1='Websites for clinics that make booking easy',
                  lead='Patients want three things: what you treat, when you are open and how to book. We build a calm, trustworthy website that answers all three and takes appointment requests day and night.',
@@ -85,7 +85,7 @@ INDUSTRIES = [
                  faq=[('Is patient data safe?', 'The form collects only what is needed to call the patient back, with a clear privacy policy.'),
                       ('Can it connect to my calendar?', 'Yes. Requests can go straight into a Google Calendar or a shared sheet.'),
                       ('How long does it take?', 'Usually two to four weeks.')]),
-         el=dict(name='Ιατρεία', title='Ιστοσελίδες για ιατρεία και οδοντιατρεία στην Αθήνα',
+         el=dict(name='Ιατρεία', title='Ιστοσελίδες για ιατρεία και οδοντιατρεία',
                  desc='Κατασκευή ιστοσελίδας για ιατρείο, οδοντιατρείο ή φυσικοθεραπευτήριο: υπηρεσίες και τιμές, ωράριο σε πραγματικό χρόνο και αίτημα ραντεβού με επιβεβαίωση SMS.',
                  h1='Ιστοσελίδες για ιατρεία που κάνουν το ραντεβού εύκολο',
                  lead='Οι ασθενείς θέλουν τρία πράγματα: τι θεραπεύετε, πότε είστε ανοιχτά και πώς κλείνουν ραντεβού. Φτιάχνουμε μια ήρεμη, αξιόπιστη ιστοσελίδα που απαντά και στα τρία και δέχεται αιτήματα μέρα και νύχτα.',
@@ -102,7 +102,7 @@ INDUSTRIES = [
                       ('Συνδέεται με το ημερολόγιό μου;', 'Ναι. Τα αιτήματα μπορούν να πηγαίνουν κατευθείαν σε Google Calendar ή σε κοινό φύλλο.'),
                       ('Πόσο χρόνο χρειάζεται;', 'Συνήθως δύο έως τέσσερις εβδομάδες.')])),
     dict(key='restaurants', sample='taverna', en_slug='restaurants', el_slug='estiatoria',
-         en=dict(name='Restaurants and tavernas', title='Websites for restaurants and tavernas in Athens',
+         en=dict(name='Restaurants and tavernas', title='Websites for restaurants and tavernas',
                  desc='Websites for restaurants, tavernas and cafés: a bilingual menu with prices, today\'s specials and online table reservations with an SMS reminder.',
                  h1='Websites for restaurants that fill your tables',
                  lead='Locals and tourists decide where to eat on their phone, in seconds. We build a website with your menu, your story and online reservations, in Greek and English.',
@@ -118,7 +118,7 @@ INDUSTRIES = [
                  faq=[('Do I pay commission on reservations?', 'No. Reservations come straight to you, with no platform fees.'),
                       ('Can tourists read it?', 'Yes. Menu and booking work in Greek and English.'),
                       ('How long does it take?', 'Usually two to three weeks.')]),
-         el=dict(name='Εστιατόρια και ταβέρνες', title='Ιστοσελίδες για εστιατόρια και ταβέρνες στην Αθήνα',
+         el=dict(name='Εστιατόρια και ταβέρνες', title='Ιστοσελίδες για εστιατόρια και ταβέρνες',
                  desc='Κατασκευή ιστοσελίδας για εστιατόριο, ταβέρνα ή καφέ: δίγλωσσο μενού με τιμές, πιάτα ημέρας και online κρατήσεις με υπενθύμιση SMS.',
                  h1='Ιστοσελίδες για εστιατόρια που γεμίζουν τα τραπέζια',
                  lead='Ντόπιοι και τουρίστες αποφασίζουν πού θα φάνε από το κινητό, σε δευτερόλεπτα. Φτιάχνουμε ιστοσελίδα με το μενού, την ιστορία σας και online κρατήσεις, στα ελληνικά και στα αγγλικά.',
@@ -171,13 +171,13 @@ INDUSTRIES = [
 
 HUB = {
     'en': dict(dir='websites', title='Websites by industry', label='Industries',
-               desc='Websites and automation by IVELRO for tutoring centres, clinics, restaurants and guesthouses in Athens and across Greece.',
+               desc='Websites and automation by IVELRO for tutoring centres, clinics, restaurants, guesthouses and businesses of every other kind.',
                h1='Websites built for your type of business',
-               lead='Every industry has different visitors and different needs. Choose yours to see what we build, the automations that save time, and a sample website.'),
+               lead='Every industry has different visitors and different needs. Here are a few examples, with what we build, the automations that save time and a sample website. We build websites for businesses of every kind and size, so if yours is not listed, just ask.'),
     'el': dict(dir='el/istoselides', title='Ιστοσελίδες ανά κλάδο', label='Κλάδοι',
-               desc='Κατασκευή ιστοσελίδων και αυτοματισμών από την IVELRO για φροντιστήρια, ιατρεία, εστιατόρια και καταλύματα στην Αθήνα και σε όλη την Ελλάδα.',
+               desc='Κατασκευή ιστοσελίδων και αυτοματισμών από την IVELRO για φροντιστήρια, ιατρεία, εστιατόρια, καταλύματα και επιχειρήσεις κάθε άλλου είδους.',
                h1='Ιστοσελίδες φτιαγμένες για τον δικό σας τύπο επιχείρησης',
-               lead='Κάθε κλάδος έχει διαφορετικούς επισκέπτες και διαφορετικές ανάγκες. Διαλέξτε τον δικό σας για να δείτε τι φτιάχνουμε, τους αυτοματισμούς που γλιτώνουν χρόνο και ένα δείγμα ιστοσελίδας.'),
+               lead='Κάθε κλάδος έχει διαφορετικούς επισκέπτες και διαφορετικές ανάγκες. Εδώ θα βρείτε μερικά παραδείγματα, με το τι φτιάχνουμε, τους αυτοματισμούς που γλιτώνουν χρόνο και ένα δείγμα ιστοσελίδας. Φτιάχνουμε ιστοσελίδες για επιχειρήσεις κάθε είδους και μεγέθους, οπότε αν δεν βλέπετε τη δική σας, απλώς ρωτήστε μας.'),
 }
 
 GUIDES = [
@@ -222,7 +222,7 @@ def page(lang, path, title, desc, alternates, body, jsonld=None, extra_head=''):
         alt_links += f'\n  <link rel="alternate" hreflang="x-default" href="{SITE}{alternates["en"]}">'
     lang_link = (f'\n        <a class="lang" href="{up}{other}" lang="{other_lang}" hreflang="{other_lang}" aria-label="{u["lang_label"]}">{u["lang_short"]}</a>'
                  if other is not None else '')
-    fonts = 'family=Jost:wght@300;400;500' + ('&family=Commissioner:wght@300;400;500' if lang == 'el' else '')
+    fonts = f'\n  <link rel="stylesheet" href="{up}assets/fonts/commissioner.css">' if lang == 'el' else ''
     ld = f'\n  <script type="application/ld+json">\n{json.dumps(jsonld, ensure_ascii=False, indent=2)}\n  </script>' if jsonld else ''
     return f'''<!doctype html>
 <html lang="{lang}">
@@ -240,9 +240,8 @@ def page(lang, path, title, desc, alternates, body, jsonld=None, extra_head=''):
   <meta property="og:url" content="{SITE}{path}">
   <meta property="og:image" content="{SITE}assets/img/og-image.png">
   <link rel="icon" href="{up}assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{fonts}&display=swap">
+  <link rel="preload" href="{up}assets/fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{up}assets/fonts/jost.css">{fonts}
   <link rel="stylesheet" href="{up}assets/css/style.css">
   <link rel="stylesheet" href="{up}assets/css/pages.css">{ld}{extra_head}
 </head>
@@ -384,7 +383,7 @@ def industry_page(ind, lang):
         'name': c['title'],
         'description': c['desc'],
         'serviceType': 'Web design and business automation',
-        'areaServed': {'@type': 'City', 'name': 'Athens'},
+        'areaServed': [{'@type': 'City', 'name': 'Athens'}, {'@type': 'Country', 'name': 'Greece'}, {'@type': 'Place', 'name': 'Worldwide'}],
         'provider': {'@type': 'ProfessionalService', 'name': 'IVELRO', 'url': SITE, 'logo': SITE + 'assets/img/logo.png'},
         'url': SITE + path,
     }
@@ -426,7 +425,7 @@ def guides_pages():
 {items}
       </ul>
     </div>'''
-    out.append((path, page('el', path, 'Οδηγοί για επιχειρήσεις', 'Πρακτικοί οδηγοί της IVELRO για ιστοσελίδες, Google και αυτοματισμούς για μικρές επιχειρήσεις.', {'el': path}, body)))
+    out.append((path, page('el', path, 'Οδηγοί για επιχειρήσεις', 'Πρακτικοί οδηγοί της IVELRO για ιστοσελίδες, Google και αυτοματισμούς για επιχειρήσεις.', {'el': path}, body)))
     for g in GUIDES:
         gp = f'el/odigoi/{g["slug"]}/'
         up = '../' * gp.count('/')
@@ -438,7 +437,7 @@ def guides_pages():
       <p class="meta"><time datetime="{g["date"]}">{g["date_el"]}</time> · IVELRO</p>
 {g["body"]}
       <div class="box">
-        <p>Η IVELRO φτιάχνει ιστοσελίδες και αυτοματισμούς για τοπικές επιχειρήσεις στην Αθήνα.</p>
+        <p>Η IVELRO φτιάχνει ιστοσελίδες και αυτοματισμούς για επιχειρήσεις κάθε είδους και μεγέθους.</p>
         {more}
         <div class="cta-row" style="margin-top:20px"><a class="btn" href="{up}el/#contact" data-contact-cta hidden>Επικοινωνήστε μαζί μας</a></div>
       </div>
