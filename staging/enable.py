@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Switch on the ivelro.com contact section, privacy pages and (optionally) visitor statistics.
+"""Switch on the ivelro.com contact section and (optionally) visitor statistics.
+
+The policies (privacy, cookies, terms...) are already published at /legal/ and /el/nomika/ (tools/build_legal.py).
 
 Usage, from the repository root:
   python3 staging/enable.py --email info@ivelro.com --phone "+30 69X XXX XXXX" --key WEB3FORMS_ACCESS_KEY
@@ -43,10 +45,10 @@ def enable_contact(a):
     for page, section, prefix, footer_old, footer_new in [
         ('index.html', 'contact-en.html', '',
          '          <a href="portfolio/">Work</a>\n',
-         '          <a href="portfolio/">Work</a>\n          <a href="#contact">Contact</a>\n          <a href="privacy.html">Privacy</a>\n'),
+         '          <a href="portfolio/">Work</a>\n          <a href="#contact">Contact</a>\n'),
         ('el/index.html', 'contact-el.html', '../',
          '          <a href="portfolio/">Έργα</a>\n',
-         '          <a href="portfolio/">Έργα</a>\n          <a href="#contact">Επικοινωνία</a>\n          <a href="privacy.html">Απόρρητο</a>\n'),
+         '          <a href="portfolio/">Έργα</a>\n          <a href="#contact">Επικοινωνία</a>\n'),
     ]:
         s = read(page)
         if 'id="contact"' in s:
@@ -68,14 +70,7 @@ def enable_contact(a):
     css = read('assets/css/style.css')
     if '/* ---------- Contact ---------- */' not in css:
         write('assets/css/style.css', css.rstrip('\n') + '\n' + open(os.path.join(STAGING, 'contact.css'), encoding='utf-8').read())
-    write('privacy.html', fill(open(os.path.join(STAGING, 'privacy-en.html'), encoding='utf-8').read(), a))
-    write('el/privacy.html', fill(open(os.path.join(STAGING, 'privacy-el.html'), encoding='utf-8').read(), a))
-
-    wf = read('.github/workflows/pages.yml')
-    if 'privacy.html' not in wf:
-        wf = wf.replace('cp -r index.html 404.html', 'cp -r index.html privacy.html 404.html', 1)
-        write('.github/workflows/pages.yml', wf)
-    print('Privacy pages written, styles and form script installed, deploy workflow updated.')
+    print('Styles and form script installed.')
 
     # Show the "Contact us" buttons on the industry pages and guides
     for base in ('websites', 'el/istoselides', 'el/odigoi'):
@@ -92,8 +87,7 @@ def enable_contact(a):
 def enable_analytics(token):
     tag = ("<script defer src='https://static.cloudflareinsights.com/beacon.min.js' "
            "data-cf-beacon='{\"token\": \"%s\"}'></script>" % token)
-    pages = ['index.html', 'el/index.html', 'portfolio/index.html', 'el/portfolio/index.html', '404.html',
-             'privacy.html', 'el/privacy.html']
+    pages = ['index.html', 'el/index.html', 'portfolio/index.html', 'el/portfolio/index.html', '404.html']
     for p in pages:
         if not os.path.exists(os.path.join(ROOT, p)):
             continue

@@ -6,9 +6,10 @@ These files are **not published yet**. They are switched on with one command onc
 |---|---|
 | `contact-en.html`, `contact-el.html` | Contact section with a working form, added to the English and Greek homepages |
 | `contact.js` | Sends the form to Web3Forms (copied to `assets/js/contact.js`) |
-| `contact.css` | Styles for the contact section and privacy pages (added to `assets/css/style.css`) |
-| `privacy-en.html`, `privacy-el.html` | `privacy.html` and `el/privacy.html` |
+| `contact.css` | Styles for the contact section (added to `assets/css/style.css`) |
 | `enable.py` | Fills in the details and switches everything on |
+
+The policies (privacy, cookies, terms and more) are already live at `/legal/` and `/el/nomika/`. They are built by `tools/build_legal.py`; the contact form links to the privacy policy there.
 
 ## Switch on the contact section (29 November)
 

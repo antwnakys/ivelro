@@ -28,14 +28,6 @@
 .form-status { min-height: 1.4em; font-size: 15px; }
 .form-status.is-ok { color: #9fdcb6; }
 .form-status.is-error { color: #e5807a; }
-.legal-page { padding-top: calc(var(--header-h) + 72px); padding-bottom: clamp(80px, 10vw, 128px); }
-.legal-page h1 { font-size: clamp(32px, 4.4vw, 52px); font-weight: 300; line-height: 1.1; margin: 20px 0 12px; }
-.legal-page .updated { color: var(--faint); font-size: 14px; margin-bottom: 48px; }
-.legal-page h2 { font-size: 20px; font-weight: 400; margin: 44px 0 12px; }
-.legal-page p, .legal-page li { color: var(--muted); max-width: 70ch; }
-.legal-page ul { padding-left: 20px; list-style: disc; }
-.legal-page li + li { margin-top: 6px; }
-.legal-page a { color: var(--text); border-bottom: 1px solid var(--rule-strong); }
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: 1fr; }
   .contact-form .row { grid-template-columns: 1fr; }

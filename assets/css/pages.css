@@ -93,3 +93,13 @@
 
 /* Contact buttons stay hidden until staging/enable.py switches the contact form on */
 [data-contact-cta][hidden] { display: none !important; }
+
+/* Legal pages (tools/build_legal.py) */
+.article h3 { font-size: 18px; font-weight: 400; margin: 32px 0 10px; }
+.article.legal ol { padding-left: 22px; }
+.article table { width: 100%; border-collapse: collapse; margin: 20px 0 8px; font-size: 15px; display: block; overflow-x: auto; }
+.article th, .article td { text-align: left; vertical-align: top; padding: 12px 14px; border: 1px solid var(--rule); color: #c4c4c4; line-height: 1.55; }
+.article th { color: var(--text); font-weight: 400; background: var(--card); }
+.legal-links { list-style: none !important; padding: 0 !important; margin: 0; display: grid; gap: 8px; }
+.legal-links li { margin: 0 !important; font-size: 15px; }
+.legal-meta { color: var(--faint); font-size: 14px; margin-top: 18px; }

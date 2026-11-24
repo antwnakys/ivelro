@@ -276,6 +276,7 @@ def page(lang, path, title, desc, alternates, body, jsonld=None, extra_head=''):
           <a href="{home}#process">{"Process" if lang == "en" else "Διαδικασία"}</a>
           <a href="{home}portfolio/">{u["work"]}</a>
           <a href="{up}{HUB[lang]["dir"]}/">{u["solutions"]}</a>
+          <a href="{up}{"legal" if lang == "en" else "el/nomika"}/">{"Legal" if lang == "en" else "Νομικά"}</a>
         </nav>
       </div>
       <div class="footer-bottom">
