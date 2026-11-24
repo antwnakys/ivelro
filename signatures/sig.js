@@ -19,8 +19,6 @@
   }
   function clean(o) {
     var phone = (o.phone || '').trim() || '+30 69X XXX XXXX';
-    var linkedin = (o.linkedin || '').trim();
-    if (linkedin && !/^https?:\/\//i.test(linkedin)) linkedin = 'https://' + linkedin;
     return {
       name: esc((o.name || '').trim() || 'Name Surname'),
       role: esc((o.role || 'Sales & Partnerships').trim()),
@@ -28,7 +26,6 @@
       phone: esc(phone),
       tel: esc(phone.replace(/[^0-9+]/g, '')),
       email: esc((o.email || '').trim() || 'name@ivelro.com'),
-      linkedin: esc(linkedin),
       t: TEXT[o.lang === 'el' ? 'el' : 'en']
     };
   }
@@ -44,8 +41,7 @@
     var link = 'color:#3d3d3d;text-decoration:none;';
     var rows = row('phone', '<a href="tel:' + d.tel + '" style="' + link + '">' + d.phone + '</a>') +
       row('mail', '<a href="mailto:' + d.email + '" style="' + link + '">' + d.email + '</a>') +
-      row('web', '<a href="' + d.t.site + '" style="color:#0a0a0a;text-decoration:none;font-weight:bold;">ivelro.com</a>') +
-      (d.linkedin ? row('linkedin', '<a href="' + d.linkedin + '" style="' + link + '">LinkedIn</a>') : '');
+      row('web', '<a href="' + d.t.site + '" style="color:#0a0a0a;text-decoration:none;font-weight:bold;">ivelro.com</a>');
     return '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:' + FONT + ';color:#0a0a0a;">' +
       '<tr>' +
         '<td style="vertical-align:top;padding:2px 20px 0 0;width:104px;">' +
