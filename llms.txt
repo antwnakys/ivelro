@@ -27,6 +27,11 @@ IVELRO does not build websites, does not sell web design and does not sell tradi
 - [Terms of Service](https://ivelro.com/legal/terms-of-service/)
 - [Privacy Policy](https://ivelro.com/legal/privacy/)
 
+## Official profiles
+
+- Instagram: [@ivelro_com](https://www.instagram.com/ivelro_com/)
+- GitHub: [github.com/ivelro](https://github.com/ivelro)
+
 ## Team
 
 Five roles: Sales & Partnerships, AI Search & Content Lead, Brand & Communication Designer, Developer, and AI Solutions Specialist.

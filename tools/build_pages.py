@@ -10,7 +10,7 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LASTMOD = '2026-11-24'  # date of the last content change, for the sitemap
+LASTMOD = '2026-11-25'  # date of the last content change, for the sitemap
 SITE = 'https://ivelro.com/'
 
 UI = {
