@@ -50,7 +50,9 @@ jobs:
       - name: Submit sitemap URLs to IndexNow
         run: |
           sleep 60
-          urls=$(grep -o '<loc>[^<]*' sitemap.xml | sed 's/<loc>//' | jq -R . | jq -s -c .)
+          # Live pages from the sitemap, plus retired pages (noindex) so Bing drops them faster
+          retired=$(grep -rl 'name="robots" content="noindex' --include=index.html portfolio websites el/portfolio el/istoselides el/odigoi | sed 's|index.html$||; s|^|https://ivelro.com/|')
+          urls=$( (grep -o '<loc>[^<]*' sitemap.xml | sed 's/<loc>//'; echo "$retired") | grep . | jq -R . | jq -s -c .)
           body=$(jq -n -c --argjson u "$urls" '{host:"ivelro.com",key:"6a111b09f86d74d367a0d79bd05a4690",keyLocation:"https://ivelro.com/6a111b09f86d74d367a0d79bd05a4690.txt",urlList:$u}')
           code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$body")
           echo "IndexNow response: $code"

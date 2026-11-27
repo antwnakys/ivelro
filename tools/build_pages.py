@@ -303,14 +303,15 @@ def cases_page(lang):
 def redirect_page(lang, path):
     target = UI[lang]['cases_dir'] + '/'
     up = '../' * path.count('/')
-    text = 'This page has moved.' if lang == 'en' else 'Η σελίδα μεταφέρθηκε.'
+    # Retired page: no canonical (it would contradict noindex), so search engines simply drop it.
+    text = ('This page has been retired: IVELRO no longer builds websites. See what we do now:' if lang == 'en'
+            else 'Η σελίδα αποσύρθηκε: η IVELRO δεν φτιάχνει πλέον ιστοσελίδες. Δείτε τι κάνουμε τώρα:')
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex, follow">
   <title>IVELRO</title>
-  <link rel="canonical" href="{SITE}{target}">
   <meta http-equiv="refresh" content="0; url={up}{target}">
 </head>
 <body>
